@@ -1,0 +1,89 @@
+# Mathematica: A Problem Centered Approach
+
+## 1. Introduction
+
+```mathematica
+Block[
+    {$MaxExtraPrecision=500},
+    statement
+]
+
+Parametric[]: plots the graph of the function dependent on other parameters
+ContourPlot[]: Find all the points which satisfy the equation
+PlotPoints->: may be added to create a finer, more detailed plot
+RevolutionPlot3D{}: rotate a function around a axis
+```
+
+###### Handling Data
+
+```mathematica
+Table[]: creates a loop
+TableView[]: view in a table
+TableForm[]
+Export[]: export the data
+```
+
+$\quad\quad$*Mathematica* provides built-in functions to access data on U.S. and other stocks, mutual funds and other financial instruments, as well as indices, and currency exchange rates.*Mathematica* provides built-in functions to access data on U.S. and other stocks, mutual funds and other financial instruments, as well as indices, and currency exchange rates.
+
+###### LInear Algebra
+
+```mathematica
+/.: ReplaceAll
+Show[]: 
+MatrixForm
+@:Prefix
+//:Postfix
+/@:Map
+```
+
+###### Calculus
+
+```mathematica
+D[]
+FullSimplify[]
+Integrate[]
+Exclusions: is an option that specifies where to exclude in regions used by functions like Plot, Plot3D, and NIntegrate.
+Nintegrate[]: gives a number approximation to the integral
+```
+
+##2. Basics
+
+\in*Mathematica* is not approaching the expressions numerically.
+
+```mathematica
+?Command ??Command
+TrigExpand[]: expands out trigonometric functions
+E^ instead Exp[] is much handier.
+(* comment *)
+%: previous output
+%%: the second previous output and so on
+n!
+FactorInteger[]
+Prime[]: produces the n-th prime number
+NextPrime[]: gives the next prime larger
+(*the set of prime numbers is infinite*)
+PrimePi[]: gives the number of primes \[Pi](x) less than or equal to x
+LCM[]: least common multiple
+Mod[m,n]: gives the remainder on division of m by n
+Quotient[m,n]: m=qn+r, finds q
+Binomial[]
+Alt+: stops the evaluation or Quit Kernel
+Together[expr]: puts terms in a sum over a common denominator, and cancels factors in the result. 
+Apart[]: the inverse of Together
+TrigExpand[]
+TrigFactor[]
+Degree: Sin[30 Degree]
+(*In Mathematica, the underscore is reserved and will be used in the definition of functions*)
+Clear[]: clear a variable
+Clear["Global'*"]: clear all values and definitions
+(*Assigning a value to a symbol works globally. That means, if you open a new NoteBook, the values given to variables in a previous NoteBook still exist.*)
+```
+
+###### Dynamic Variables
+
+```mathematica
+Dynamic[x]
+Slider[]
+Manipulate[]
+```
+
