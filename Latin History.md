@@ -91,7 +91,7 @@ $\quad\quad$ Consonats
 
 | Labial | Dental | Palatal | Velar | Labio-velar |
 | ------ | ------ | ------- | ----- | ----------- |
-| *p     | *t     | *k`     | *k    | *k^w^       |
+| *p     | *t     | *k'     | *k    | *k^w^       |
 | *b     | *d     | *g'     | *g    | *g^w^       |
 | *b^h^  | *d^h^  | *g'^h^  | *g^h^ | *g^wh^      |
 
@@ -144,9 +144,9 @@ The example of _melior_: how ablaut disappeared from PIE to Latin
 
 ###### Nominal Declensions
 
-\in The confusion of instrumental and ablative, the overlap between _origin_ of the ablative and _path_ of the instrumental,denoted by the old ablative marker
+$\quad\quad$ The confusion of instrumental and ablative, the overlap between _origin_ of the ablative and _path_ of the instrumental,denoted by the old ablative marker
 -e in the 3rd declension may originate from the old locative *-i
 
-\in Besides dual, PIE may have a separate "collective", taking the ending of the neuter plural.
+$\quad\quad$ Besides dual, PIE may have a separate "collective", taking the ending of the neuter plural.
 e.g. locus, loca, alongside locus, loci
 	adjective in concord with two conjoined inanimate nouns of differing gender is inflected as neuter
