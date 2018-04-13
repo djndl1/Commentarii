@@ -150,3 +150,59 @@ $\quad\quad$ The confusion of instrumental and ablative, the overlap between _or
 $\quad\quad$ Besides dual, PIE may have a separate "collective", taking the ending of the neuter plural.
 e.g. locus, loca, alongside locus, loci
 	adjective in concord with two conjoined inanimate nouns of differing gender is inflected as neuter
+
+|              |               PIE noun endings                | PIE pronoun endings |
+| :----------: | :-------------------------------------------: | :-----------------: |
+| Nom. sg.M/F  |                      *-s                      |         *-ø         |
+| Nom.Acc.sg.N |                   *-m/ *- ø                   |         *-d         |
+|   Acc.sg.    |                      *-m                      |         *-m         |
+|   Gen.sg.    |                  *-es/ *-os                   |       *-osyo        |
+|   Dat.sg.    |                     *-ei                      |                     |
+|   Loc.sg.    |                      *-i                      |                     |
+|   Abl.sg.    |                     *-ōd                      |         *-d         |
+|   Nom.pl.    |                     *-es                      |        *-oi         |
+|   Neut.pl.   |                      *-a                      |                     |
+|   Acc.pl.    |                     *-ms                      |                     |
+|   Gen.pl.    |                     *-om                      |      (*-āsom)       |
+| Dat/Abl. pl. | *-b^h^os/-ōis(o-stem), *-oisu(o-stem loc. pl) |                     |
+
+###### The verbal system
+
+$\quad\quad$ The difference of the Greek-Sanskrit model and the Anatolian model
+
+Tense and mood in PIE
+
+|             | Present stem       | Aorist stem   | Perfect stem         |
+| ----------- | ------------------ | ------------- | -------------------- |
+| Indicative  | Present; Imperfect | Aorist        | Perfect; ?Pluperfect |
+| Subjunctive | ~ subjunctive      | ~ subjunctive | ?                    |
+| Optative    | ~ optative         | ~ optative    | ?                    |
+| Imperative  | ~ imperative       | ~ imperative  | ?                    |
+| Participle  | ~ participle       | ~ participle  | Perfect participle   |
+
+Endings: present/imperfect = aorist
+
+$\quad\quad$Perfects appear originally to have referred to states, and, in Greek at any rate, the productive meaning of the perfect is a state which results from a past action. Originally, perfects could be used parallel to the present tense to refer to states in the present. Relics of this situation exist in the few Latin verbs where morphological perfects have present-referring meaning, such as odi ‘I hate’ or memini ‘I remember’. 
+
+The merger of aorist and perfect in Latin
+feci, vhevhaked; peperci, parsi, parcui; pepigi, panxi
+
+The injunctive - unmarked aorist form, originally used as a replacement for marked forms in a string of verbs.
+
+$\quad\quad$ The unmarked present forms were lost while the aorist counterpart remained and ousted the marked form
+
+$\quad\quad$ The frist(present) and secondary(non-present)endings, not distinct in 1st, 2nd pl, 2nd sg., retained in CL. in 1st sg. person
+e.g. *-ti, *-t(PIE); *-t, *-d(Latin)
+
+###### Athematic and thematic verbs
+
+$\quad\quad$ retained only in 1st sg. otherwise lost
+
+###### Modal forms
+
+$\quad\quad$ The subjunctive is often characterized as a mood of volition: it is used commands, prohibitions and exhortations, and speakers may use subjunctives to refer to events that they expect will take place. PIE subj. -> Lat. Fut.
+e.g. er-it, reg-e-t, -ver-o(*-vis-o, -vis- is a productive perfect stem)
+
+$\quad\quad$ The optative is used in wishes, but it may be better seen as the mood of the counterfactual, or at least the mood which is further removed from the here and now than the subjunctive. PIE Opt. -> Lat. Subj.
+
+-bo originated from a univerbation of averbal noun with the original aorist _subjunctive_, while -bam may come from an aorist injunctive form.
