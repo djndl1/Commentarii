@@ -128,7 +128,7 @@ $\qquad$Two principal categories of _spatial processing_:
 1. __intensity transformation__: operate on single pixels
 2. **spatial filtering**: performs operations by working in a neighborhood of every pixel in an image
 
-### 3.1 Background
+## 3.1 Background
 
 $$
 g=T[f]
@@ -142,7 +142,7 @@ $\qquad$Let the window shrink to one pixel and this becomes _point processing_.
 
 $\qquad$__Enhancement__:  the process of manipulating an image so that the result is more suitable than the original for a specific application, implying it's problem-oriented. No general theory.
 
-###3.2 Some Basic Intenisty Transformation Fucntions
+##3.2 Some Basic Intenisty Transformation Fucntions
 
 $$
 s=T(r)
@@ -280,13 +280,181 @@ $\quad\quad$ A contrast enhancing application
 
 ## 3.4 Fundamentals of Spatial Filtering
 
-\in _Filter_, though borrowed from frequency domain processing, here used for _spatial filters_, a.k.a _spatial masks, kernels, templates, windows_.
+$\quad\quad$ _Filter_, though borrowed from frequency domain processing, here used for _spatial filters_, a.k.a _spatial masks, kernels, templates, windows_.
 
 ###### Mechanics
 
-\in A _spatial filter_ consists of a _neighborhood_ and a _predefined operation_ that is performed on the image pixels encompassed by the neighborhood. It is seldom the case that filtered pixels replace the values of the corresponding location in the original image.
+$\quad\quad$ A _spatial filter_ consists of a _neighborhood_ and a _predefined operation_ that is performed on the image pixels encompassed by the neighborhood. It is seldom the case that filtered pixels replace the values of the corresponding location in the original image.
 
 Linear spatial filter $g(x,y)=\sum\limits^a_{s=-a}\sum\limits^b_{t=-b}w(s,t)f(x+s,y+t)$
 
 ###### Spatial Correlation and Convolution
 
+Correlation: $+$, Convolution: $-$
+
+First $f$ with enough 0s on either side to allow each pixel in $w$ to visit every pixel in $f$.
+
+Filter $w(s,t)$ , function $m\times n\ image\ f(x,y)$
+$$
+w(x,y)*f(x,y)=\sum\limits^a_{s=-a}\sum\limits^{b}_{t=-b}w(s,t)f(x\pm s,y\pm t)
+$$
+$a=(m-1)/2,\ b=(n-1)/2$
+
+Correlation is convolution with its filter rotated by 180 degrees. _Convolution filter, convolution mask_ or _convolution kernel_ are used to denote a spatial filter and not necessarily that the filter will be used for true convolution.
+
+###### Vector Representation of Linear Filtering
+
+$\quad\quad$ The characteristic response $R$  of a mask in a neighborhood
+$$
+R = w_1 z_1 + w_2 z_2 + ... + w_{mn}z_{mn}
+=\sum\limits^{mn}_{k=1}w_kz_k=w^Tz
+$$
+
+###### Generating Spatial Filter Masks
+
+$\quad\quad$ Generating an $m\times n$ linear spatial filter: $mn$ mask coefficients.  
+$\quad\quad$ Generating a nonlinear filter: the size of a neighborhood and the operations to be performed on the image pixels contained in the neighborhood
+
+## 3.5 Smoothing Spatial Filters
+
+$\quad\quad$ For _blurring_ and for _noise reduction_
+
+Blurring: removal of small details, bridging of small gaps  
+Noise reduction: blurring with a linear filter and also by nonlinear filtering
+
+__Averaging Filter__(lowpass filter)
+
+_Box filter_: a spatial averaging filter with all coefficients being equal
+_Weighted average_
+
+###### Order-Statistic (Nonlinear) Filters
+
+__Order-statistic filters__: nonlinear spatial filters whose response is based on ordering (ranking) the pixels contained in the iamge area encompassed by the filter and then replacing the value of the center pixel with the value determined by the ranking result.  
+e.g. _median filter_, which provides excellent noise reduction capabilities, particularly effective in dealing with _impulse noise (salt-and-pepper, giving white and black appearance)._  
+	_min filter_
+	_max filter_
+
+# Chap.4 Filtering in the Frequency Domain
+
+The proposing of Fourier Transform   
+The advent of digital computers and the invention of Fast Fourier Transform 
+
+### Fundamentals
+
+######__Fourier series__
+
+$$
+f(t)=\sum\limits^{\infin}_{n=-\infin}c_ne^{j\frac{2\pi n}{T}t}
+$$
+
+where $c_n=\dfrac{1}{T}\int\limits^{T/2}_{-T/2}f(t)e^{-j\frac{2\pi n}{T}t}dt\qquad for\ n=0,\pm1,\pm2,...$
+
+$\quad\quad$ __Impulse__
+$$
+\delta(0)=
+\begin{cases}
+\infin & \text{if   $t=0$}\\
+0 & \text{if $t\neq0$}
+\end{cases}
+$$
+and constrained by 
+$$
+\int\limits^{\infin}_{-\infin}\delta{(t)dt}=1
+$$
+and has the _sifting property_:
+$$
+\int\limits^{\infin}_{-\infin}f(t)\delta(t-t_0)dt=f(t_0)
+$$
+and its discrete counterpart, _unit discrete impulse_:
+$$
+\delta(x)=\begin{cases}
+1 & \quad x=0\\
+0 & \quad x\neq 0
+\end{cases}\\
+\sum\limits^{\infin}_{x=-\infin}\delta(x)=1
+$$
+Sifting property: 
+$$
+\sum\limits^{\infin}_{x=-\infin}f(x)\delta(x-x_0)=f(x_0)\\
+$$
+$\quad\quad$ __Impulse train__
+$$
+s_{\Delta T}(t)=\sum\limits^{\infin}_{n=-\infin}\delta(t-n\Delta T)
+$$
+
+###### __Fourier Transform of Functions of One Continuous Variable__
+
+$$
+F(\mu)=\mathcal{F}\{f(t)\}=\int^{\infin}_{-\infin}f(t)e^{-j2\pi \mu t}dt
+$$
+
+__Inverse Fourier transform__
+$$
+f(t)=\mathcal{F(\mu)}=\int\limits^{\infin}_{-\infin}F(\mu)e^{j2\pi \mu t}d\mu
+$$
+__Convolution__
+$$
+f(t)*h(t)=\int^{\infin}_{-\infin}f(\tau)h(t-\tau)d\tau\\
+\mathcal{F}\{f(t)*h(t)\}=H(\mu)F(\mu)
+$$
+
+###### Sampling and the Fourier Transform of Sampled Functions
+
+$$
+\tilde{f}(t)=f(t)s_{\Delta T}(t)=\sum\limits^{\infin}_{n=-\infin}f(t)\delta(t-\Delta T)
+$$
+
+With its FT:
+$$
+\tilde{F}(\mu)=\mathcal{F}\{\tilde{f}(t)\}=F(\mu)*S(\mu)=\dfrac{1}{\Delta T}\sum\limits^{\infin}_{n=-\infin}F(\mu - \dfrac{n}{\Delta T})
+$$
+which is an infinite periodic sequence of copies of $F(\mu)$
+
+######__Sampling Theorem__
+
+$$
+\dfrac{1}{\Delta T}>2\mu_{max}\quad \text{Nyquist Rate}
+$$
+
+$\quad\quad$Except for some special cases, aliasing is always present in sampled signals, even if the original sampled function is band-limited, infinite frequency components are introduced the moment we limit the duration of the function. No function of finite duration can be band-limited. Conversely, a function that is band-limited must extend from $-\infin$ to $\infin$.
+
+$\quad\quad$The effects of aliasing can be reduced by smoothing the input funcition to attenuate its higher frequencies, called _anti-aliasing_.
+
+###### Function Reconstruction from Sampled Data
+
+\ind Reconstruction of a function from a set of its samples reduces in practice to interpolating between the samples.
+
+Using a low-pass filter $H(\mu)$
+$$
+f(t)=\sum\limits^{\infin}_{n=-\infin}f(n\Delta T)\ sinc[(t-n\Delta T)/n\Delta T]
+$$
+where $sinc(x)=\dfrac{sin(x)}{x}$, gives a perfect reconstruction.
+
+### 4.4 The Discrete Fourier Transform (DFT) of One Variable
+
+\ind The Fourier(DTFT) of a sampled function $f_n$ is  continuous and infinitely periodic with period $1/\Delta T$, all we need to characterize is one period, and sampling one period is the basis for the DFT.
+$$
+F_m=\sum\limits^{M-1}_{n=0}f_ne^{-j2\pi mn/M}\quad m=0,1,2,...,M-1
+\\f_n=\dfrac{1}{M}\sum\limits^{M-1}_{m=0}F_m e^{j2\pi mn/M}\quad n=0,1,2,...,M-1
+$$
+[Discrete Fourier Transform on Wiki](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)  
+[Discrete-time Fourier Transform on Wiki](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform)
+
+\ind It completely describes the [discrete-time Fourier transform](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform) (DTFT) of an *N*-periodic sequence, which comprises only discrete frequency components. ([Using the DTFT with periodic data](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform#Periodic_data))
+
+\ind Both the forward and inverse discrete transforms are infinitely periodic with period $M$.
+
+The discrete equivalent of convolution
+$$
+f(x)*h(x)=\sum\limits^{\infin}_{m=-\infin}f(m)h(x-m)
+$$
+for $x=0,1,2,...,M-1$, is periodic (_circular convolution_) with period $M$, thus given as one period 
+$$
+f(x)*h(x)=\sum\limits^{M-1}_{m=0}f(m)h(x-m)
+$$
+Given sampling interval $\Delta T$ and $M$ samples
+$$
+T=M\Delta T\\
+\Delta u = \dfrac{1}{M\Delta T}=\dfrac{1}{T}\quad \text{Resolution on frequency domain}\\
+\Omega=M\Delta u=\dfrac{1}{\Delta T}\quad \text{Entire Frequency range}
+$$

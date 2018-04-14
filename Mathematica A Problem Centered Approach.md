@@ -114,3 +114,19 @@ $\quad\quad$ Define a function as we go without giving it a name.
 18 // 2^2 # + # &
 ```
 
+## 4. Lists
+
+```mathematica
+p = {x, 1, -8/3, a, b, {c, d, e}, radio}
+p[[-2, {2, 3}]]
+{d, e}
+;; (*List Slicing*)
+[[All]] = [[;;]]
+Most[]: gives expr with the last element removed. 
+Rest[]: gives expr with the first element removed. 
+Level[]: track and access the different levels of a list
+TreeForm[]
+Depth[]: gives the depth of the list
+Append[]; Prepend[]; Insert[];RotateLeft[];RotateRight[];
+```
+
