@@ -128,5 +128,26 @@ Level[]: track and access the different levels of a list
 TreeForm[]
 Depth[]: gives the depth of the list
 Append[]; Prepend[]; Insert[];RotateLeft[];RotateRight[];
+Print[]
+
+```
+
+Many of *Mathematica*’s built-in functions have the property that they simply “go inside” a  list. A function with this property is said to be *listable*. 
+
+All the arithmetic functions are listable.
+
+```mathematica
+1+ {a, b, c, d, e}
+{1 + a, 1 + b, 1 + c, 1 + d, 1 + e}
+
+{a, b, c, d, e}^3
+{a^3, b^3, c^3, d^3, e^3}
+
+1/{a, b, c, d, e}
+{1/a, 1/b, 1/c, 1/d, 1/e}
+
+Nest[f,expr,n] gives an expression with f applied n times to expr
+CharacterRange[]
+DictionaryLookup[patt]: finds all words in an English dictionary that match the string pattern patt
 ```
 

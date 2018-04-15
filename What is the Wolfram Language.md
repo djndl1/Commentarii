@@ -4,7 +4,7 @@
 
 It's _knowledge based_.
 
-## Practicalities of Using the Wolfram Language
+######Practicalities of Using the Wolfram Language
 
 `shfit + return`  to finish the input.
 
@@ -249,5 +249,30 @@ $\quad\quad$Associations are a kind of generalization of lists, in which every e
 ```mathematica
 /@: applies a function to each value in the association
 Normal[]: turns an association into a normal list
+```
+
+###### Natural Language Understanding
+
+```mathematica
+Interpreter[]
+TextCases[]
+TextStructure[]
+WordTranslation[]
+Transliterate[]
+```
+
+Layout and Display
+
+```mathematica
+Labeled[]
+Callout[]
+Style[]
+-> : another to label a data point
+```
+
+```mathematica
+%n: the nth output line
+Module[]: sets local variables
+Block[]: specifies that expr is to be evaluated with local values for the symbols x, y. 
 ```
 

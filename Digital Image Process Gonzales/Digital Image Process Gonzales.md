@@ -357,11 +357,11 @@ $$
 0 & \text{if $t\neq0$}
 \end{cases}
 $$
-and constrained by 
+constrained by 
 $$
 \int\limits^{\infin}_{-\infin}\delta{(t)dt}=1
 $$
-and has the _sifting property_:
+has the _sifting property_:
 $$
 \int\limits^{\infin}_{-\infin}f(t)\delta(t-t_0)dt=f(t_0)
 $$
@@ -422,7 +422,7 @@ $\quad\quad$The effects of aliasing can be reduced by smoothing the input funcit
 
 ###### Function Reconstruction from Sampled Data
 
-\ind Reconstruction of a function from a set of its samples reduces in practice to interpolating between the samples.
+$\quad\quad$Reconstruction of a function from a set of its samples reduces in practice to interpolating between the samples.
 
 Using a low-pass filter $H(\mu)$
 $$
@@ -432,7 +432,7 @@ where $sinc(x)=\dfrac{sin(x)}{x}$, gives a perfect reconstruction.
 
 ### 4.4 The Discrete Fourier Transform (DFT) of One Variable
 
-\ind The Fourier(DTFT) of a sampled function $f_n$ is  continuous and infinitely periodic with period $1/\Delta T$, all we need to characterize is one period, and sampling one period is the basis for the DFT.
+$\quad\quad$ The Fourier(DTFT) of a sampled function $f_n$ is  continuous and infinitely periodic with period $1/\Delta T$, all we need to characterize is one period, and sampling one period is the basis for the DFT.
 $$
 F_m=\sum\limits^{M-1}_{n=0}f_ne^{-j2\pi mn/M}\quad m=0,1,2,...,M-1
 \\f_n=\dfrac{1}{M}\sum\limits^{M-1}_{m=0}F_m e^{j2\pi mn/M}\quad n=0,1,2,...,M-1
@@ -440,9 +440,9 @@ $$
 [Discrete Fourier Transform on Wiki](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)  
 [Discrete-time Fourier Transform on Wiki](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform)
 
-\ind It completely describes the [discrete-time Fourier transform](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform) (DTFT) of an *N*-periodic sequence, which comprises only discrete frequency components. ([Using the DTFT with periodic data](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform#Periodic_data))
+$\quad\quad$ It completely describes the [discrete-time Fourier transform](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform) (DTFT) of an *N*-periodic sequence, which comprises only discrete frequency components. ([Using the DTFT with periodic data](https://en.wikipedia.org/wiki/Discrete-time_Fourier_transform#Periodic_data))
 
-\ind Both the forward and inverse discrete transforms are infinitely periodic with period $M$.
+$\quad\quad$ Both the forward and inverse discrete transforms are infinitely periodic with period $M$.
 
 The discrete equivalent of convolution
 $$
@@ -458,3 +458,132 @@ T=M\Delta T\\
 \Delta u = \dfrac{1}{M\Delta T}=\dfrac{1}{T}\quad \text{Resolution on frequency domain}\\
 \Omega=M\Delta u=\dfrac{1}{\Delta T}\quad \text{Entire Frequency range}
 $$
+
+### 4.5 Extension to Functions of Two Variables
+
+######The 2-D Impulse and Its Sifting Property
+
+2-D Continuous variables $t,z$
+$$
+\delta(t,z)=\begin{cases}
+\infin & \text{    if $t=z=0$}
+\\0 & \text{    otherwise}
+\end{cases}
+\\ \int^{\infin}_{-\infin} \int^{\infin}_{-\infin}\delta(t,z)dtdz=1\\
+\int^{\infin}_{-\infin} \int^{\infin}_{-\infin}f(t,z)\delta(t-t_0,z-z_0)dtdz=f(t_0,z_0)
+$$
+2-D Discrete variables $x,y$
+$$
+\delta(x,y)=\begin{cases}
+1 & \text{    if $x=y=0$}
+\\0 & \text{    otherwise}
+\end{cases}
+\\ \sum\limits^{\infin}_{x=-\infin} \sum\limits^{\infin}_{y=-\infin}\delta(x,y)=1\\
+\sum\limits^{\infin}_{x=-\infin} \sum\limits^{\infin}_{y=-\infin}f(x,y)\delta(x-x_0,y-y_0)dtdz=f(x_0,y_0)
+$$
+
+###### The 2-D Continuous Fourier Transform Pair
+
+$$
+F(u,v)= \int^{\infin}_{-\infin} \int^{\infin}_{-\infin}f(t,z)e^{-j2\pi(\mu t + \nu z)}dtdz\\
+f(t,z)= \int^{\infin}_{-\infin} \int^{\infin}_{-\infin}F(\mu,\nu)e^{j2\pi (\mu t+\nu z)}d\mu d\nu
+$$
+
+###### 2-D Sampling Theorem
+
+$$
+\dfrac{1}{\Delta T}>2\mu_{max}\\
+\dfrac{1}{\Delta Z}>2\nu_{max}
+$$
+
+###### Aliasing
+
+_Spatial aliasing_: undersampling  
+_Temporal aliasing_: wagon wheel effect
+
+Anti-aliasing filtering has to be done at the "front-end", before thei mage is sampled.
+
+###### Image Interpolation and resampling
+
+$\quad\quad$One of the most common applications of 2-D interpolation in image processing is in image resizing.  
+Zooming: over-sampling  
+Shrinking: under-sampling  
+
+$\quad\quad$ nearest neighbor interpolation with over-sampling: zooming by _pixel replication_; 
+
+$\quad\quad$ Image shrinking: under-sampling is achieved by row-column deletion. To reduce aliasing, it is a good idea to blur an image slightly before shrinking it. An alterante technique is to _super-sample_ the original scene and then reduce its size by row and column deletion, which yields sharper results than with smoothing.
+
+__Moiré Effect__
+
+###### The 2-D Discrete Fourier Transform and Its Inverse
+
+$$
+F(u,v)=\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}f(x,y)e^{-j2\pi (ux/M+vy/N)}
+\\f(x,y)=\dfrac{1}{MN}\sum\limits^{M-1}_{u=0}\sum\limits^{N-1}_{v=0}F(u,v)e^{j2\pi(ux/M+vy/N)}
+$$
+
+__Properties__
+$$
+\Delta u=\dfrac{1}{M\Delta T}\\
+\Delta v = \dfrac{1}{N\Delta Z}
+$$
+_Translation and rotation_
+$$
+f(x,y)e^{j2\pi (u_0 x/M+v_0 y/N)}\leftrightarrow F(u-u_0,v-v_0)\\
+f(x-x_0,y-y_0)\leftrightarrow F(u,v)e^{-j2\pi(x_0u/M+y_0v/N)}\\
+f(r,\theta + \theta_0)\leftrightarrow F(\omega,\phi + \theta_0)
+$$
+_Periodicity_
+$$
+F(u,v)=F(u+k_1 M,v+k_2 N)\\
+f(x,y)=f(x+k_1 M,y+k_2 N)\\
+f(x,y)(-1)^{x+y}\leftrightarrow F(u-M/2,v-N/2)
+$$
+
+$$
+\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}w_e(x,y)w_o(x,y)=0
+$$
+
+For any two discrete even and odd functions $w_e\text{ and }w_0$
+
+![52379666335](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523796663357.png)
+
+###### Fourier Spectrum and Phase Angle
+
+Magnitude: Fourier (frequency) spectrum  
+Power spectrum: $P(u,v)=|F(u,v)|^2$
+
+Magnitude, phase angle and power spectrum are arrays of size $M\times N$.
+$$
+|F(0,0)|=MN|\bar{f}(x,y)|\text{    where $\bar{f}$ is the average of f}\\
+\text{$F(0,0)$ sometimes is called the }\textit{dc component}
+$$
+In general, visual analysis of phase angle images yields little intuitive information, however, it is a measure of displacement of the various sinusoids with respect to their origin. The phase is important in determining shape characteristics.
+
+###### The 2-D Convolution Theorem
+
+$$
+f(x,y)*h(x,y)=\sum\limits^{M-1}_{m=0}\sum\limits^{N-1}_{n=0}f(m,n)h(x-m,y-n)
+$$
+
+gives one period of the convolution, and the following convolution theorem
+$$
+f(x,y)*h(x,y)\leftrightarrow F(u,v)H(u,v)\\
+f(x,y)h(x,y)\leftrightarrow F(u,v)*H(u,v)
+$$
+The first equaiton is the basis for all the filtering techiniques discussed here.
+
+$\quad\quad$If we elect to compute the spatial convolution using the IDFT of the product of the two transforms, then the periodicity issues must be taken into account. But _wraparound error_ is introduced.
+
+_Zero padding_: by appending to each period enough zeros, the result would be a correct periodic convolution.
+
+
+
+![52380227082](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802270827.png)
+
+![52380228456](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802284560.png)
+
+![52380230712](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802307121.png)
+
+![52380232075](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802320753.png)
+
