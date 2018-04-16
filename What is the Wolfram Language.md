@@ -276,3 +276,11 @@ Module[]: sets local variables
 Block[]: specifies that expr is to be evaluated with local values for the symbols x, y. 
 ```
 
+```mathematica
+:> : delayer rule
+f[x]=y : define values for a function
+factorial[1] = 1; factorial[n_Integer] := n*factorial[n - 1]
+factorial[n_Integer] := If[n == 1, 1, n*factorial[n - 1]]
+Unprotect[]
+```
+

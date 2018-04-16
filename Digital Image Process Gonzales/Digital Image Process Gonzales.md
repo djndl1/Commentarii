@@ -587,3 +587,16 @@ _Zero padding_: by appending to each period enough zeros, the result would be a 
 
 ![52380232075](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802320753.png)
 
+
+
+# Chap.5 Image Restoration and Reconstruction
+
+\indThe principal goal of restoration techiniques is to improve an iamge in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
+
+###### A Model of the Image Degradation/Restoration Process
+
+$$
+g(x,y)=h(x,y)*f(x,y)+\eta(x,y)\\
+G(u,v)=H(u,v)F(u,v)+N(u,v)
+$$
+

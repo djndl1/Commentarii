@@ -88,5 +88,35 @@ Tuples are immutable
 t = 'a', 'b', 'c', 'd', 'e'
 t = ('a', 'b', 'c', 'd', 'e')
 # To create a tuple with a single element, you have to include a final comma
+t = tuple()
+```
+
+Because tuples are immutable, you can’t modify the elements. But you can replace one tuple with another.
+
+```python
+t = ('A',) + t[1:]
+a, b = b, a
+```
+
+Strictly speaking, a function can only return one value, but if the value is a tuple, the effect is the same as returning multiple values.
+
+```python
+def min_max(t):
+return min(t), max(t)
+```
+
+Functions can take a variable number of arguments. A parameter name that begins with * gathers arguments into a tuple. 
+
+```
+def printall(*args):
+print(args)
+```
+
+The complement of gather is **scatter**. If you have a sequence of values and you want to pass it to a function as multiple arguments, you can use the * operator.
+
+```
+t = (7, 3)
+divmod(*t)
+(2, 1)
 ```
 
