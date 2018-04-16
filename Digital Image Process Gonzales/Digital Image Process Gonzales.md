@@ -334,6 +334,66 @@ e.g. _median filter_, which provides excellent noise reduction capabilities, par
 	_min filter_
 	_max filter_
 
+## 3.6 Sharpening Spatial Filters
+
+\indThe principal objective of sharpening is to highlight transitions in  intensity, which employs spatial differentiation.
+
+###### Foundation
+
+Derivative
+$$
+\dfrac{\partial f}{\partial x}=f(x+1)-f(x) \\
+\dfrac{\partial^2 f}{\partial x^2}=f(x+1)+f(x-1)-2f(x)
+$$
+\indEdges in digital images often are ramp-like transitions in intensity, in which case the first derivative would result in thick edges and the second derivative would produce a double edge one pixel thick, which enhances fine detail much better than the first derivative and much easier to implement.
+
+###### Using the Second Derivative for Image Sharpening - the Laplacian
+
+The Laplacian, which is isotropic (rotation invariate), is the divergence of the gradient. 
+$$
+\bigtriangledown^2f=\dfrac{\partial^2f}{\partial x^2}+\dfrac{\partial^2f}{\partial y^2}\\
+\dfrac{\partial^2f}{\partial x^2}=f(x+1,y)+f(x-1,y)-2f(x,y)\\
+\dfrac{\partial^2f}{\partial y^2}=f(x,y+1)+f(x,y-1)-2f(x,y)\\
+\bigtriangledown^2f=f(x+1,y)+f(x-1,y)+f(x,y+1)+f(x,y-1)-4f(x,y)
+$$
+The diagonal directions can be incorporated by adding two more terms. 
+
+The basic way in which we use the Laplacian for image sharpening is 
+$$
+g(x,y)=f(x,y)+c[\bigtriangledown^2 f(x,y)]\\
+\text{where $c=\pm1$}
+$$
+\indA typical way to scale a Laplacian image is to add to it its minimum value to bring the new minimum to zero and then scale the result to the full $[0,L-1]$. The grayish appearance is typical of Laplacian images that have been scaled properly.
+
+###### Unsharp Masking and Highboost Filtering
+
+__Unsharp masking__: subtracting an unsharp (smoothed) version of an image from the original image.  
+
+1. Blur the original
+2. Subtract the blurred iamge from the original, resulting in _mask_
+3. Add the mask to the original
+
+$$
+g(x,y)=f(x,y)-k\ g_{mask}(x,y)
+$$
+
+$k=1$: unsharp masking  
+$k>1$: highboost filtering
+
+###### Using First-Order Derivatives for Image Sharpening - The Gradient
+
+$$
+\bigtriangledown f = \dfrac{\partial f}{\partial x}\vec{i}+ \dfrac{\partial f}{\partial y}\vec{j}\\
+M(x,y)=\sqrt{g_x^2+g_y^2}\approx |g_x|+|g_y|
+$$
+
+The partial derivatives is not isotropic, but the magnitude is.
+
+Two appoximations to the gradient:  
+
+1. Roberts corss-gradient operator
+2. Sobel operator
+
 # Chap.4 Filtering in the Frequency Domain
 
 The proposing of Fourier Transform   

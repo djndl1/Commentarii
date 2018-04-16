@@ -154,5 +154,6 @@ OddQ[]; PrimeQ[]; IntegerQ[]
 Position[expr,pattern] gives a list of the positions at which objects matching pattern appear in expr
 Pick[list,sel] picks out those elements of list for which the corresponding element of sel is True.
 FromDigits[]
+The function Divisors[n] gives all the positive numbers which divide n.
 ```
 

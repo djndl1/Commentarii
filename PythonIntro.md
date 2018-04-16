@@ -78,6 +78,7 @@ dict() # creates a dictionary
 eng2sp['one']='uno'
 eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
 dict.values()
+dict.items()
 ```
 
 ## Tuples
@@ -119,4 +120,24 @@ t = (7, 3)
 divmod(*t)
 (2, 1)
 ```
+
+zip is a built-in function that takes two or more sequences and returns a list of tuples where each tuple contains one element from each sequence. 
+
+use a list of tuples to initialize a new dictionary
+
+## Files
+
+```python
+fout = open('output.txt','w')
+#  If the file doesn’t exist, a new one is created.
+line1 = "This here's the wattle,\n"
+fout.write(line1)
+fout.close()
+'.... %d ....' % a # format operator
+import os # the os module
+os.getcwd()
+os.listdir()
+```
+
+
 
