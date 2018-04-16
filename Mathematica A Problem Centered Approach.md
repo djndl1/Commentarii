@@ -149,5 +149,10 @@ All the arithmetic functions are listable.
 Nest[f,expr,n] gives an expression with f applied n times to expr
 CharacterRange[]
 DictionaryLookup[patt]: finds all words in an English dictionary that match the string pattern patt
+Count[list,pattern] gives the number of elements in list that match pattern
+OddQ[]; PrimeQ[]; IntegerQ[]
+Position[expr,pattern] gives a list of the positions at which objects matching pattern appear in expr
+Pick[list,sel] picks out those elements of list for which the corresponding element of sel is True.
+FromDigits[]
 ```
 
