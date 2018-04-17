@@ -155,5 +155,10 @@ Position[expr,pattern] gives a list of the positions at which objects matching p
 Pick[list,sel] picks out those elements of list for which the corresponding element of sel is True.
 FromDigits[]
 The function Divisors[n] gives all the positive numbers which divide n.
+FactorInteger[]
+MemberQ[]
+Shrot[]: displays a short form of a list
+ReadList[]
+MapIndexed[]
 ```
 
