@@ -189,7 +189,7 @@ Applications: __Gamma correction__: the process to correct power-law response ph
 
 ######Piecewise-Linear Transformation Functions
 
-$\qquad$A complementary approach to the methods above, and it can be arbitaryrily complex.
+$\qquad$A complementary approach to the methods above, and it can be arbitrarily complex.
 
 __Contrast stretching__; expands the range of intensity levels in an image so that it spans the full intensity range of the recording medium or display device.
 
@@ -336,7 +336,7 @@ e.g. _median filter_, which provides excellent noise reduction capabilities, par
 
 ## 3.6 Sharpening Spatial Filters
 
-\indThe principal objective of sharpening is to highlight transitions in  intensity, which employs spatial differentiation.
+$\quad\quad$The principal objective of sharpening is to highlight transitions in  intensity, which employs spatial differentiation.
 
 ###### Foundation
 
@@ -345,7 +345,7 @@ $$
 \dfrac{\partial f}{\partial x}=f(x+1)-f(x) \\
 \dfrac{\partial^2 f}{\partial x^2}=f(x+1)+f(x-1)-2f(x)
 $$
-\indEdges in digital images often are ramp-like transitions in intensity, in which case the first derivative would result in thick edges and the second derivative would produce a double edge one pixel thick, which enhances fine detail much better than the first derivative and much easier to implement.
+$\quad\quad$Edges in digital images often are ramp-like transitions in intensity, in which case the first derivative would result in thick edges and the second derivative would produce a double edge one pixel thick, which enhances fine detail much better than the first derivative and much easier to implement.
 
 ###### Using the Second Derivative for Image Sharpening - the Laplacian
 
@@ -363,7 +363,7 @@ $$
 g(x,y)=f(x,y)+c[\bigtriangledown^2 f(x,y)]\\
 \text{where $c=\pm1$}
 $$
-\indA typical way to scale a Laplacian image is to add to it its minimum value to bring the new minimum to zero and then scale the result to the full $[0,L-1]$. The grayish appearance is typical of Laplacian images that have been scaled properly.
+$\quad\quad$A typical way to scale a Laplacian image is to add to it its minimum value to bring the new minimum to zero and then scale the result to the full $[0,L-1]$. The grayish appearance is typical of Laplacian images that have been scaled properly.
 
 ###### Unsharp Masking and Highboost Filtering
 
@@ -392,7 +392,22 @@ The partial derivatives is not isotropic, but the magnitude is.
 Two appoximations to the gradient:  
 
 1. Roberts corss-gradient operator
+
 2. Sobel operator
+
+## 3.7 Combining Spatial Enhancement Methods
+
+\indObjective: enhance a image by sharpening and bringing out more of the detail
+
+\indUtilize the Laplacian to highlight fine and the gradient to enhance prominent edges.
+
+\indMedian filtering is a nonlinear process capable of removing image features. A smoothed version of the gradient would be an alternative. The idea is to smooth the gradient and multiply it by the Laplacian image.
+
+\indIncrease the dynamic range of the sharpened image. Histogram equalization is not likely to work well on images that have dark intensity distribututions. Here a power-law transformation would be better.
+
+## 3.8 Using Fuzzy Techniques for Intensity Transformations and Spatial Filtering
+
+
 
 # Chap.4 Filtering in the Frequency Domain
 
@@ -651,7 +666,7 @@ _Zero padding_: by appending to each period enough zeros, the result would be a 
 
 # Chap.5 Image Restoration and Reconstruction
 
-\indThe principal goal of restoration techiniques is to improve an iamge in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
+$\quad\quad$The principal goal of restoration techiniques is to improve an iamge in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
 
 ###### A Model of the Image Degradation/Restoration Process
 
