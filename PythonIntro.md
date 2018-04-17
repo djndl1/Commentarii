@@ -137,6 +137,17 @@ fout.close()
 import os # the os module
 os.getcwd()
 os.listdir()
+os.path.exists()
+os.path.isfile()
+
+try:
+    statements
+except:
+    statements
+    
+import dbm # database   
+import pickle # translates almost any type ofobjects into a string suitable for storage in a database.
+os.popen()
 ```
 
 
