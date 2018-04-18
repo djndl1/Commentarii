@@ -397,13 +397,13 @@ Two appoximations to the gradient:
 
 ## 3.7 Combining Spatial Enhancement Methods
 
-\indObjective: enhance a image by sharpening and bringing out more of the detail
+$\quad\quad\$Objective: enhance a image by sharpening and bringing out more of the detail
 
-\indUtilize the Laplacian to highlight fine and the gradient to enhance prominent edges.
+$\quad\quad\$Utilize the Laplacian to highlight fine and the gradient to enhance prominent edges.
 
-\indMedian filtering is a nonlinear process capable of removing image features. A smoothed version of the gradient would be an alternative. The idea is to smooth the gradient and multiply it by the Laplacian image.
+$\quad\quad\$Median filtering is a nonlinear process capable of removing image features. A smoothed version of the gradient would be an alternative. The idea is to smooth the gradient and multiply it by the Laplacian image.
 
-\indIncrease the dynamic range of the sharpened image. Histogram equalization is not likely to work well on images that have dark intensity distribututions. Here a power-law transformation would be better.
+$\quad\quad\$Increase the dynamic range of the sharpened image. Histogram equalization is not likely to work well on images that have dark intensity distribututions. Here a power-law transformation would be better.
 
 ## 3.8 Using Fuzzy Techniques for Intensity Transformations and Spatial Filtering
 
@@ -651,7 +651,14 @@ The first equaiton is the basis for all the filtering techiniques discussed here
 $\quad\quad$If we elect to compute the spatial convolution using the IDFT of the product of the two transforms, then the periodicity issues must be taken into account. But _wraparound error_ is introduced.
 
 _Zero padding_: by appending to each period enough zeros, the result would be a correct periodic convolution.
+$$
+f_p(x,y)=\begin{cases}f(x,y) & 0\leq x\leq A-1 \text{ and }0\leq y\leq B-1\\
+0 & A\leq x \leq P \text{ or }B\leq y \leq Q \end{cases}\\
 
+h_p(x,y)=\begin{cases}f(x,y) & 0\leq x\leq C-1 \text{ and }0\leq y\leq D-1\\
+0 & C\leq x \leq P \text{ or }D\leq y \leq Q \end{cases}\\
+\text{with }\ P\geq A+C-1\\Q\geq B+D-1
+$$
 
 
 ![52380227082](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802270827.png)
@@ -662,11 +669,61 @@ _Zero padding_: by appending to each period enough zeros, the result would be a 
 
 ![52380232075](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802320753.png)
 
+### 4.7 The Basics of Filtering in the Frequency Domain
 
+Intuitive relations between the image domain and the frequency domain.
+
+###### Fundamentals
+
+$$
+\text{Given $f(x,y)$ of size $M\times N$}\\
+g(x,y)=\mathcal{F^{-1}}[H(u,v)F(u,v)]=\mathcal{F^{-1}}[H(u,v)R(u,v)+jH(u,v)I(u,v)]
+$$
+
+where $H(u,v)$ is a filter transfer function.
+
+e.g. $H(u,v)=0\ for\ u=v=0\ otherwise\ 1$ reduces the average intensity  
+Lowpass filter blurs an image while a highpass filter enhance sharp detail.
+
+The issue on zero padding in the spatial domain  
+We cannot work with an infinite number of components, we cannot use an ideal frequency domain filter and simultaneously use zero padding to avoid wrapound error. One approach is to zero-pad images and then create filters in the frequency domain to be of the same size as the padded images.
+
+Here we consider only _zero-phase-shift_ filters. Even small changes in the phase angle can have dramtic effects on the filtered output.
+
+__Summary__  
+
+1. Given an input $f(x,y)$ of size $M\times N$ and the padding parameters $P$ and $Q$. Typically $P=2M$ and $Q=2N$. Form a padded image and multiply $(-1)^{x+y}$ to center its transform, compute its DFT.
+
+2.  Generate a real, symmetric filter function $H(u,v)$ of size $P\times Q$ with centered at $(P/2, Q/2)$. Form the product $G(i,k)=H(i,k)F(i,k)$.
+
+3. Obtain the porcessed image   
+   $$
+   g_p (x,y)=\{real[\mathcal{F}^{-1}[G(u,v)]]\}(-1)^{x+y}
+   $$
+   where the real part is selected to ignore parasitic complex components resulting from computational inaccuracies.
+
+4.  Extract the original region.
+
+###### Correspondence Between Filtering in the Spatial and Frequency Domains
+
+$$
+h(x,y)\leftrightarrow H(u,v)
+$$
+
+$h(x,y)$ is sometiems referred as the _impulse response_. Since all quantities in a discrete implementation are finite, such filters are called _finite impulse response (FIR)_ filters.
+
+$\quad\quad\$Spatial convolution in terms of the convolution theorem and the DFT implies convolving periodic functions, involving functions of the same size.
+
+$\quad\quad\$In practice, we prefer to implement convolution filtering with small filter masks because of speed and ease of implementation. But we can specify a filter in the frequency domain, compute its IDFT, and use the resulting full-size spatial filter as a guide for constructing smaller spatial filter masks. The other way around, a small spatial filter is given and its full-size frequency domain representation is obtained to analyze the behavior of the small spatial filters in the frequency domain.
+
+$\quad\quad\$The forward way: design a spatial filter by analyze a frequency filter  
+An example of  Gaussian filter, a lowpass filter and a highpass filter obtained through difference of two Gaussian filter.
+
+$\quad\quad\$The backward way: start with a spatial mask and generate its corresponding filter in the frequency domain.
 
 # Chap.5 Image Restoration and Reconstruction
 
-$\quad\quad$The principal goal of restoration techiniques is to improve an iamge in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
+$\quad\quad$The principal goal of restoration techniques is to improve an image in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
 
 ###### A Model of the Image Degradation/Restoration Process
 
@@ -675,3 +732,76 @@ g(x,y)=h(x,y)*f(x,y)+\eta(x,y)\\
 G(u,v)=H(u,v)F(u,v)+N(u,v)
 $$
 
+## 5.2 Noise Model
+
+Arising during image acquisition and/or transmission.
+
+###### Spatial and Frequency Properties of Noise
+
+_White noise_: constant Fourier spectrum
+
+$\quad\quad\$In the discussion below we consider the noise uncorrelated w.r.t the image itself, independent of its spatial coordinates, though this is not always the case in reality.
+
+###### Some Important Noise Probability Density Functions
+
+__Gaussian Noise__
+$$
+p(z)=\dfrac{1}{\sqrt{2 \pi} \sigma}e^{-(z-\bar{z})^2/2\sigma^2}
+$$
+where $z$ represents intensity. $70\%$ in $(\bar{z}-\sigma,\bar{z}+\sigma)$ and $95\%$ in $(\bar{z}-2\sigma,\bar{z}+2\sigma)$
+
+__Rayleigh noise__
+$$
+p(z)=\begin{cases}\dfrac{2}{b}(z-a)e^{-(z-a)^2/b}&\text{for }\ z\geq a\\0 & \text{for} \ \ z<a\end{cases}
+$$
+mean and variance given by
+$$
+\bar{z}=a+\sqrt{\pi b/4}\\
+\sigma^2=\dfrac{b(4-\pi)}{4}
+$$
+Skewed to the right, quite useful for approximating skewed histograms.
+
+__Erlang  noise__
+$$
+p(z)=\begin{cases}\dfrac{a^b z^{b-1}}{(b-1)!}e^{-az}&for\ z\geq 0\\
+0&for\ z<0\end{cases}
+$$
+Mean $\bar{z}=\dfrac{b}{a}$ and variance $\sigma^2=\dfrac{b}{a^2}$
+
+Referred as the _gamma density_ only when the denominator is the _gamma function_           [Gamma Funciton](https://en.wikipedia.org/wiki/Gamma_function)  
+[Gamma Function and Factorial](https://en.wikipedia.org/wiki/Factorial#Extension_of_factorial_to_non-integer_values_of_argument)  
+[Gamma distribution](https://en.wikipedia.org/wiki/Gamma_distribution)
+
+__Exponential noise__
+$$
+p(z)=\begin{cases}ae^{-az} & for\ z\geq 0\\0 & for\ z<0 \end{cases}
+$$
+where $a>0$ 
+
+mean $\bar{z}=\dfrac{1}{a}$ and variance $\sigma^2=\dfrac{1}{a^2}$
+
+A special case of the Erlang with $b=1$
+
+__Uniform noise__
+
+__Impulse (salt-and-pepper) noise__
+
+_bipolar impulse_
+$$
+p(z)=\begin{cases}P_a & for\ z=a\\P_b & for\ z=b\\ 0 & otherwise\end{cases}
+$$
+if either of $P_a, P_b$ is zero, the impulse noise is called _unipolar_
+
+If neigther is zero and especially approximately equal, _salt-and-pepper_ , _data-drop-out_ or _spike_.
+
+$a$ and $b$ are usually assumed to be saturated values, either black or white.
+
+![52404431917](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1524044319176.png)
+
+###### Periodic Noise
+
+Arising typically from electrical or electromechanical interference during image acquisition and can be reduced significantly via frequency domain filtering.
+
+###### Estimation of Noise Parameters
+
+If the imaging system is available, one simple way to study the characteristics of system noise is to capture a set of images of "flat" environments. It is possible to estimate the parameters of the PDF from small patches of reasonably constant background intensity.
