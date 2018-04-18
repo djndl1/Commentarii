@@ -13,7 +13,7 @@ string*n# repeat a string n times
 
 Syntax: tokens and structure
 
-\inSyntax error, runtime error(exceptions), semantic error(does not do the right thing)
+$\quad\quad$Syntax error, runtime error(exceptions), semantic error(does not do the right thing)
 
 ## Functions
 
@@ -46,7 +46,7 @@ __Invocation__: a method call
 
 ## Lists
 
-\in A list is a sequence of values(elements/items)
+$\quad\quad$ A list is a sequence of values(elements/items)
 
 Lists are mutable
 
@@ -151,4 +151,52 @@ os.popen()
 ```
 
 
+
+# A Byte of Python
+
+## Basics
+
+Strings in double quotes work exactly the same way as strings in single quotes.
+
+Triple quotes specify multi-line. Single/double quotes can be used freely within the triple quotes.
+
+```python
+'''This is a multi-line string. This is the first line.
+This is the second line.
+"What's your name?," I asked.
+He said "Bond, James Bond."
+'''
+```
+
+No `char`  data in Python. Strings are immutable.
+
+__The format method__
+
+```python
+'{0} + {1} = {2}'.format(1,2,3) # the numbers in {} are optional
+> '1 + 2 = 3'
+'1{0:_^12}'.format('good')
+>'1____good____'
+'{lang} {country}'.format(lang='English',country='US')
+> 'English US'
+print('English', end='') # To prevent a newline
+print('US')
+>EnglishUS
+```
+
+__Escape Sequences__
+
+$\quad\quad$One thing to note is that in a string, a single backslash at the end of the line indicates that the string is continued in the next line, but no newline is added. 
+
+$\quad\quad$If you need to specify some strings where no special processing such as escape sequences are handled, then what you need is to specify a *raw* string by prefixing `r` or `R` to the string. 
+
+```python
+'Good\nBut not good enough\
+\n'
+> 'Good\nBut not good enough\n'
+
+r'Good\nBut not good enough\
+\n'
+> 'Good\\nBut not good enough\\n'
+```
 
