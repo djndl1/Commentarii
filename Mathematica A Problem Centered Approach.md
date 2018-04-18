@@ -162,3 +162,20 @@ ReadList[]
 MapIndexed[]
 ```
 
+## 5. Changing Heads
+
+\indAny expression in _Mathematica_ has the following presentation `head[arg1, arg2,...,argn`， where `head` and `arg` could be expressions themselves. _Mathematica_ gives us the ability to replace the head of an expression with another head, done by `Apply`, of which shorthand is `@@`.
+
+\indTo replace the head of the other layers of a list, one can specify the levels
+in the Apply.
+
+```mathematica
+Apply[f, {{a, b}, {c}, {d, e}}, 1]
+{f[a, b], f[c], f[d, e]}
+
+p[n_]:=Times@@Table[1+x^i,{i,1,n,1}]
+Divisors[]: gives the divisors of a number, including itself
+FactorInteger[]
+```
+
+ 
