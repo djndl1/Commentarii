@@ -176,6 +176,49 @@ Apply[f, {{a, b}, {c}, {d, e}}, 1]
 p[n_]:=Times@@Table[1+x^i,{i,1,n,1}]
 Divisors[]: gives the divisors of a number, including itself
 FactorInteger[]
+FreeQ[expr,form] yields True if no subexpression in expr matches form, and yields False otherwiseFreeQ[expr,form]: True if 
+
+Excercise 5.3
+fac[n_] := First /@ FactorInteger[n]
+ind[n_] := Last /@ FactorInteger[n]
+pridec[n_] := ! MemberQ[PrimeQ /@ fac[n], False]
+produ[n_] := (Plus @@ Times @@@ FactorInteger[n]) == n
+Select[Range[100], pridec[#] && produ[#] &]
+
+Exercise 5.7
+ProDiv[n_] := Most[Divisors[n]]
+ProPowSet[s_] := Rest[Most[Subsets[s]]]
+Condi1[n_] := Apply[Plus, ProDiv[n]] > n
+Condi2[n_] := ! 
+  MemberQ[Equal[n, #] & /@ (Plus @@@ ProPowSet[ProDiv[n]]), True]
 ```
 
- 
+## 6. A bit of logic and set theory
+
+\indMathematica echoes back the expressions that she can’t evaluate (e.g., `x==5`).  If you want Mathematica to judge from the face value, then use `===`.
+
+\indIn Mathematica, for a variable, one can specify certain domains. This
+means that the variable takes its values from a specific type of data.
+The domains available are Algebraics, Booleans, Complexes, Integers,
+Primes, Rationals and Reals. 
+
+```mathematica
+[Esc]el[Esc] or \[Element]/Element[]
+```
+
+\indMathematica provides the logical quantifiers ∀, ∃ and ⇒ with `ForAl`,`` Exist``
+and`` Implies`` commands. But these seem not to be that powerful yet. 
+
+\indIf one wants to get rid of duplications in a list, 
+
+```mathematica
+Union[{a,b,b,a}]
+{a,b}
+Union[]:[Esc]un[Esc],\[Union]
+Intersection[]:[Esc]inter[Esc] or \[Intersection]
+Complement[eall, e1, e2, ... ] gives the elements in eall which are not in any of the ei.
+Append[{a,b,c},d]
+{a,b,c,d}
+AppendTo[s,elem] is equivalent to s = Append[s,elem]
+```
+
