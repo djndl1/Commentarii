@@ -805,3 +805,70 @@ Arising typically from electrical or electromechanical interference during image
 ###### Estimation of Noise Parameters
 
 If the imaging system is available, one simple way to study the characteristics of system noise is to capture a set of images of "flat" environments. It is possible to estimate the parameters of the PDF from small patches of reasonably constant background intensity.
+
+## 5.3 Restoration in the Presence of Noise Only - Spatial Filtering
+
+\indIt is usually possible to estimate noise from the spectrum.
+
+\indSpatial filtering is the method of choice in situations when only addtive random noise is present.
+
+###### Mean Filters
+
+__Arithmetic mean filter__
+$$
+\hat{f}(x,y)=\dfrac{1}{mn}\sum\limits_{(s,t)\in S_{xy}}g(s,t)
+$$
+__Geometric mean filter__
+$$
+\hat{f}(x,y)=\Bigg(\prod\limits_{(s,t)\in S_{xy}}g(s,t)\Bigg)^{\frac{1}{mn}}
+$$
+It tends to lose less image detail compared to the arithmetic mean filter.
+
+__Harmonic mean filter__
+$$
+\hat{f}(x,y)=\dfrac{mn}{\sum\limits_{(s,t)\in S_{xy}}\frac{1}{g(s,t)}}
+$$
+Works well for salt noise and other types like Gaussian noise, but fails for pepper noise. 
+
+__Contraharmonic mean filter__
+$$
+\hat{f}(x,y)=\dfrac{\sum\limits_{(s,t)\in S_{xy}}g(s,t)^{Q+1}}{\sum\limits_{(s,t)\in S_{xy}}g(s,t)^{Q}}
+$$
+where $Q$ is called the order of the filter. Well suited for reducing or virtually eliminating the effects of salt-and-pepper noise.
+
+For positive Q, it eleminates pepper noise.  
+For negative Q, salt noise.  
+It cannot do both simultaneously.
+
+It reduces to arithmetic filter if $Q=0$ and to the harmonic mean filter if $Q=-1$
+
+\indIn general, the arithmetic and geometric mean filters (particularly the latter) are well suited for random noise like Gaussian or uniform. The contraharmonic is well suited for impulse noise.
+
+###### Order-Statistic Filters
+
+__Median Filter__
+$$
+f(x,y)=\underset{(s,t)\in S_{xy}}{median}\{g(s,t)\}
+$$
+Best-known order-statistic filter, particularly effective in the presence of both bopolar and unipolar impulse noise. It can be used repeatedly (Note that it could blur the image).
+
+__Max and min filters__
+
+_Max_: useful for finding the brightest points, reducing pepper noise.  
+_Min_: darkest points, reducing salt noise.
+
+__Midpoint filter__
+$$
+\hat{f}(x,y)=\dfrac{1}{2}\Bigg(\underset{(s,t)\in S_{xy}}{max}\{g(s,t)\}+\underset{(s,t)\in S_{xy}}{min}\{g(s,t)\}\Bigg)
+$$
+
+Works best for randomly distributed noise like Gaussian or uniform.
+
+__Alpha-trimmed mean filter__
+$$
+\hat{f}(x,y)=\dfrac{1}{mn-d}\sum\limits_{(s,t)\in S_{xy}}g_r(s,t)
+$$
+where $g_r(s,t)$ represents the remaining pixels after deleting the lowest $d/2$ and the highest $d/2$ pixels, and $d$ ranges from $0$ to $mn-1$. When $d=mn-1$, the filter becomes a median filter. Useful in situations involving multiple types of noise, such as a combination of salt-and-pepper and Gaussian noise.
+
+###### Adaptive Filters
+
