@@ -41,7 +41,7 @@ _Messapic languages_: greater divergence
 
 ###### Celtic
 
-Only irish, Scots Gaelic, Welsh and Breton surviving.
+Only Irish, Scots Gaelic, Welsh and Breton surviving.
 
 $\quad\quad$ Earliest attestations around the beginning of the Christian era.
 Old Irish: 7th century AD
@@ -191,7 +191,7 @@ The injunctive - unmarked aorist form, originally used as a replacement for mark
 
 $\quad\quad$ The unmarked present forms were lost while the aorist counterpart remained and ousted the marked form
 
-$\quad\quad$ The frist(present) and secondary(non-present)endings, not distinct in 1st, 2nd pl, 2nd sg., retained in CL. in 1st sg. person
+$\quad\quad$ The first(present) and secondary(non-present)endings, not distinct in 1st, 2nd pl., 2nd sg., retained in CL. in 1st sg. person
 e.g. *-ti, *-t(PIE); *-t, *-d(Latin)
 
 ###### Athematic and thematic verbs
@@ -205,4 +205,37 @@ e.g. er-it, reg-e-t, -ver-o(*-vis-o, -vis- is a productive perfect stem)
 
 $\quad\quad$ The optative is used in wishes, but it may be better seen as the mood of the counterfactual, or at least the mood which is further removed from the here and now than the subjunctive. PIE Opt. -> Lat. Subj.
 
--bo originated from a univerbation of averbal noun with the original aorist _subjunctive_, while -bam may come from an aorist injunctive form.
+-bo originated from a univerbation of averbal noun with the original aorist _subjunctive_, whil -bam may come from an aorist injunctive form.
+
+###### Voice
+
+_Medio-passive_: affectedness or involvement of the subject or functioning as the agent
+
+$\quad\quad$The PIE _perfect_ does not seem to have made a distinction of voice
+
+###### Syntax
+
+Word Order: Verb-final, the unmarked word order in PIE, but textual or pragmatic factors may have led to fronting of the verb of amplification ofsentence through the addition of extra materials after the verb.
+
+e.g. 
+
+Manios med _vhevhaked_ Numasioi (Manius me fecit Numerio, 7th BC)   	
+
+eco urna _titas vendias_ mamarcos med _vheced_ (ego urna Titae Vendiae, Mamarcus me fecit, 7th BC)
+
+_iouesat_ deiuos qoi med mitat nei ted endo cosmis virco sied duenos med feced en manom enom duenoi ne med malos tatod  
+ (iurat (per) deos qui me mittit, ne in te comis virgo sit, bonus me fecit in ?? bono, ne me malus clepito?) 6th BC
+
+hoi med mitat kauios monios qetios donom pro fileod  
+(hīc me mittit Gaius monius Cetius donum pro filio)
+
+iei steterai popliosio valesiosio suodales mamartei  
+(ii steterunt Publii Valerii sodales Marti)  5th-6th BC  
+The companions of Publius Valerius set up to Mars in ?
+
+esom kom meois sociois trifos audeom duom nei pari med  
+(sum cum meis sociis tribus Audiorum duorum, ne cape me) 4th-5th BC
+
+$\quad\quad$Verbs generally follow directly after their accusative complements. The subject follows the verb if it is especially long or complex, and dative complements also follow in all the early inscription. The rigid verb-final pattern may never have been a feature of spoken Latin.
+
+$\quad\quad$In Platus, the verb-final order predominates in subordinate clauses, where emphasis is less of an issue. Verbs almost always follow pronomial objects. Imperatives go to the initial position. Subjects are also found following the verb particularly when the verb is passive, and where theverb is fronted or the subject is a long constituent.
