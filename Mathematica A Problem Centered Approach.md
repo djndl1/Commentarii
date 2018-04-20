@@ -23,8 +23,6 @@ TableForm[]
 Export[]: export the data
 ```
 
-$\quad\quad$*Mathematica* provides built-in functions to access data on U.S. and other stocks, mutual funds and other financial instruments, as well as indices, and currency exchange rates.*Mathematica* provides built-in functions to access data on U.S. and other stocks, mutual funds and other financial instruments, as well as indices, and currency exchange rates.
-
 ###### LInear Algebra
 
 ```mathematica
@@ -157,16 +155,16 @@ FromDigits[]
 The function Divisors[n] gives all the positive numbers which divide n.
 FactorInteger[]
 MemberQ[]
-Shrot[]: displays a short form of a list
+Short[]: displays a short form of a list
 ReadList[]
 MapIndexed[]
 ```
 
 ## 5. Changing Heads
 
-\indAny expression in _Mathematica_ has the following presentation `head[arg1, arg2,...,argn`， where `head` and `arg` could be expressions themselves. _Mathematica_ gives us the ability to replace the head of an expression with another head, done by `Apply`, of which shorthand is `@@`.
+$\quad\quad$Any expression in _Mathematica_ has the following presentation `head[arg1, arg2,...,argn`， where `head` and `arg` could be expressions themselves. _Mathematica_ gives us the ability to replace the head of an expression with another head, done by `Apply`, of which shorthand is `@@`.
 
-\indTo replace the head of the other layers of a list, one can specify the levels
+$\quad\quad$To replace the head of the other layers of a list, one can specify the levels
 in the Apply.
 
 ```mathematica
@@ -195,9 +193,9 @@ Condi2[n_] := !
 
 ## 6. A bit of logic and set theory
 
-\indMathematica echoes back the expressions that she can’t evaluate (e.g., `x==5`).  If you want Mathematica to judge from the face value, then use `===`.
+$\quad\quad$Mathematica echoes back the expressions that she can’t evaluate (e.g., `x==5`).  If you want Mathematica to judge from the face value, then use `===`.
 
-\indIn Mathematica, for a variable, one can specify certain domains. This
+$\quad\quad$In Mathematica, for a variable, one can specify certain domains. This
 means that the variable takes its values from a specific type of data.
 The domains available are Algebraics, Booleans, Complexes, Integers,
 Primes, Rationals and Reals. 
@@ -206,10 +204,10 @@ Primes, Rationals and Reals.
 [Esc]el[Esc] or \[Element]/Element[]
 ```
 
-\indMathematica provides the logical quantifiers ∀, ∃ and ⇒ with `ForAl`,`` Exist``
+$\quad\quad$Mathematica provides the logical quantifiers ∀, ∃ and ⇒ with `ForAl`,`` Exist``
 and`` Implies`` commands. But these seem not to be that powerful yet. 
 
-\indIf one wants to get rid of duplications in a list, 
+$\quad\quad$If one wants to get rid of duplications in a list, 
 
 ```mathematica
 Union[{a,b,b,a}]
@@ -220,5 +218,17 @@ Complement[eall, e1, e2, ... ] gives the elements in eall which are not in any o
 Append[{a,b,c},d]
 {a,b,c,d}
 AppendTo[s,elem] is equivalent to s = Append[s,elem]
+Tally[list] tallies the elements in list, listing all distinct elements together with their multiplicities.
+ If[stat,this,that] where stat is a Boolean expression, i.e., has the value of True or False, will execute this if the stat value is True and that otherwise. 
+ Which
+ (* If and Which can be used to define piecewise functions*)
+ PiecewiseExpand[]
+ Piecewise[]
 ```
+
+Defining the function using `Which` makes Mathematica consider this function as a continuous function.  
+
+## 7. Sums and Products
+
+\ind`Sum` and `Product` and their numerical versions `NSum`, `NProduct`
 
