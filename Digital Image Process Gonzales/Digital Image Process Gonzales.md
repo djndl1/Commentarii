@@ -682,13 +682,12 @@ $$
 
 where $H(u,v)$ is a filter transfer function.
 
-e.g. $H(u,v)=0\ for\ u=v=0\ otherwise\ 1$ reduces the average intensity  
-Lowpass filter blurs an image while a highpass filter enhance sharp detail.
+e.g. $H(u,v)=0\ for\ u=v=0\ $otherwise $1$ reduces the average intensity  Lowpass filter blurs an image while a highpass filter enhance sharp detail.
 
 The issue on zero padding in the spatial domain  
-We cannot work with an infinite number of components, we cannot use an ideal frequency domain filter and simultaneously use zero padding to avoid wrapound error. One approach is to zero-pad images and then create filters in the frequency domain to be of the same size as the padded images.
+$\quad\quad$We cannot work with an infinite number of components, we cannot use an ideal frequency domain filter and simultaneously use zero padding to avoid wraparound error. One approach is to zero-pad images and then create filters in the frequency domain to be of the same size as the padded images.
 
-Here we consider only _zero-phase-shift_ filters. Even small changes in the phase angle can have dramtic effects on the filtered output.
+$\quad\quad$Here we consider only _zero-phase-shift_ filters. Even small changes in the phase angle can have dramtic effects on the filtered output.
 
 __Summary__  
 
@@ -720,6 +719,34 @@ $\quad\quad\$The forward way: design a spatial filter by analyze a frequency fil
 An example of  Gaussian filter, a lowpass filter and a highpass filter obtained through difference of two Gaussian filter.
 
 $\quad\quad\$The backward way: start with a spatial mask and generate its corresponding filter in the frequency domain.
+
+### 4.8 Image Smoothing Using Frequency Domain Filters
+
+$\quad\quad$Smoothing is achieved by high-frequency attenuation (lowpass filtering).
+
+###### Ideal Lowpass Filters
+
+$\quad\quad$A cylinder centered at $(M/2,P/2)$.
+
+_Cut-off frequency_: determined by the power encircled by the cylinder w.r.t. the whole power spectrum.
+
+###### Butterworth Lowpass Filter
+
+$$
+H(u,v)=\dfrac{1}{1+\big(D(u,v)/D_0\big)^{2n}}
+$$
+
+where $D_0$ is the distance at which cutoff frequency ($H(D_0)=0.5$) is from the origin. The higher the order is, the more significant the "ringing" (waving) in the spatial domain. BLPFs of order 2 are a good compromise between effective lowpass filterign and acceptable ringing.
+
+###### Gaussian Lowpass Filters
+
+$$
+H(u,v)=e^{-D^2(u,v)/2D_0^2}
+$$
+
+where $D(u,v)$ is a distance function. The inverse Fourier transform of the GLPFs is Gaussian too, which has no "ringing".
+
+$\quad\quad$Lowpass filtering in Character Recognition preprocessing.
 
 # Chap.5 Image Restoration and Reconstruction
 
@@ -808,9 +835,9 @@ If the imaging system is available, one simple way to study the characteristics 
 
 ## 5.3 Restoration in the Presence of Noise Only - Spatial Filtering
 
-\indIt is usually possible to estimate noise from the spectrum.
+$\quad\quad$It is usually possible to estimate noise from the spectrum.
 
-\indSpatial filtering is the method of choice in situations when only addtive random noise is present.
+$\quad\quad$Spatial filtering is the method of choice in situations when only addtive random noise is present.
 
 ###### Mean Filters
 
@@ -842,7 +869,7 @@ It cannot do both simultaneously.
 
 It reduces to arithmetic filter if $Q=0$ and to the harmonic mean filter if $Q=-1$
 
-\indIn general, the arithmetic and geometric mean filters (particularly the latter) are well suited for random noise like Gaussian or uniform. The contraharmonic is well suited for impulse noise.
+$\quad\quad$In general, the arithmetic and geometric mean filters (particularly the latter) are well suited for random noise like Gaussian or uniform. The contraharmonic is well suited for impulse noise.
 
 ###### Order-Statistic Filters
 
@@ -872,3 +899,76 @@ where $g_r(s,t)$ represents the remaining pixels after deleting the lowest $d/2$
 
 ###### Adaptive Filters
 
+__Adaptive, local noise reduction filter__
+
+Mean and variance are reasonable parameters on which to base an adaptive fitler because they are quantities closely related to the appearance of an image.
+
+Four parameters to be considered  
+
+1. $g(x,y)$ the value of the noisy image at $(x,y)$
+2. $\sigma^2_{\eta}$ the variance of the noise
+3. $m_L$ the local mean of the neighborhood
+4. $\sigma_L^2$ the local variance
+
+Behavior of the filter  
+
+1. If $\sigma_\eta^2=0$, zero-noise case in which $g(x,y)=f(x,y)$ 
+2. If $\sigma_L^2 \gg \sigma_\eta^2$, this is typically associated with edges that should be preserved.
+3. If the two variances are equal, local area has the same properties as the overall image, and local noise is to be reduced simply by averaging. 
+
+Result: 
+$$
+\hat{f}(x,y)=g(x,y)-\dfrac{\sigma_\eta^2}{\sigma^2_L}\Big(g(x,y)-m_L\Big)
+$$
+Set the ratio to $1$ if the condition $\sigma_\eta^2>\sigma_L^2$
+
+__Adaptive median filter__
+
+$\quad\quad$The adaptive median filtering can handle impulse noise with large spatial densities and preserve detail while smoothing nonimpulse noise.
+$$
+z:\text{intensity value in the neighborhood $S_{xy}$}, \ z_{min},\ z_{max},\ z_{med},\ z_{xy}, \\S_{max}\text{: maximum allowed size of $S_{xy}$}
+$$
+_Algorithm_:   
+	Stage A:  $A1 = z_{med}-z_{min}$  
+			$A2 = z_{med}-z_{max}$   
+			If $A1>0$ AND $A2<0$, go to stage B  
+			Else increase $S_{xy}$  
+			If $S_{xy}\leq S_{max}$ repeat stage A  
+			Else output $z_{med}$  
+
+​	Stage B:  $B1=z_{xy}-z_{min}$  
+			$B2=z_{xy}-z_{max}$  
+			If $B1>0$ AND $B2<0$, output $z_{xy}$  
+			Else output $z_{med}$
+
+It removes salt-and-pepper noise, provides smoothing of other noise that may not be impulsive and to reduce distortion.
+
+$z_{min}$ and $z_{max}$ are considered statistically the impulse noise value. Stage A Line 3 and Stage B check if the respective values are impulses. The smaller the $P_a$ or $P_b$, the larger $S_{max}$ is allowed to be.
+
+# Chap.6 Color Image Processing
+
+__Fullcolor__: acquired with a fullcolor sensor  
+__Pseudocolor__: assigned colors to a particular monochrome intensity or range of intensities. 
+
+$\quad\quad$Some of the gray-scale methods are directly applicable to color images.
+
+### 6.1 Color Fundamentals
+
+Intensity for achromatic light  
+gray level for black-to-grays-to-white.
+
+_Radiance_ from the source, _luminance_ by the observer, subjective _brightness_
+
+$\quad\quad$It is important to keep in mind that having three specific primary color wavelengths fro the purpose of standardization deos not mean that these three fixed RGB components acting alone can generate all spectrum colors.
+
+Primary colors of light: RGB  
+Primary colors of pigments/colorants: magenta, cyan, yellow
+
+$\quad\quad$CRT: array of triangular dot patterns of electron-sensitive phosphor that produce different colors.  In the case of LCD, light filters are used to produce the three primary colors of light.
+
+$\quad\quad$Color characteristics: _brightness_, _hue_ (an attribute associated with the dominant wavelength in a mixture of light waves, like yellow, red, orange), _saturation_ (the relative purity or the amount of white light mixed with a hue).
+
+_Chromaticity_: _Hue_, _saturation_  
+[_Tristimulus_](https://en.wikipedia.org/wiki/CIE_1931_color_space#Tristimulus_values)
+[CIE chromaticity diagram](https://en.wikipedia.org/wiki/CIE_1931_color_space#CIE_xy_chromaticity_diagram_and_the_CIE_xyY_color_space) 
+_color gamut_: a range of colors produced by RGB monitors
