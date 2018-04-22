@@ -45,46 +45,47 @@ $\qquad$$\qquad$_Figure 1.23_
 
 ###2.1 人类视觉系统
 
-​			人眼结构
-			眼中图像的形成
-			亮度适应和辨别
+​			人眼结构  
+			眼中图像的形成  
+			亮度适应和辨别  
 			
 
 ###2.2 光和电磁波谱
 
-​			E=hv 光子 频率段
-			单色光/无色光 的唯一属性是 强度，用 灰度级 表示，从黑到白的度量值通常称为 灰度级
-			彩色光源：发光强度（能量总和，瓦特）　光通量（流明数，观察者从光源感受到的能量）　	亮度（主观描述）
-			要求“看到”一个物体的电磁波的波长必须小于等于物体的尺寸
+​			E=hv 光子 频率段  
+			单色光/无色光 的唯一属性是 强度，用 灰度级 表示，从黑到白的度量  值通常称为 灰度级  
+			彩色光源：发光强度（能量总和，瓦特）　光通量（流明数，观察者从光源感受到的能量）　	亮度（主观描述）  
+			要求“看到”一个物体的电磁波的波长必须小于等于物体的尺寸  
 		
 
 ###2.3 图像感知和获取
 
-​			照射源， 场景
-			照射可以由非传统光源，比如超声波甚至计算机产生的照射模式。
-			平坦表面反射 透射
+​			照射源， 场景  
+			照射可以由非传统光源，比如超声波甚至计算机产生的照射模式。  
+			平坦表面反射 透射  
 			
-$\qquad$$\qquad$$\qquad$单个传感器，条带传感器，阵列传感器
-			简单的图像形成模型 2.3.4
-			反射系数/透射系数 * 入射分量
-			灰度级/强度级 $l=0$黑色 $l=L-1$白色 gray scale
+$\qquad$$\qquad$$\qquad$单个传感器，条带传感器，阵列传感器  
+			简单的图像形成模型 2.3.4  
+			反射系数/透射系数 * 入射分量  
+			灰度级/强度级 $l=0$黑色 $l=L-1$白色 gray scale  
 
 ###2.4 取样和量化 
 
-​			取样：对坐标值进行数字化　＝》样本数
-			量化：对幅值数字化　＝》灰度级
-			实践中，取样方法由生成该图像的传感器配置决定
+​			取样：对坐标值进行数字化　＝》样本数  
+			量化：对幅值数字化　＝》灰度级  
+			实践中，取样方法由生成该图像的传感器配置决定  
 			
-$\qquad$$\qquad$$\qquad$二维阵列$f(x,y)$
-			三种表示*Fig2.18*
-			图像原点位于左上角：图像显示器, 矩阵排列方式
+$\qquad$$\qquad$$\qquad$二维阵列  $f(x,y)$		
+			三种表示*Fig2.18*  
 
-​			$M:row\; N:col$ $L$:灰度级，一般为2的整数次幂
-			_动态范围_： 最大可度量灰度与最小可检测灰度之比 dynamic range
-			_饱和度_：超过该值的灰度级会被剪切掉 saturation
-			_对比度_：最高和最低灰度级的灰度差；高动态范围意味着高对比度 contrast
+​			图像原点位于左上角：图像显示器, 矩阵排列方式  
+
+​			$M:row\; N:col$ $L$:灰度级，一般为2的整数次幂  
+			_动态范围_： 最大可度量灰度与最小可检测灰度之比 dynamic range  
+			_饱和度_：超过该值的灰度级会被剪切掉 saturation  
+			_对比度_：最高和最低灰度级的灰度差；高动态范围意味着高对比度   contrast  
 			
-$\qquad$$\qquad$$\qquad$_空间分辨率_的度量必须针对空间单位来规定才有意义 spatial resolution
+$\qquad$$\qquad$$\qquad$_空间分辨率_的度量必须针对空间单位来规定才有意义 spatial   resolution
 			_灰度分辨率_： 灰度级中可分辨的最小变化，最通用8比特 intensity resolution
 			
 $\qquad$$\qquad$$\qquad$_内插_： 使用已知数据来估计未知位置的数值的处理 interpolation
@@ -748,12 +749,76 @@ where $D(u,v)$ is a distance function. The inverse Fourier transform of the GLPF
 
 $\quad\quad$Lowpass filtering in Character Recognition preprocessing.
 
-# Chap.5 Image Restoration and Reconstruction
+### 4.9 Image Sharpening Using Frequency Domain Filters
+
+$\quad\quad$A highpass filter is obtained from a given lowpass filter using the equation
+$$
+H_{HP}(u,v)=1-H_{LP}(u,v)
+$$
+
+###### Ideal Highpass Filters
+
+###### Butterworth Highpass Filters
+$$
+H(u,v)=\dfrac{1}{1+\big(D_0/D(u,v)\big)^{2n}}
+$$
+
+###### Gaussian Highpass Filters
+
+$$
+H(u,v)=1-e^{-D^2(u,v)/2D_0^2}
+$$
+
+###### The Laplacian in the Frequency Domain
+
+$$
+H(u,v)=-4\pi^2(u^2+v^2)\\
+H(u,v)=-4\pi^2D^2(u,v)
+$$
+
+###### Unsharp Masking, Highboost Filtering, and High-Frequency-Emphasis Filtering
+
+$$
+g_{mask}(x,y)=f(x,y)-f_{LP}(x,y)\\
+f_{LP}(x,y)=\mathcal{F}^{-1}\Big(H_{LP}(u,v)F(u,v)\Big)
+$$
+
+__High-frequency-emphasis filter__: $g(x,y)=\mathcal{F}^{-1}\Bigg(\Big[k_1+k_2*H_{HP}(u,v)\Big]F(u,v)\Bigg)$
+
+where $k_1\geq 0 $ gives controls of the offset from the origin and $k_2$ controls the contribution of high frequencies.
+
+###### Homomorphic Filtering
+
+![52438912215](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1524389122153.png)
+
+The _illumination_ component is characterized by slow spatial variations while the _reflectance_ component tends to vary abruptly, particularly at the junctions of dissimilar objects.
+
+### 4.10 Selective Filtering
+
+###### Bandreject and Bandpass Filters (A cirle, a sphere)
+
+$$
+H_{BP}(u,v)=1-H_{BR}(u,v)
+$$
+
+![52438958813](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1524389588133.png)
+
+###### Notch Filters (small regions in the frequency domain)
+
+$$
+H_{NR}(u,v)=\prod\limits^{Q}_{k=1}H_k(u,v)H_{-k}(u,v)
+$$
+
+where $H_k(u,v)$ and $H_{-k}(u,v)$ are highpass filters whose centers are at $(u_k,v_k)$ and $(-u_k, -v_k)$ respectively.
+$$
+H_{NP}(u,v)=1-H_{NR}(u,v)
+$$
+
+#Chap.5 Image Restoration and Reconstruction
 
 $\quad\quad$The principal goal of restoration techniques is to improve an image in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
 
-###### A Model of the Image Degradation/Restoration Process
-
+__A Model of the Image Degradation/Restoration Process__
 $$
 g(x,y)=h(x,y)*f(x,y)+\eta(x,y)\\
 G(u,v)=H(u,v)F(u,v)+N(u,v)
@@ -945,30 +1010,71 @@ It removes salt-and-pepper noise, provides smoothing of other noise that may not
 
 $z_{min}$ and $z_{max}$ are considered statistically the impulse noise value. Stage A Line 3 and Stage B check if the respective values are impulses. The smaller the $P_a$ or $P_b$, the larger $S_{max}$ is allowed to be.
 
-# Chap.6 Color Image Processing
+## 5.4 Periodic Noise Reduction by Frequency Domain Filtering
 
-__Fullcolor__: acquired with a fullcolor sensor  
-__Pseudocolor__: assigned colors to a particular monochrome intensity or range of intensities. 
+$\quad\quad$Periodic noise appears as concentrated bursts of energy in the FT, at locations corresponding to the frequencies of the periodic interference. The approach is to use a selective filter to isolate the noise. 
 
-$\quad\quad$Some of the gray-scale methods are directly applicable to color images.
+###### Bandreject Filters
 
-### 6.1 Color Fundamentals
+###### Bandpass Filters
 
-Intensity for achromatic light  
-gray level for black-to-grays-to-white.
+Useful because it simplifies analysis of the noise, reasonably independent of image content.
 
-_Radiance_ from the source, _luminance_ by the observer, subjective _brightness_
+###### Notch filters
 
-$\quad\quad$It is important to keep in mind that having three specific primary color wavelengths fro the purpose of standardization deos not mean that these three fixed RGB components acting alone can generate all spectrum colors.
+###### Optimum Notch Filtering
 
-Primary colors of light: RGB  
-Primary colors of pigments/colorants: magenta, cyan, yellow
+$\quad\quad$The interference components generally are not single-frequency bursts. Instead tehy tend to have broad skirts that carry information about the interference pattern.
 
-$\quad\quad$CRT: array of triangular dot patterns of electron-sensitive phosphor that produce different colors.  In the case of LCD, light filters are used to produce the three primary colors of light.
+$\quad\quad$The first step is to extract the principal frequency components of the interference pattern by $N(u,v)=H_{NP}(u,v)G(u,v)$ and obtain its spatial expression $\eta(x,y)=\mathcal{F}^{-1}\{H_{NP}(u,v)G(u,v)\}$.
 
-$\quad\quad$Color characteristics: _brightness_, _hue_ (an attribute associated with the dominant wavelength in a mixture of light waves, like yellow, red, orange), _saturation_ (the relative purity or the amount of white light mixed with a hue).
+$\quad\quad$The estimate of $f(x,y)$: $\hat{f}(x,y)=g(x,y)-w(x,y)\eta(x,y)$, the function $\eta(x,y)$ called _weighting_ or _modulation_ function. The objective of the procedure is to select this funciton so that the result is optimized in some meaningful way.
 
-_Chromaticity_: _Hue_, _saturation_  
-[_Tristimulus_](https://en.wikipedia.org/wiki/CIE_1931_color_space#Tristimulus_values)
-[CIE chromaticity diagram](https://en.wikipedia.org/wiki/CIE_1931_color_space#CIE_xy_chromaticity_diagram_and_the_CIE_xyY_color_space) 
-_color gamut_: a range of colors produced by RGB monitors
+$\quad\quad$If we choose to mimimize the variance of the estimate $\hat{f}(x,y)$ over a specified neighborhood, we have the following result.
+$$
+w(x,y)=\dfrac{\overline{g(x,y)\eta(x,y)}-\bar{g}(x,y)\bar{\eta}(x,y)}{\bar{\eta^2}(x,y)-\bar{\eta}^2(x,y)}
+$$
+$w(x,y)$ is assumed to be constant in a neighborhood.
+
+## 5.5 Linear, Position-Invariant Degradations
+
+$$
+g(x,y)=H[f(x,y)]+\eta(x,y)\\
+\quad\quad\quad\text{Linearity:  } H[af_1(x,y)+bf_2(x,y)]=aH[f_1(x,y)]+bH[f_2(x,y)]\\
+\text{Position invariant: } H[f(x-\alpha, y-\beta)]=g(x-\alpha, y-\beta)
+$$
+
+$$
+\qquad \qquad \quad g(x,y)=\int^{\infin}_{-\infin}\int^{\infin}_{-\infin}f(\alpha,\beta)h(x,\alpha,y,\beta)d\alpha d\beta\ +\ \eta(x,y)\\
+ = h(x,y)*f(x,y) + \eta(x,y)\\
+ G(u,v)=H(u,v)F(u,v)+N(u,v)
+$$
+
+where $h(x,\alpha,y,\beta)$ is the _impulse response_ of $H$. Assume $H$ is position-invariant, it becomes $h(x-\alpha, y-\beta)$.
+
+$\quad\quad$The term _image deconvolution_ is used to signify _linear image restoration_, and the filters in the process are called _deconvolution filters_.
+
+## 5.6 Estimating the Degradation Function
+
+$\quad\quad$The process of restoring an image by using a degradation function that has been estimated in some way sometimes is called _blind convolution_, since the true degradation function is seldom known completely.
+
+###### Estimation by Image Observation
+
+$\quad\quad$A laborious process used only in very specific circumstances such as, for example restoring an old photograph of historical value.
+
+###### Estimation by Experimentation
+
+$\quad\quad$If equipment similar to the equipment used to acquire the degraded image is available, it is possible in principle to obtain an accurate estimate of the degradation. The idea is to obtain the impulse response of the degradation by imaging an impulse (small dot of light) using the same system settings.
+
+###### Estimation by Modeling
+
+$\quad\quad$Take into account environmental conditions that cause degradations.
+
+E.g. The Gaussian lowpass filter is used sometimes to model mild, uniform blurring.
+
+Another major approach in modeling is to derive a mathematical model starting from basic principles.
+
+E.g.  An example of blurring due to continuous exposure.
+
+## 5.7 Inverse Filtering
+
