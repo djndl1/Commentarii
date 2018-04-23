@@ -826,7 +826,7 @@ $$
 
 ## 5.2 Noise Model
 
-Arising during image acquisition and/or transmission.
+Arising during image acquisition and or transmission.
 
 ###### Spatial and Frequency Properties of Noise
 
@@ -1024,7 +1024,7 @@ Useful because it simplifies analysis of the noise, reasonably independent of im
 
 ###### Optimum Notch Filtering
 
-$\quad\quad$The interference components generally are not single-frequency bursts. Instead tehy tend to have broad skirts that carry information about the interference pattern.
+$\quad\quad$The interference components generally are not single-frequency bursts. Instead they tend to have broad skirts that carry information about the interference pattern.
 
 $\quad\quad$The first step is to extract the principal frequency components of the interference pattern by $N(u,v)=H_{NP}(u,v)G(u,v)$ and obtain its spatial expression $\eta(x,y)=\mathcal{F}^{-1}\{H_{NP}(u,v)G(u,v)\}$.
 
@@ -1078,3 +1078,75 @@ E.g.  An example of blurring due to continuous exposure.
 
 ## 5.7 Inverse Filtering
 
+$$
+\hat{F}(u,v)=F(u,v)+\dfrac{N(u,v)}{H(u,v)}
+$$
+
+Even if we know the degradation function we cannot recover the undegraded image exactly becuase $N(u,v)$ is not known. If the degradation function has zero or very small values, then the ratio $N(u,v)/H(u,v)$ could easily dominate the estimate $\hat{F}(u,v)$. One apporach to avoid the zero or small-value problem is to limit the filter frequencies to values near the origin, assuming $H(u,v)$ has the hightest value at the origin.
+
+## 5.8 Minimum Mean Square Error (Wiener) Filtering
+
+$\quad\quad$ Wiener Filtering takes into account the noise. The methdo is founded on considering images and noise as random variables and the objective is to find an estimate that minimizes $e^2=E\{(f-\hat{f})^2\}$, and it yields the following result:
+$$
+\hat{F}(u,v)=\Bigg[\dfrac{1}{H(u,v)}\dfrac{|H(u,v)|^2}{|H(u,v)|^2+S_\eta(u,v)/S_f(u,v)}\Bigg]G(u,v)
+$$
+where $S_\eta(u,v)=|N(u,v)|^2=$ power spectrum of the noise  
+	   $S_f(u,v)=|F(u,v)|^2=$ power spectrum of the undegraded image
+
+This "two S's" term can be measured by _signal-to-noise ratio_ $SNR=\dfrac{\sum\limits^{M-1}_{u=0}\sum\limits^{N-1}_{v=0}|F(u,v)|^2}{\sum\limits^{M-1}_{u=0}\sum\limits^{N-1}_{v=0}|N(u,v)|^2}$
+
+The noise term may be replaced with $MSE=\dfrac{1}{MN}\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}\big[f(x,y)-\hat{f}(x,y)\big]^2$
+
+The power spectrum of the undegraded image seldom is known. An approach frequently used is to approximate by a constant $K$.
+$$
+\hat{F}(u,v)=\Bigg[\dfrac{1}{H(u,v)}\dfrac{|H(u,v)|^2}{|H(u,v)|^2+K}\Bigg]G(u,v)
+$$
+
+## 5.9 Constrained Least Squares Filtering
+
+$\quad\quad$A constant estimate of the ratio of the power spectra for Wiener filters is not always a suitable solution. The method here requires knowledge of only the _mean_ and _variance_ of the noise, which are usually calculated easily from the degraded image. Wiener filter is optimal in an average sense, but not for each image.
+$$
+g=Hf+\eta
+$$
+Optimization problem
+$$
+C=\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}\big[\triangledown^2f(x,y)\big]^2
+$$
+subject to the constraint
+$$
+||g-H\hat{f}||^2=||\eta||^2
+$$
+solution given by 
+$$
+\hat{F}(u,v)=\Bigg[\dfrac{H^*(u,v)}{|H(u,v)|^2+\gamma|P(u,v)|^2}\Bigg]G(u,v)
+$$
+where $\gamma$ is a parameter that must be adjusted to satisfy Eq.(86), and $P(u,v)$ is the FT of the Laplacian operator.
+
+$\quad\quad$To determine the best  $\gamma$, define a residual vector
+$$
+\vec{r}=\vec{g}-H\vec{\hat{f}}=\vec{\eta}
+$$
+The objective function $\phi(r)=||r||^2$ is a monotonically increasing function of $\gamma$. We want to adjust $\gamma$ so that $||r||^2=||\eta||^2\pm a$, where $a$ is an accuracy factor. This optimization can be solved iteratively. Given an initial $\gamma_{0}$, using Eq.(87) and (89) to compute the current $r$.
+$$
+||r||^2=\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}r^2(x,y)
+$$
+where $r(x,y)=\mathcal{F}^{-1}[R(u,v)]$ and $R(u,v)=G(u,v)-H(u,v)\hat{F}(u,v)$.
+
+Since
+$$
+\sigma^2_\eta=\dfrac{1}{MN}\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}\big[\eta(x,y)-m_\eta \big]^2
+$$
+Expand Eq.(88) and we have
+$$
+||\eta||^2=MN[\sigma_\eta^2+m^2_\eta]
+$$
+
+## 5.10 Geometric Mean Filter
+
+\indA generalization of Wiener filter, called _geometric mean filter_:
+$$
+\hat{F}(u,v)=\Bigg[\dfrac{H^*(u,v)}{|H*(u,v)|^2}\Bigg]^\alpha\Bigg[\dfrac{H^*(u,v)}{|H(u,v)|^2+\beta\big[\frac{S_\eta(u,v)}{S_f(u,v)}]}\Bigg]^{1-\alpha}G(u,v)
+$$
+$\alpha=1$: inverse filter  
+$\alpha =0​$: parametric Wiener filter  
+$\alpha=1/2$ and $\beta=1$: spectrum equailzaition filter.
