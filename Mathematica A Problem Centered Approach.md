@@ -230,5 +230,28 @@ Defining the function using `Which` makes Mathematica consider this function as 
 
 ## 7. Sums and Products
 
-\ind`Sum` and `Product` and their numerical versions `NSum`, `NProduct`
+$\quad\quad$`Sum` and `Product` and their numerical versions `NSum`, `NProduct`
+
+##8. Loops and Repetitions
+
+```matlab
+Do[]
+```
+
+## 9. Substitution, Mathematica rules
+
+```mathematica
+x+y/. x->2
+Solve[]
+Range[5] * x /. Times -> Power
+expr///.rules: ReplaceRepeated, MaxIterations->
+```
+
+## 13. Linear Algebra
+
+$\quad\quad$One can generate a matrix by using `Array`
+
+```mathematica
+Array[Subscript[x, #1, #2] &, {4, 4}] // MatrixFormH
+```
 
