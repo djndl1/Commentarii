@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns="http://www.w3.org/1999/xhtml" xmlns:x="http://www.texmacs.org/2002/extensions">
+  <head>
+    <title>No title</title>
+    <meta content="TeXmacs 1.99.6" name="generator"></meta>
+    <style type="text/css">
+      body { text-align: justify } h5 { display: inline; padding-right: 1em }
+      h6 { display: inline; padding-right: 1em } table { border-collapse:
+      collapse } td { padding: 0.2em; vertical-align: baseline } .subsup {
+      display: inline; vertical-align: -0.2em } .subsup td { padding: 0px;
+      text-align: left} .fraction { display: inline; vertical-align: -0.8em }
+      .fraction td { padding: 0px; text-align: center } .wide { position:
+      relative; margin-left: -0.4em } .accent { position: relative;
+      margin-left: -0.4em; top: -0.1em } .title-block { width: 100%;
+      text-align: center } .title-block p { margin: 0px } .compact-block p {
+      margin-top: 0px; margin-bottom: 0px } .left-tab { text-align: left }
+      .center-tab { text-align: center } .balloon-anchor { border-bottom: 1px
+      dotted #000000; outline:none;                  cursor: help; position:
+      relative; }.balloon-anchor [hidden] { margin-left: -999em; position:
+      absolute; display: none; }.balloon-anchor:hover [hidden] { position:
+      absolute; left: 1em; top: 2em; z-index: 99; margin-left: 0; width:
+      500px; display: inline-block; }.balloon-body { }.ornament  {
+      border-width: 1px; border-style: solid; border-color:  black; display:
+      inline-block; padding: 0.2em; } .right-tab { float: right; position:
+      relative; top: -1em } 
+    </style>
+  </head>
+  <body>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    <h1 id="auto-1"><a id="header-n0"></a>2. Probability Distribution</h1>
+    <p>
+      <em>Density estimation</em>
+    </p>
+    <p>
+      Data points are independent and identically distributed. There are
+      infinitely many probability distributions that could have given rise to
+      the observed finite data set.
+    </p>
+    <p>
+      <b>Parametric</b> and <b>non-parametric</b> approaches.
+    </p>
+    <h2 id="auto-2">2.3 The Gaussian Distribution</h2>
+    <center>
+      <var>N</var>
+      (
+      <var>x</var>
+      |
+      <var>&mu;</var>
+      ,
+      <var>&Sigma;</var>
+      |) =
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">1</td>
+        </tr>
+        <tr>
+          <td>(2<var>&pi;</var>)<sup><var>D</var>/2</sup></td>
+        </tr>
+      </table>
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">1</td>
+        </tr>
+        <tr>
+          <td>|<var>&Sigma;</var>|<sup>1/2</sup></td>
+        </tr>
+      </table>
+      exp{ -
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+      </table>
+      (
+      <var>x</var>
+      -
+      <var>&mu;</var>
+      )
+      <sup><var>T</var></sup>
+      <var>&Sigma;</var>
+      <sup> - 1</sup>
+      (
+      <var>x</var>
+      -
+      <var>&mu;</var>
+      )}
+    </center>
+    <p>
+      
+    </p>
+    <p>
+      <em>Mahalanobis distance</em>: <var>&Delta;</var><sup></sup> = sqrt
+      ((<var>x</var> -
+      <var>&mu;</var>)<sup><var>T</var></sup><var>&Sigma;</var><sup> -
+      1</sup>(<var>x</var> - <var>&mu;</var>)) and the quadratic form of the
+      Gaussian distribution.
+    </p>
+    <p>
+      <em>General, diagonal </em>and <em>isotropic</em> (<var>&Sigma;</var> =
+      <var>&sigma;</var><sup>2</sup><var>I</var>) covariace matrix
+    </p>
+    <p>
+      A limitation of the Gaussian distribution is that it it intrinsically
+      unimodal (i.e., has a single maximum) and so is unable to provide a godd
+      approximation to multimodal distributions. The introduction of
+      <em>latent variables</em>, also called <em>hidden variables</em> or
+      <em>unobserved variables</em>, allows both the covariance problem and
+      the unimode problem to be addressed.
+    </p>
+    <h3 id="auto-3">2.3.1 Conditional and Marginal Gaussian distributions</h3>
+    <div class="right-tab">
+      An important property of the multivariate Gaussian distribution is that
+      if two sets of variables are jointly Gaussian, then the conditional
+      distribution of one set conditioned on the other is again. Similarly,
+      the marginal distribution of either set is also Gaussian.
+    </div>
+    <center>
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="width: 50%; white-space: nowrap; text-align: right; padding-left: 0em; text-align: right"><var>&mu;</var><sub><var>a</var>|<var>b</var>|</sub></td>
+          <td style="white-space: nowrap; text-align: right; text-align: center"> = </td>
+          <td style="width: 50%; white-space: nowrap; text-align: right; padding-right: 0em; text-align: left; text-align: left"><var>&mu;</var><sub><var>a</var></sub> +
+          <var>&Sigma;</var><sub>ab</sub><var>&Sigma;</var><sup> -
+          1</sup><sub>bb</sub>(<var>x</var><sub><var>b</var></sub> -
+          <var>&mu;</var><sub><var>b</var></sub>)</td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; text-align: right; padding-left: 0em; text-align: right"><var>&Sigma;</var><sub><var>a</var>|<var>b</var><var>&#x200B;</var></sub></td>
+          <td style="white-space: nowrap; text-align: right; text-align: center"> = </td>
+          <td style="width: 50%; white-space: nowrap; text-align: right; padding-right: 0em; text-align: left; text-align: left"><var>&Lambda;</var><sup> - 1</sup><sub>aa</sub> =
+          <var>&Sigma;</var><sub>aa</sub> -
+          <var>&Sigma;</var><sub>ab</sub><var>&Sigma;</var><sub><table class="subsup">
+            <tr>
+              <td> - 1</td>
+            </tr>
+            <tr>
+              <td>bb</td>
+            </tr>
+          </table></sub><var>&Sigma;</var><sub>ba</sub></td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; text-align: right; padding-left: 0em; text-align: right"><var>p</var>(<var>x</var><sub><var>a</var></sub>)</td>
+          <td style="white-space: nowrap; text-align: right; text-align: center"> = </td>
+          <td style="width: 50%; white-space: nowrap; text-align: right; padding-right: 0em; text-align: left; text-align: left"><var>N</var>(<var>x</var><sub><var>a</var></sub>|<var>&mu;</var><sub><var>a</var></sub>,<var>&Sigma;</var><sub>aa</sub>|)</td>
+        </tr></tbody>
+      </table>
+    </center>
+    <p>
+      Given a joint Gaussian distribution
+      <var>N</var>(<var>x</var>|<var>&mu;</var>,<var>&Sigma;</var><var>&#x200B;</var>)
+      with <var>&Lambda;</var> = <var>&Sigma;</var><sup> - 1</sup> and 
+    </p>
+    <center>
+      <var>x</var>
+      = (
+      <table style="display: inline; vertical-align: -1.1em">
+        <tbody><tr>
+          <td style="text-align: center"><var>x</var><sub><var>a</var></sub></td>
+        </tr><tr>
+          <td style="text-align: center"><var>x</var><sub><var>b</var></sub></td>
+        </tr></tbody>
+      </table>
+      ),&amp;space;
+      <span style="margin-left: 1em"></span>
+      <var>&mu;</var>
+      = (
+      <table style="display: inline; vertical-align: -1.1em">
+        <tbody><tr>
+          <td style="text-align: center"><var>&mu;</var><sub><var>a</var></sub></td>
+        </tr><tr>
+          <td style="text-align: center"><var>&mu;</var><sub><var>b</var></sub></td>
+        </tr></tbody>
+      </table>
+      )
+    </center>
+    <center>
+      <var>&Sigma;</var>
+      = [
+      <table style="display: inline; vertical-align: -1.1em">
+        <tbody><tr>
+          <td style="text-align: center"><var>&Sigma;</var><sub>aa</sub><var>&Sigma;</var><sub>ab</sub></td>
+        </tr><tr>
+          <td style="text-align: center"><var>&Sigma;</var><sub>ba</sub><var>&Sigma;</var><sub>bb</sub></td>
+        </tr></tbody>
+      </table>
+      ]
+    </center>
+    <p>
+      
+    </p>
+    <h1 id="auto-4"><a id="header-n10"></a>3. Linear Models for Regression</h1>
+    <div class="right-tab">
+      The goal of regression is to predict the value of one or more continuous
+      <em>target</em> variables <var>t</var> given the value of a
+      <var>D</var>-dimensional vector <var>x</var><sup class="wide">&amp;vect;</sup>
+      <em>input</em> variables.
+    </div>
+    <h2 id="auto-5"><a id="header-n13"></a>3.1 Linear Basis Function Models</h2>
+    <center>
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"><var>y</var>(<var>x</var>,<var>w</var>) = </td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"><var>w</var><sub>0</sub> +
+          <var>&sum;</var><sup><var>M</var> - 1</sup><sub><var>j</var> =
+          1</sub><var>w</var><sub><var>j</var></sub>
+          <var>&#x03D5;</var><sub><var>j</var></sub>(<var>x</var>)</td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"> = </td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"><var>w</var><sup><var>T</var></sup>
+          <var>&#x03D5;</var>(<var>x</var>)</td>
+        </tr></tbody>
+      </table>
+    </center>
+    <p>
+      where <var>&#x03D5;</var><sub><var>j</var></sub>(<var>x</var><sup class="wide">&amp;vect;</sup>)
+      are known as <em>basis functions</em>, and <var>w</var><sub>0</sub>
+      <em>bias</em> parameter.<br></br><var>w</var> =
+      (<var>w</var><sub>0</sub>,...,<var>w</var><sub><var>M</var> -
+      1</sub>)<sup><var>T</var></sup> and <var>&#x03D5;</var> =
+      (<var>&#x03D5;</var><sub>0</sub>,...,<var>&#x03D5;</var><sub><var>M</var>
+      - 1</sub>)<sup><var>T</var></sup>.
+    </p>
+    <p>
+      By using nonlinear basis functions, we allow the function
+      <var>y</var>(<var>x</var>,<var>w</var>) to be a non-linear function of
+      the input vector <var>x</var>. Thus Eq. above is called a <em>linear
+      model</em>.
+    </p>
+    <p>
+      <b>Choices for the basis functions</b>
+    </p>
+    <p>
+      <em>Gaussian</em>:
+    </p>
+    <center>
+      <var>&#x03D5;</var>
+      <sub><var>j</var></sub>
+      (
+      <var>x</var>
+      ) =
+      <var>e</var>
+      
+      <var>x</var>
+      
+      <var>p</var>
+      { -
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">(<var>x</var> -
+          <var>&mu;</var><sub><var>j</var></sub>)<sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>2 <var>s</var><sup>2</sup></td>
+        </tr>
+      </table>
+      }
+    </center>
+    <p>
+      where <var>&mu;</var><sub><var>j</var></sub> govern the locations of the
+      basis functions in input space.
+    </p>
+    <p>
+      <em>Sigmoidal basis function</em>:
+    </p>
+    <center>
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"></td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"><span style="margin-left: 1em"></span><span style="margin-left: 1em"></span><span style="margin-left: 1em"></span><var>&#x03D5;</var><sub><var>j</var></sub>(<var>x</var>)
+          = <var>&sigma;</var>(<table class="fraction">
+            <tr>
+              <td style="border-bottom: solid 1px"><var>x</var> -
+              <var>&mu;</var><sub><var>j</var></sub></td>
+            </tr>
+            <tr>
+              <td><var>s</var></td>
+            </tr>
+          </table>)</td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"></td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left">where: </td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"></td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"><span style="margin-left: 1em"></span><span style="margin-left: 2em"></span><var>&sigma;</var>(<var>a</var>)
+          = <table class="fraction">
+            <tr>
+              <td style="border-bottom: solid 1px">1</td>
+            </tr>
+            <tr>
+              <td>1 + <var>e</var> <var>x</var> <var>p</var>( -
+              <var>a</var>)</td>
+            </tr>
+          </table></td>
+        </tr></tbody>
+      </table>
+    </center>
+    <p>
+      and <var>t</var> <var>a</var> <var>n</var> <var>h</var>(<var>a</var>) =
+      2 <var>&sigma;</var>(<var>a</var>) - 1
+    </p>
+    <p>
+      <em>The Fourier basis</em>: Each basis function represents a specific
+      frequency and has infinite spatial extent.
+    </p>
+    <p>
+      <a id="auto-6"></a><h5>Maximum Likelihood and least squares</h5><a id="header-n34"></a>
+    </p>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Mode_(statistics)">Mode</a>
+    </p>
+    <p>
+      Assume
+      <var>p</var>(<var>t</var>,|<var>X</var>,<var>w</var>,<var>&beta;</var>)
+      = <class style="font-family: Flemish Script"><var>N</var></class>(<var>t</var>|<var>y</var>,<var>&beta;</var><sup>
+      - 1</sup>), 
+    </p>
+    <p>
+      where <var>t</var> = <var>y</var> + <var>&#x03F5;</var> and <var>y</var>
+      = <var>w</var><sup><var>T</var></sup> <var>&#x03D5;</var>(<var>x</var>)
+    </p>
+    <center>
+      <table style="width: 100%">
+        <tbody><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"><var>p</var>(<class style="font-style: normal">t</class>|<var>X</var>,<var>w</var>,<var>&beta;</var>)</td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"> =
+          <var>&prod;</var><sup><var>N</var></sup><sub><var>n</var> =
+          1</sub><class style="font-family: Flemish Script"><var>N</var></class>(<var>t</var><sub><var>n</var></sub>|<var>w</var><sup><var>T</var></sup>
+          <var>&#x03D5;</var>(<var>x</var><sub><var>n</var></sub>),<var>&beta;</var><sup>
+          - 1</sup>)</td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"></td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"> = <table class="fraction">
+            <tr>
+              <td style="border-bottom: solid 1px"><var>N</var></td>
+            </tr>
+            <tr>
+              <td>2</td>
+            </tr>
+          </table><var>l</var> <var>n</var> <var>&beta;</var> - <table class="fraction">
+            <tr>
+              <td style="border-bottom: solid 1px"><var>N</var></td>
+            </tr>
+            <tr>
+              <td>2</td>
+            </tr>
+          </table><var>l</var> <var>n</var> (2 <var>&pi;</var>) -
+          <var>&beta;</var>
+          <var>E</var><sub><var>D</var></sub>(<var>w</var>)</td>
+        </tr><tr>
+          <td style="width: 50%; white-space: nowrap; padding-left: 0em; padding-right: 0.25em; text-align: right"></td>
+          <td style="width: 50%; white-space: nowrap; padding-right: 0em; padding-left: 0em; text-align: left"></td>
+        </tr></tbody>
+      </table>
+    </center>
+    <p>
+      where <class style="font-style: normal">t</class> is the column vector of targets and
+    </p>
+    <center>
+      <var>E</var>
+      <sub><var>D</var></sub>
+      (
+      <var>w</var>
+      ) =
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+      </table>
+      <var>&sum;</var>
+      <sup><var>N</var></sup>
+      <sub><var>n</var> = 1</sub>
+      {
+      <var>t</var>
+      <sub><var>n</var></sub>
+      -
+      <var>w</var>
+      <sup><var>T</var></sup>
+      
+      <var>&#x03D5;</var>
+      (
+      <var>x</var>
+      <sub><var>n</var></sub>
+      )}
+      <sup>2</sup>
+      .
+    </center>
+    <p>
+      It is easy to see that maximization of the likelihood function under a
+      conditional Gaussian noise distribution for a linear model is equivalent
+      to minimizing a sum-of-squares error function. Take the gradient and set
+      it to zero:
+    </p>
+    <center>
+      <var>w</var><sub><var>M</var> <var>L</var></sub> =
+      (<var>&Phi;</var><sup><var>T</var></sup> <var>&Phi;</var>)<sup> -
+      1</sup> <var>&Phi;</var><sup><var>T</var></sup><class style="font-style: normal">t</class>
+    </center>
+    <p>
+      where <em>design matrix</em> <var>&Phi;</var> is given by
+      <var>&Phi;</var><sub><var>n</var> <var>j</var></sub> =
+      <var>&#x03D5;</var><sub><var>j</var></sub>(<var>x</var><sub><var>n</var></sub>)
+    </p>
+    <p>
+      Take the derivative w.r.t. <var>w</var><sub>0</sub>
+    </p>
+    <center>
+      <var>w</var><sub>0</sub> = <var>t</var><sup class="wide"><var>&macr;</var></sup>
+      - <var>&sum;</var><sup><var>N</var></sup><sub><var>j</var> =
+      1</sub><var>w</var><sub><var>j</var></sub> <var>&#x03D5;</var><sup
+      class="wide"><var>&macr;</var></sup><sub><var>j</var></sub>
+    </center>
+    <p>
+      where <var>t</var><sup class="wide"><var>&macr;</var></sup> and
+      (<var>&#x03D5;</var><sub><var>j</var></sub>)<sup><var>&macr;</var></sup>
+      are the arithmetic mean of their elements.
+    </p>
+    <p>
+      Maximize the log likehood w.r.t. the noise precision parameter
+      <var>&beta;</var>:
+    </p>
+    <center>
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">1</td>
+        </tr>
+        <tr>
+          <td><var>&beta;</var><sub><var>M</var> <var>L</var></sub></td>
+        </tr>
+      </table>
+      =
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px">1</td>
+        </tr>
+        <tr>
+          <td><var>N</var></td>
+        </tr>
+      </table>
+      <var>&sum;</var>
+      <sup><var>N</var></sup>
+      <sub><var>n</var> = 1</sub>
+      [
+      <var>t</var>
+      <sub><var>n</var></sub>
+      -
+      <var>w</var>
+      <sup><var>T</var></sup>
+      <sub><var>M</var> <var>L</var></sub>
+      
+      <var>&#x03D5;</var>
+      (
+      <var>x</var>
+      <sub><var>n</var></sub>
+      )]
+      <sup>2</sup>
+    </center>
+    <p>
+      
+    </p>
+    <p>
+      The least-squares regression function (Euclidean distance) is obtained
+      by finding the orthogonal projection of the data vector <var>t</var>
+      onto the subspace spanned by the basis functions
+      <var>&#x03D5;</var><sub><var>j</var></sub>(<var>x</var>) in which each
+      basis function is viewed as a vector
+      <var>&#x03D5;</var><sub><var>j</var></sub> of length <em>N</em> with
+      elements
+      <var>&#x03D5;</var><sub><var>j</var></sub>(<var>x</var><sub><var>n</var></sub>).
+    </p>
+    <p>
+      <a id="auto-7"></a><h5>Sequential learning (online algorithms)</h5><a id="header-n55"></a>
+    </p>
+    <p>
+      <b>Stochastic graidient descent (sequential gradient descent)</b>
+    </p>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient descent</a>, see the description.
+    </p>
+    <p>
+      Given an error function <var>E</var> =
+      <var>&sum;</var><sub><var>n</var></sub><var>E</var><sub><var>n</var></sub>
+      , a sum over data points, after presentation of pattern
+      <var>n</var><br></br>
+    </p>
+    <center>
+      <var>w</var><sup>(<var>t</var> + 1)</sup> =
+      <var>w</var><sup>(<var>t</var>)</sup> - <var>&eta;</var>
+      <var>&#x25BF;</var> <var>E</var><sub><var>n</var></sub>
+    </center>
+    <p>
+      where <var>t</var> is the iteration number and <var>&eta;</var> is a
+      <em>learning rate</em>.
+    </p>
+    <p>
+      <em>LMS (least-mean-squares) algorithm</em>
+    </p>
+    <p>
+      <span style="margin-left: 1em"></span><span style="margin-left: 1em"></span>For the case of the
+      sum-of-squares error function:
+    </p>
+    <center>
+      <var>&#x25BF;</var> <var>E</var><sub><var>n</var></sub> =
+      (<var>t</var><sub><var>n</var></sub> - <var>w</var><sup>(<var>t</var>)
+      <var>T</var></sup> <var>&#x03D5;</var><sub><var>n</var></sub>)
+      <var>&#x03D5;</var><sub><var>n</var></sub>
+    </center>
+    <p>
+      <a id="auto-8"></a><h5>Regularized least squares</h5><a id="header-n70"></a>
+    </p>
+    <center>
+      <var>E</var>(<var>x</var>) = <var>E</var><sub><var>D</var></sub> +
+      <var>&lambda;</var> <var>E</var><sub><var>W</var></sub>
+    </center>
+    <p>
+      In general
+      <var>E</var>
+      <sub><var>W</var></sub>
+      =
+      <table class="fraction">
+        <tr>
+          <td style="border-bottom: solid 1px"><var>&lambda;</var></td>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+      </table>
+      <var>&sum;</var>
+      <sup><var>M</var></sup>
+      <sub><var>j</var> = 1</sub>
+      |
+      <var>w</var>
+      <sub><var>j</var></sub>
+      |
+      <sup><var>q</var></sup>
+    </p>
+    <p>
+      <div class="left-tab">
+        <var>q</var> = 1: (lasso) if is large enough, some of the coefficients
+        are driven to zero<br></br>
+      </div>
+      <div class="right-tab">
+        <var>q</var> = 2: <var>E</var><sub><var>w</var></sub> (<var>q</var> =
+        2) is known in ML as <em>weight decay</em>, because in sequential
+        learning algorithms, it encourages weight values to decay towards
+        zero. In statistics, it is an example of a <em>parameter
+        shrinkage</em> method.
+      </div>
+    </p>
+    <center>
+      <var>w</var> = (<var>&lambda;</var> <var>I</var> +
+      <var>&Phi;</var><sup><var>T</var></sup> <var>&Phi;</var>)<sup> - 1</sup>
+      <var>&Phi;</var><sup><var>T</var></sup> <var>t</var>
+    </center>
+    <p>
+      <img src="PRML Part 1-1.png" height="60%"></img>
+    </p>
+    <p>
+      Consider this figure in a Langrange-multipliers way.
+    </p>
+    <p>
+      <a id="auto-9"></a><h5>Multiple outputs</h5><a id="header-n81"></a>
+    </p>
+    <p>
+      Of course we can decouple into multiple, independent regression
+      problems, however there is an approach using the same set of basis
+      functions so that y
+    </p>
+    <center>
+      <var>y</var>(<var>x</var>,<var>w</var>) =
+      <var>W</var><sup><var>T</var></sup> <var>&#x03D5;</var>(<var>x</var>)
+    </center>
+    <p>
+      and
+    </p>
+    <center>
+      <var>p</var>(<class style="font-style: normal">t</class>|<var>x</var>,<var>W</var>,<var>&beta;</var>)
+      = <class style="font-family: Flemish Script"><var>N</var></class>(<class style="font-style: normal">t</class>|<var>W</var><sup><var>T</var></sup>
+      <var>&#x03D5;</var>(<var>x</var>),<var>&beta;</var><sup> - 1</sup>
+      <var>I</var>)
+    </center>
+    <p>
+      which yields
+    </p>
+    <center>
+      <var>W</var><sub><var>M</var> <var>L</var></sub> =
+      <var>&Phi;</var><sup><var>&dagger;</var></sup> <var>T</var>
+    </center>
+    <div class="right-tab">
+      For the case of arbitrary covariance matrices, see MAL of multi-variate
+      Gaussian distribution.
+    </div>
+  </body>
+</html>
