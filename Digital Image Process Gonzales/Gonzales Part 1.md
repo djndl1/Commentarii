@@ -1143,7 +1143,7 @@ $$
 
 ## 5.10 Geometric Mean Filter
 
-\indA generalization of Wiener filter, called _geometric mean filter_:
+$\quad\quad$A generalization of Wiener filter, called _geometric mean filter_:
 $$
 \hat{F}(u,v)=\Bigg[\dfrac{H^*(u,v)}{|H*(u,v)|^2}\Bigg]^\alpha\Bigg[\dfrac{H^*(u,v)}{|H(u,v)|^2+\beta\big[\frac{S_\eta(u,v)}{S_f(u,v)}]}\Bigg]^{1-\alpha}G(u,v)
 $$
