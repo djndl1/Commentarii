@@ -234,9 +234,31 @@ $\quad\quad$`Sum` and `Product` and their numerical versions `NSum`, `NProduct`
 
 ##8. Loops and Repetitions
 
-```matlab
+```mathematica
 Do[]
+Timing[]
+Input["Enter a number"]
+While[]
+For[init,condition,steps,body]
+For[i = 1; sum = 0, i < 11, i++, sum = sum + i/(2 i + 1)]
+
+Do[
+Print[i , " ", j],
+{i, 1, 3}, {j, 1, 2}]
+
+Nest[f,x,4]
+f[f[f[f[x]]]]
+NestList[f,x,4]
+
+f[x_] := 2 + Sqrt[x]
+g[{x_, n_}] := Sqrt[Nest[f, x, n]]/2
+pr = N[Product[g[{2, n}], {n, 1, 100}] Sqrt[2]/2]
+prl[{x_, n_}] := Sqrt[#]/2 & /@ NestList[f, x, n]
+Times @@ prl[{2, 100}] // N
 ```
+ `While[test,body]` is the same as `For[ ,test, , body]` and `Do[body,{x,xmin,xmax,inc}]` is the same as `For[x=xmin,x≤xmax,x+=inc,body]`.
+
+`Quotient[]` can be used to drop the last digit.
 
 ## 9. Substitution, Mathematica rules
 
