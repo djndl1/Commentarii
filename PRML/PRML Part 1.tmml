@@ -1,0 +1,900 @@
+<?xml version="1.0"?>
+
+<TeXmacs version="1.99.6">
+  <style><tuple><tm-arg>generic</tm-arg><tm-arg>std-latex</tm-arg></tuple></style>
+  
+  <body>
+    <tm-par>
+      <hide-preamble>
+        <tm-par>
+          <assign><tm-arg>maxwidth</tm-arg><tm-arg><macro><ifdim/><Gin_64_nat_64_width/><tm-sym>gtr</tm-sym>tex-line-widthtex-line-width<else/><Gin_64_nat_64_width/><fi/></macro></tm-arg></assign>
+        </tm-par>
+        
+        <tm-par>
+          <assign><tm-arg>maxheight</tm-arg><tm-arg><macro><ifdim/><Gin_64_nat_64_height/><tm-sym>gtr</tm-sym>tex-text-heighttex-text-height<else/><Gin_64_nat_64_height/><fi/></macro></tm-arg></assign>
+        </tm-par>
+        
+        <tm-par>
+          <assign><tm-arg>tightlist</tm-arg><tm-arg><macro><tm-arg></tm-arg></macro></tm-arg></assign>
+        </tm-par>
+        
+        <tm-par>
+          <assign><tm-arg>fps</tm-arg><tm-arg><macro>htbp</macro></tm-arg></assign>
+        </tm-par>
+      </hide-preamble>
+    </tm-par>
+    
+    <tm-par>
+      
+    </tm-par>
+    
+    <tm-par>
+      <chapter_42_>2. Probability
+      Distribution</chapter_42_><label>header-n0</label>
+    </tm-par>
+    
+    <tm-par>
+      <em>Density estimation</em>
+    </tm-par>
+    
+    <tm-par>
+      <math><tm-arg></tm-arg></math>Data points are independent and
+      identically distributed. There are infinitely many probability
+      distributions that could have given rise to the observed finite data
+      set.
+    </tm-par>
+    
+    <tm-par>
+      <with font-series="bold">Parametric</with> and <with font-series="bold">non-parametric</with>
+      approaches.
+    </tm-par>
+    
+    <tm-par>
+      <section_42_>2.3 The Gaussian Distribution</section_42_>
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          N<around_42_><tm-arg>(</tm-arg><tm-arg>x<around_42_><tm-arg>|</tm-arg><tm-arg>μ,Σ</tm-arg><tm-arg>|</tm-arg></around_42_></tm-arg><tm-arg>)</tm-arg></around_42_>=<frac><tm-arg>1</tm-arg><tm-arg><around_42_><tm-arg>(</tm-arg><tm-arg>2π</tm-arg><tm-arg>)</tm-arg></around_42_><rsup>D/2</rsup></tm-arg></frac><dfrac><tm-arg>1</tm-arg><tm-arg><around_42_><tm-arg>|</tm-arg><tm-arg>Σ</tm-arg><tm-arg>|</tm-arg></around_42_><rsup>1/2</rsup></tm-arg></dfrac>exp<mid>{</mid>-<dfrac><tm-arg>1</tm-arg><tm-arg>2</tm-arg></dfrac><around_42_><tm-arg>(</tm-arg><tm-arg>x-μ</tm-arg><tm-arg>)</tm-arg></around_42_><rsup>T</rsup>Σ<rsup>-1</rsup><around_42_><tm-arg>(</tm-arg><tm-arg>x-μ</tm-arg><tm-arg>)</tm-arg></around_42_><mid>}</mid>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      
+    </tm-par>
+    
+    <tm-par>
+      <em>Mahalanobis distance</em>:
+      <math>Δ<rsup><tm-arg></tm-arg></rsup>=<sqrt><around_42_><tm-arg>(</tm-arg><tm-arg>x-μ</tm-arg><tm-arg>)</tm-arg></around_42_><rsup>T</rsup>Σ<rsup>-1</rsup><around_42_><tm-arg>(</tm-arg><tm-arg>x-μ</tm-arg><tm-arg>)</tm-arg></around_42_></sqrt></math>
+      and the quadratic form of the Gaussian distribution.
+    </tm-par>
+    
+    <tm-par>
+      <math><tm-arg></tm-arg></math><em xml:space="preserve">General, diagonal </em>and <em>isotropic</em>
+      (<math>Σ=σ<rsup>2</rsup>I</math>) covariace matrix
+    </tm-par>
+    
+    <tm-par>
+      A limitation of the Gaussian distribution is that it it intrinsically
+      unimodal (i.e., has a single maximum) and so is unable to provide a godd
+      approximation to multimodal distributions. The introduction of
+      <em>latent variables</em>, also called <em>hidden variables</em> or
+      <em>unobserved variables</em>, allows both the covariance problem and
+      the unimode problem to be addressed.
+    </tm-par>
+    
+    <tm-par>
+      <subsection_42_>2.3.1 Conditional and Marginal Gaussian
+      distributions</subsection_42_>
+    </tm-par>
+    
+    <tm-par>
+      <htab>5mm</htab>An important property of the multivariate Gaussian
+      distribution is that if two sets of variables are jointly Gaussian, then
+      the conditional distribution of one set conditioned on the other is
+      again. Similarly, the marginal distribution of either set is also
+      Gaussian.
+    </tm-par>
+    
+    <tm-par>
+      <eqnarray_42_>
+        <tm-par>
+          <tformat>
+            <tm-arg><cwith><tm-arg>2</tm-arg><tm-arg>2</tm-arg><tm-arg>1</tm-arg><tm-arg>1</tm-arg><tm-arg>cell-hyphen</tm-arg><tm-arg>n</tm-arg></cwith></tm-arg>
+            <tm-arg><cwith><tm-arg>1</tm-arg><tm-arg>-1</tm-arg><tm-arg>1</tm-arg><tm-arg>-1</tm-arg><tm-arg>cell-halign</tm-arg><tm-arg>r</tm-arg></cwith></tm-arg>
+            <tm-arg><cwith><tm-arg>1</tm-arg><tm-arg>-1</tm-arg><tm-arg>3</tm-arg><tm-arg>3</tm-arg><tm-arg>cell-halign</tm-arg><tm-arg>l</tm-arg></cwith></tm-arg>
+            <tm-arg>
+              <table>
+                <tm-arg><row><tm-arg><cell>μ<rsub>a<around_42_><tm-arg>|</tm-arg><tm-arg>b</tm-arg><tm-arg>|</tm-arg></around_42_></rsub></cell></tm-arg><tm-arg><cell>=</cell></tm-arg><tm-arg><cell>μ<rsub>a</rsub>+Σ<rsub>ab</rsub>Σ<rsup>-1</rsup><rsub>bb</rsub><around_42_><tm-arg>(</tm-arg><tm-arg>x<rsub>b</rsub>-μ<rsub>b</rsub></tm-arg><tm-arg>)</tm-arg></around_42_></cell></tm-arg></row></tm-arg>
+                <tm-arg><row><tm-arg><cell>Σ<rsub>a<around_42_><tm-arg>|</tm-arg><tm-arg>b</tm-arg><tm-arg><tm-sym>nobracket</tm-sym></tm-arg></around_42_></rsub></cell></tm-arg><tm-arg><cell>=</cell></tm-arg><tm-arg><cell>Λ<rsup>-1</rsup><rsub>aa</rsub>=Σ<rsub>aa</rsub>-Σ<rsub>ab</rsub>Σ<rsub>bb</rsub><rsup>-1</rsup>Σ<rsub>ba</rsub></cell></tm-arg></row></tm-arg>
+                <tm-arg><row><tm-arg><cell>p<around_42_><tm-arg>(</tm-arg><tm-arg>x<rsub>a</rsub></tm-arg><tm-arg>)</tm-arg></around_42_></cell></tm-arg><tm-arg><cell>=</cell></tm-arg><tm-arg><cell>N<around_42_><tm-arg>(</tm-arg><tm-arg>x<rsub>a</rsub><around_42_><tm-arg>|</tm-arg><tm-arg>μ<rsub>a</rsub>,Σ<rsub>aa</rsub></tm-arg><tm-arg>|</tm-arg></around_42_></tm-arg><tm-arg>)</tm-arg></around_42_></cell></tm-arg></row></tm-arg>
+              </table>
+            </tm-arg>
+          </tformat>
+        </tm-par>
+      </eqnarray_42_>
+    </tm-par>
+    
+    <tm-par xml:space="preserve">Given a joint Gaussian distribution <math xml:space="preserve">N<around_42_><tm-arg>(</tm-arg><tm-arg>x<around_42_><tm-arg>|</tm-arg><tm-arg>μ,Σ</tm-arg><tm-arg><tm-sym>nobracket</tm-sym></tm-arg></around_42_></tm-arg><tm-arg>)</tm-arg></around_42_> </math>with <math>Λ=Σ<rsup>-1</rsup></math> and </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          x=<matrix>
+            <tformat>
+              <table>
+                <tm-arg><row><cell>x<rsub>a</rsub></cell></row></tm-arg>
+                <tm-arg><row><cell>x<rsub>b</rsub></cell></row></tm-arg>
+              </table>
+            </tformat>
+          </matrix>,<tm-sym>space</tm-sym><space>1em</space>μ=<matrix>
+            <tformat>
+              <table>
+                <tm-arg><row><cell>μ<rsub>a</rsub></cell></row></tm-arg>
+                <tm-arg><row><cell>μ<rsub>b</rsub></cell></row></tm-arg>
+              </table>
+            </tformat>
+          </matrix>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          Σ=<bmatrix>
+            <tformat>
+              <table>
+                <tm-arg><row><cell>Σ<rsub>aa</rsub>Σ<rsub>ab</rsub></cell></row></tm-arg>
+                <tm-arg><row><cell>Σ<rsub>ba</rsub>Σ<rsub>bb</rsub></cell></row></tm-arg>
+              </table>
+            </tformat>
+          </bmatrix>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par xml:space="preserve"> </tm-par>
+    
+    <tm-par>
+      <chapter_42_>3. Linear Models for
+      Regression</chapter_42_><label>header-n10</label>
+    </tm-par>
+    
+    <tm-par>
+      <htab>5mm</htab>The goal of regression is to predict the value of one or
+      more continuous <em>target</em> variables <math>t</math> given the value
+      of a <math>D</math>-dimensional vector
+      <math><wide><tm-arg>x</tm-arg><tm-arg><tm-sym>vect</tm-sym></tm-arg></wide></math>
+      <em>input</em> variables.
+    </tm-par>
+    
+    <tm-par>
+      <section_42_>3.1 Linear Basis Function
+      Models</section_42_><label>header-n13</label>
+    </tm-par>
+    
+    <tm-par>
+      <align>
+        <tformat>
+          <table>
+            <tm-arg><row><tm-arg><cell>y<around><tm-arg>(</tm-arg><tm-arg>x,w</tm-arg><tm-arg>)</tm-arg></around>=</cell></tm-arg><tm-arg><cell>w<rsub>0</rsub>+<big>sum</big><rsup>M-1</rsup><rsub>j=1</rsub>w<rsub>j</rsub>*ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around></cell></tm-arg></row></tm-arg>
+            <tm-arg><row><tm-arg><cell>=</cell></tm-arg><tm-arg><cell>w<rsup>T</rsup>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around></cell></tm-arg></row></tm-arg>
+          </table>
+        </tformat>
+      </align>
+    </tm-par>
+    
+    <tm-par>
+      where
+      <math>ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg><wide><tm-arg>x</tm-arg><tm-arg><tm-sym>vect</tm-sym></tm-arg></wide></tm-arg><tm-arg>)</tm-arg></around></math>
+      are known as <em>basis functions</em>, and <math>w<rsub>0</rsub></math>
+      <em>bias</em>
+      parameter.<next-line/><math>w=<around><tm-arg>(</tm-arg><tm-arg>w<rsub>0</rsub>,...,w<rsub>M-1</rsub></tm-arg><tm-arg>)</tm-arg></around><rsup>T</rsup></math>
+      and
+      <math>ϕ=<around><tm-arg>(</tm-arg><tm-arg>ϕ<rsub>0</rsub>,...,ϕ<rsub>M-1</rsub></tm-arg><tm-arg>)</tm-arg></around><rsup>T</rsup></math>.
+    </tm-par>
+    
+    <tm-par>
+      <math><tm-arg></tm-arg></math>By using nonlinear basis functions, we
+      allow the function
+      <math>y<around><tm-arg>(</tm-arg><tm-arg>x,w</tm-arg><tm-arg>)</tm-arg></around></math>
+      to be a non-linear function of the input vector <math>x</math>. Thus Eq.
+      above is called a <em>linear model</em>.
+    </tm-par>
+    
+    <tm-par>
+      <with font-series="bold">Choices for the basis functions</with>
+    </tm-par>
+    
+    <tm-par>
+      <em>Gaussian</em>:
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around>=e*x*p*<around_42_><tm-arg>{</tm-arg><tm-arg>-<dfrac><tm-arg><around><tm-arg>(</tm-arg><tm-arg>x-μ<rsub>j</rsub></tm-arg><tm-arg>)</tm-arg></around><rsup>2</rsup></tm-arg><tm-arg>2*s<rsup>2</rsup></tm-arg></dfrac></tm-arg><tm-arg>}</tm-arg></around_42_>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      where <math>μ<rsub>j</rsub></math> govern the locations of the basis
+      functions in input space.
+    </tm-par>
+    
+    <tm-par>
+      <em>Sigmoidal basis function</em>:
+    </tm-par>
+    
+    <tm-par>
+      <align>
+        <tformat>
+          <table>
+            <tm-arg><row><tm-arg><cell><tm-arg></tm-arg></cell></tm-arg><tm-arg><cell><space>1em</space><space>1em</space><space>1em</space>ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around>=σ<around><tm-arg>(</tm-arg><tm-arg><dfrac><tm-arg>x-μ<rsub>j</rsub></tm-arg><tm-arg>s</tm-arg></dfrac></tm-arg><tm-arg>)</tm-arg></around></cell></tm-arg></row></tm-arg>
+            <tm-arg><row><tm-arg><cell><tm-arg></tm-arg></cell></tm-arg><tm-arg><cell><text
+            xml:space="preserve">where: </text></cell></tm-arg></row></tm-arg>
+            <tm-arg><row><tm-arg><cell><tm-arg></tm-arg></cell></tm-arg><tm-arg><cell><space>1em</space><space>2em</space>σ<around><tm-arg>(</tm-arg><tm-arg>a</tm-arg><tm-arg>)</tm-arg></around>=<dfrac><tm-arg>1</tm-arg><tm-arg>1+e*x*p(-a)</tm-arg></dfrac></cell></tm-arg></row></tm-arg>
+          </table>
+        </tformat>
+      </align>
+    </tm-par>
+    
+    <tm-par>
+      and
+      <math>t*a*n*h<around><tm-arg>(</tm-arg><tm-arg>a</tm-arg><tm-arg>)</tm-arg></around>=2*σ<around><tm-arg>(</tm-arg><tm-arg>a</tm-arg><tm-arg>)</tm-arg></around>-1</math>
+    </tm-par>
+    
+    <tm-par>
+      <em>The Fourier basis</em>: Each basis function represents a specific
+      frequency and has infinite spatial extent.
+    </tm-par>
+    
+    <tm-par>
+      <paragraph>Maximum Likelihood and least
+      squares</paragraph><label>header-n34</label>
+    </tm-par>
+    
+    <tm-par>
+      <hlink><tm-arg>Mode</tm-arg><tm-arg>https://en.wikipedia.org/wiki/Mode_(statistics)</tm-arg></hlink>
+    </tm-par>
+    
+    <tm-par xml:space="preserve"><math><tm-arg></tm-arg></math>Assume <math>p(t,<around><tm-arg>|</tm-arg><tm-arg>X,w,β</tm-arg><tm-arg>)</tm-arg></around>=<with
+    math-font="cal">N</with><around><tm-arg>(</tm-arg><tm-arg>t|y,β<rsup>-1</rsup></tm-arg><tm-arg>)</tm-arg></around></math>, </tm-par>
+    
+    <tm-par>
+      where <math>t=y+ϵ</math> and
+      <math>y=w<rsup>T</rsup>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around></math>
+    </tm-par>
+    
+    <tm-par>
+      <align>
+        <tformat>
+          <table>
+            <tm-arg><row><tm-arg><cell>p<around><tm-arg>(</tm-arg><tm-arg><math-up>t</math-up>|X,w,β</tm-arg><tm-arg>)</tm-arg></around></cell></tm-arg><tm-arg><cell>=<big>prod</big><rsup>N</rsup><rsub>n=1</rsub><with
+            math-font="cal">N</with><around><tm-arg>(</tm-arg><tm-arg>t<rsub>n</rsub>|w<rsup>T</rsup>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x<rsub>n</rsub></tm-arg><tm-arg>)</tm-arg></around>,β<rsup>-1</rsup></tm-arg><tm-arg>)</tm-arg></around></cell></tm-arg></row></tm-arg>
+            <tm-arg><row><tm-arg><cell><tm-arg></tm-arg></cell></tm-arg><tm-arg><cell>=<dfrac><tm-arg>N</tm-arg><tm-arg>2</tm-arg></dfrac>l*n*β-<dfrac><tm-arg>N</tm-arg><tm-arg>2</tm-arg></dfrac>l*n*<around><tm-arg>(</tm-arg><tm-arg>2*π</tm-arg><tm-arg>)</tm-arg></around>-β*E<rsub>D</rsub><around><tm-arg>(</tm-arg><tm-arg>w</tm-arg><tm-arg>)</tm-arg></around></cell></tm-arg></row></tm-arg>
+            <tm-arg><row><tm-arg><cell><tm-arg></tm-arg></cell></tm-arg><tm-arg><cell><tm-arg></tm-arg></cell></tm-arg></row></tm-arg>
+          </table>
+        </tformat>
+      </align>
+    </tm-par>
+    
+    <tm-par>
+      where <math><math-up>t</math-up></math> is the column vector of targets
+      and
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          E<rsub>D</rsub><around><tm-arg>(</tm-arg><tm-arg>w</tm-arg><tm-arg>)</tm-arg></around>=<dfrac><tm-arg>1</tm-arg><tm-arg>2</tm-arg></dfrac><big>sum</big><rsup>N</rsup><rsub>n=1</rsub><around><tm-arg>{</tm-arg><tm-arg>t<rsub>n</rsub>-w<rsup>T</rsup>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x<rsub>n</rsub></tm-arg><tm-arg>)</tm-arg></around></tm-arg><tm-arg>}</tm-arg></around><rsup>2</rsup>.
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      It is easy to see that maximization of the likelihood function under a
+      conditional Gaussian noise distribution for a linear model is equivalent
+      to minimizing a sum-of-squares error function. Take the gradient and set
+      it to zero:
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          w<rsub>M*L</rsub>=<around><tm-arg>(</tm-arg><tm-arg>Φ<rsup>T</rsup>*Φ</tm-arg><tm-arg>)</tm-arg></around><rsup>-1</rsup>*Φ<rsup>T</rsup><math-up>t</math-up>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      where <em>design matrix</em> <math>Φ</math> is given by
+      <math>Φ<rsub>n*j</rsub>=ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg>x<rsub>n</rsub></tm-arg><tm-arg>)</tm-arg></around></math>
+    </tm-par>
+    
+    <tm-par>
+      <math><tm-arg></tm-arg></math>Take the derivative w.r.t.
+      <math>w<rsub>0</rsub></math>
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          w<rsub>0</rsub>=<wide><tm-arg>t</tm-arg><tm-arg><tm-sym>bar</tm-sym></tm-arg></wide>-<big>sum</big><rsup>N</rsup><rsub>j=1</rsub>w<rsub>j</rsub>*<wide><tm-arg>ϕ</tm-arg><tm-arg><tm-sym>bar</tm-sym></tm-arg></wide><rsub>j</rsub>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      where
+      <math><wide><tm-arg>t</tm-arg><tm-arg><tm-sym>bar</tm-sym></tm-arg></wide></math>
+      and
+      <math><wide><tm-arg>ϕ<rsub>j</rsub></tm-arg><tm-arg><tm-sym>bar</tm-sym></tm-arg></wide></math>
+      are the arithmetic mean of their elements.
+    </tm-par>
+    
+    <tm-par>
+      <math><tm-arg></tm-arg></math>Maximize the log likehood w.r.t. the noise
+      precision parameter <math>β</math>:
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          <dfrac><tm-arg>1</tm-arg><tm-arg>β<rsub>M*L</rsub></tm-arg></dfrac>=<dfrac><tm-arg>1</tm-arg><tm-arg>N</tm-arg></dfrac><big>sum</big><rsup>N</rsup><rsub>n=1</rsub><around><tm-arg>[</tm-arg><tm-arg>t<rsub>n</rsub>-w<rsup>T</rsup><rsub>M*L</rsub>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x<rsub>n</rsub></tm-arg><tm-arg>)</tm-arg></around></tm-arg><tm-arg>]</tm-arg></around><rsup>2</rsup>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      
+    </tm-par>
+    
+    <tm-par>
+      The least-squares regression function (Euclidean distance) is obtained
+      by finding the orthogonal projection of the data vector <math>t</math>
+      onto the subspace spanned by the basis functions
+      <math>ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around></math>
+      in which each basis function is viewed as a vector
+      <math>ϕ<rsub>j</rsub></math> of length <em>N</em> with elements
+      <math>ϕ<rsub>j</rsub><around><tm-arg>(</tm-arg><tm-arg>x<rsub>n</rsub></tm-arg><tm-arg>)</tm-arg></around></math>.
+    </tm-par>
+    
+    <tm-par>
+      <paragraph>Sequential learning (online
+      algorithms)</paragraph><label>header-n55</label>
+    </tm-par>
+    
+    <tm-par>
+      <with font-series="bold">Stochastic graidient descent (sequential gradient
+      descent)</with>
+    </tm-par>
+    
+    <tm-par>
+      <hlink><tm-arg>Gradient
+      descent</tm-arg><tm-arg>https://en.wikipedia.org/wiki/Gradient_descent</tm-arg></hlink>,
+      see the description.
+    </tm-par>
+    
+    <tm-par>
+      Given an error function
+      <math>E=<big>sum</big><rsub>n</rsub>E<rsub>n</rsub></math> , a sum over
+      data points, after presentation of pattern <math>n</math><next-line/>
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          w<rsup><around><tm-arg>(</tm-arg><tm-arg>t+1</tm-arg><tm-arg>)</tm-arg></around></rsup>=w<rsup><around><tm-arg>(</tm-arg><tm-arg>t</tm-arg><tm-arg>)</tm-arg></around></rsup>-η*▿*E<rsub>n</rsub>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      where <math>t</math> is the iteration number and <math>η</math> is a
+      <em>learning rate</em>.
+    </tm-par>
+    
+    <tm-par>
+      <em>LMS (least-mean-squares) algorithm</em>
+    </tm-par>
+    
+    <tm-par>
+      <math><space>1em</space><space>1em</space></math>For the case of the
+      sum-of-squares error function:
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          ▿*E<rsub>n</rsub>=<around><tm-arg>(</tm-arg><tm-arg>t<rsub>n</rsub>-w<rsup><around><tm-arg>(</tm-arg><tm-arg>t</tm-arg><tm-arg>)</tm-arg></around>*T</rsup>*ϕ<rsub>n</rsub></tm-arg><tm-arg>)</tm-arg></around>*ϕ<rsub>n</rsub>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      <paragraph>Regularized least
+      squares</paragraph><label>header-n70</label>
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          E<around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around>=E<rsub>D</rsub>+λ*E<rsub>W</rsub>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      In general
+      <math>E<rsub>W</rsub>=<dfrac><tm-arg>λ</tm-arg><tm-arg>2</tm-arg></dfrac><big>sum</big><rsup>M</rsup><rsub>j=1</rsub><around><tm-arg>|</tm-arg><tm-arg>w<rsub>j</rsub></tm-arg><tm-arg>|</tm-arg></around><rsup>q</rsup></math>
+    </tm-par>
+    
+    <tm-par>
+      <math>q=1</math>: (lasso) if is large enough, some of the coefficients
+      are driven to zero<next-line/><htab>5mm</htab><math>q=2</math>:
+      <math>E<rsub>w</rsub>*<around><tm-arg>(</tm-arg><tm-arg>q=2</tm-arg><tm-arg>)</tm-arg></around></math>
+      is known in ML as <em>weight decay</em>, because in sequential learning
+      algorithms, it encourages weight values to decay towards zero. In
+      statistics, it is an example of a <em>parameter shrinkage</em> method.
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          w=<around><tm-arg>(</tm-arg><tm-arg>λ*I+Φ<rsup>T</rsup>*Φ</tm-arg><tm-arg>)</tm-arg></around><rsup>-1</rsup>*Φ<rsup>T</rsup>*t
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      <image><tm-arg><tuple><tm-arg><raw-data xml:space="preserve">ĽPNG‚˙j˙```‚IHDR``˜Ŕ``ˆC˘˚```ń4!t`` `IDATxĲìÝwxTÕÖ˚ð7ŢÞkBQ 4Čô*ćˆć M“ﬀXQPPÁĆWÑŃĂćà˝,ĺ Ý˚—TžĂ˘˙˘˘ÒQé(%ťPˆď”23SSﬄë;îsBB2ÉLÎÙ3ïïyò0çdÐŢŘÌŽţËÚ!ﬃŔÇ˜""""""ćń˘ţ;`""""""r&gt;—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—ŔDDDDDDŤ-—Ŕ‹ŰđŸĂ$W.ßšû„.&amp;ęù4ﬃ"""}ď#1!¯źOč⁠Á4JDdÅâÑĄŠw‐ĘĄůűÄ-ÝžăqÔţè4j‚ÎdŰýŠßÂô'żáîaËqÒôyœŹ–xąqq»/—Č¿ŃãáÎůÈĽĹĹìŰŇÝ§‚Äŋ-oAů.Ŋ”um'ŇZs&amp;Ó"2ùŕéxšÛÝ0űüďéónĲYñˆj⁠/Őb1}ś8đYŤĹÈÀâÑa\Ç£ÃĂÞ_ąÆÛËřzåRLëq¯KĞõÆðSS„3<tm-sym>Ӎ������7���</tm-sym>sqë˛ÌÜđ˚à˘¿þx=Îçç⁠@DDdﬀ⁠Ő‐7`¡£łĄůŮŋÆÊěÓÐãÒR˛ë=ﬁWęÑ«ŸœÌ@L^ø-¿Y⁠›ŢF/bëŇŹŘ4ú5&gt;^Ï,JDd‘ñè(¯X5b»Î˛ü˘ČŻŤ@(ÒpæøE`Gś~ûé˛čę⁠řuþ—ď´(ÓâFT)ă&gt;SćÍkxóűb`ĂK⁠ŞM¯ŚĹĹ(Ă%ňÂĹQg0ðčÁhR"»H;˜IčëśýtĘźÇ¸[1‐KjĂ2hqc–ĺ4Zˆm^{«ŠF/áb2ş(”ŚĄÅčČÿâ—‘üž&amp;xîîj˘ˇĂşk1kM„ĂÒĺ[ń»ÂÌONÚŊeë«`Dă~ÇX»3‐ő@môŻ2ﬃ7E`ejTDÁüû„ĹĹĹlâBÜĆñXŒä9Ü]-ﬁ`pví,HjŋŃZě,Y»IżŮAÒh}tŇţdQ»ĺÝ›SÆSSĎ˘ŤAŊŁÌćDDĘpż˜ åÌŕ_ãøŋÃÐšĎ\ÇŕŽŐe¯`ÊvÁ#MKXđŻvd–~:ˆ`ŒąKóšWŇˆĎWjŃîuŃ"íĘj(bžïNÜĚïSSŻĂ9£nÇîčŮPâŽŽĹmÕ«˜§¿¸ŒŮ˛˜””ŚđÎàŒŕŔãÖa-!ı3ﬃńę/ČďÑG‘Mči8šê'HjíĆæeŕÈćĺÔű;ê—MÃ‚5ŁX&gt;Ã<tm-sym>JD��3�R��'X</tm-sym>žź»{îxňŹźˆ⁠´TìÑ⁠-JŽ§éFüoŃřﬀ`őíĂ6ÑŹŊ´ÿá)P‚77,œï?rêîŔqoŻÇřťXWĳöéŔX¡l˚^íRﬁ£Ŋž⁠õ+ůÀ3sŔĂŊåĹĹHOeÑõŞå0Ý\Ł=wüjÌ\q”@EôèÛˆÖ4jŔSS—í˚`\Ûą‚2Očﬃ»ĺv3jŰSoŢŸGĽ(ØqæÑAB¸ŮCŹß‐ì&gt;¡˙3V&amp;ˆĺŇżﬄmj]ŰŁóØž‘;\`Jţž–ţ˙gòﬄżÿ⁠£_nĘ~1ß£Ü&amp;yﬀÞ~ljłNø¯cÛŤüßĆš´nﬄ0˝-őŃ@ý[&amp;âÃûúăöÎ§ðtŋH‐}ĽDDD~„ŁÂåþÍć8¡j˚$ŊÞŊGŻZş(ÎoÅĆí.`ěÐêÖZÈ<tm-sym>�������H�̣DD�yt(7����� T��׷.�A�_X��"�4��0Ca)�Z������/�I��)f�ۂ/^}/Z�[��!x�	��5�𫽸��/���(����ˌ�!i�~\�F�H.�h�.3͢�k�����jW�Q""�u��^�d e�߉�2$���k�* �s�2��#&��7�rO�L��v�N�]�?2t�+�5�'wG����������ۼ�[DDD~t~�^��,��y�i4G׮����h^&��BI����Ӵg�y4==իWGDDF���/���.,���l���0Խ��+f����� }�W�d�q�V�^�Gn���?p��#��i�b�Wx�J����;r P6���]��m߾��̓�����˱v���DDD�r��FH��[��"�b�o� �74G�it6��<�[+��I�ȣC�������t�9ii�1ID���щғ�� %P5���H��sH���uEq7N.��u���2��a�а�c�ss�+��H�?�6����xꁺ9</tm-sym>ÚãčŔ&gt;š\OĲ81Ğ‐ŞĹĹÈ‐ÒŞ„$OŰĺŁĺÂWdQ$İK˚`ŤŋﬂueÎs§Äš¯ëÐĺß-0ğQ‐äÑ/¿øBÅĲđŐ9sæäðo„”ÙČÅč«–ŇBÝè“`)8{!ÃáÄîxňŻ£«.`H¡ĂŤ˛+gŘÿ”ïŐżĂÇĘÜĹ„ÈĄťČøüĚŒśÙ]07£9ıýkçlŞ‐RR„¿þúkË¡źsçâüùó9úûDDDþR0ł.$ŊđÅŢitﬂæïŤäŹz!˝WęÑw1îÂc0rcŐšhőóèÚţkqâÄ¯Ë=‹Â„ŚÓśxtćř*èúl7Ť@˙~İ6ﬄ‐ßżŁÅĚ«ŃþŃQñœćwu`{çbÁ&gt;ÓÎŁť#øîù⁠řœŚ¯è[#'Ŋt«ñûŸ{0‘śﬀ7ŊXĘï_ĺ§iÇźÌÌŽ5¸⁠.\řÜKIIÁğ§~ŽÃßˆ””Ś‐ĎUéŁgżŢ`R~Åťù‐ńã3\'řè£č“‐ooHj]`kjý‹Ï£ř⁠ŔLèŃﬁěÑ<tm-sym>���
+�u��a���9�/����;ʄ�6|0F���z=qO�(~�g,�����F�_aȃOc�����'��N�qlZ��z��;��Tv��Dl{�.�{�ot��=�y��4l�0�W�N�ڵ˫/�������6��A0b�)��y:4(�c?/Ğؑ��v;\�j|z2���Q<ٵ"�o�ʭ��k�;ЬT���yȣ���\�r�{���ɓ'{�����N</tm-sym>Ę?6oÃđÃ⁠QÿFSťnZ˜%ŊÑPw*Nüś—£n?˙WźXťhÕ“ŒŰÈÁPľû"6£Ó«İÆyðìwSSàěÖě”˚È^ËŤ˘Ť,võ%7ëÖŋCëÖŋşüüŁ–+Ðő]żﬁ‐ŊDDDþáFòś?řyÛﬃﬁ¿X05ŽűFÓj%ąÒè¯üśöWl?êBźØ—hÕðZä$Ŋæ5ŔŐﬃ=jŕĳòJę§+Rď˘Őﬂ;ĘâÅŃ{óĚ„”å¸—ŔÁÆ}”ŻÆõDŕŕb0öżœpw5Õ«.áĞ&gt;èôÓÓøéİVıÚŽ[=ðÀ˜Ÿ5kVŰ§£ëőżðíůSSú0h"""ĞÈcﬃużÝĺ^¡:‹ﬂ:ŤåßbÂĎ¯xæŹg|ﬁ8”QÞqÏc0q§ÇÆśœćßow‘ÎÊŔ,¯›îóØźdˇ˙5ÿ—Ěőò§ĹŔŔÏűﬀÜüùó”⁠⁠çŻŸĽĹĹĲÂˇytÑćEW-ﬁ´6Î!"çbñ0,Ü¯øíŋőhûò„ìXöjÚU)ĄbÅŁąXść(ﬁıĆŘřŠÿéÃsĺﬀSüł?»ÓęMËöﬁłôôtLŹ2Åůñ«””ÙÉGy4'ĚáîÝżśråJSSÅNDä#\űj$ŠÖ‹Díﬀ'áêóĄ-0ýè:ôŋŤyÚËÉRﬀCTT»‹ﬄ&gt;Ňððﬁţń#""r4_äÑ˜ˇ‹ăfÍŽÈÉ[/n´!"'bñH9űpáBtëÖ-ÇÏßæŻopœÝwû1""""}˛ı2¨ãÇŔÏñóãââ“ﬂﬂíÇĹĹĹĳÃeńŤcÞű‹§4iŠ§"!""ÒKZZjfÎĲéÕSSŹ:uł§ć!"Êﬂ—ŔŤcûöíóêù‐þùğ§"!""ÒËÙşgqöìYŕþ‹ó(”9‚ŃGÊśŮ_~ıĚ¸çì˘äRěJaäÈŚ~ŐĹĹĹH›–*TÀ«O<tm-sym>����=�F�<x���""��<�׌�s�ΡL�2��?z��{3BBBl������<:o�<������</tm-sym>ÌčDäDlĚI^3„ZÆÄ—„„ÂdGDDŤŊÌò(s(”éĂËVĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([,ﬃĽĹĹĹĹĹ([ávˇ@ät.⁠pò$pì0püÿ|Ĳ8´$%´ééêãòeùÓåˆÂÂĂðpõ””!‐—*¨Tĺ`DEÉGt4Pść|đĹĹ(“]ž$źÓÈčÇŐ´ğNÉýŇ94=ﬂpżŋ9ÔĲGŃ—ţæÐĺ(ă|y $ÄîŕŠ(8řxďăŰŸ˘ìÞ‚ÄÅ]ŹØŇBñÔ)Idþ„„ˆŤ-kMĎæÇÑÑ@İ:@ÉŠþŃĄĹĹ(7Nİˆöî¡2wŽóéźsþŊ!<tm-sym>\̚s��g�J@ݺ@����(�x����l�
+lެ</tm-sym>öìñoaŸ«ﬃ›“ﬄ/ﬄ;vdþĲŘ“ăzuăI«ùhÚ»hÜŸ˝%””å§Sğ$wnÚďòèÑčvG%şŢqqòŚŢĹ˘ 6VåÑ&amp;MĂ˚‚XP„yŃÅ#˝ďŇĚâęM22ŽŮB12RŰŸj#ŹEŃZŮÒŸ?\.ë„ﬁã#)IŊÊﬃ?‹ďęæìßíñ`ˇ‹ÈÇ7SSÈ¡Ň˝ěñÁĆŠĹĹòêÔ)kŚèŃBśH”ëŰŊĆ˝3ÏčaaW.e5&gt;„„T‹=yRîåÄåËÀűmò1}žÜ¸›ŮĆšiSŢCëŒŮÿĹ(s,ﬃ) Ĳ<tm-sym>	,Z����bdd��E��)��=��e�����ر̋��
+J �QC`�6@׮�5��6f""
+<�vI]���B�HY�Y�4?.^ܷ1�ݲj'�ܙ1��\W���t`�v�Ȭ�l��ԉ��Df!��cw��s�Ρt���^���!:::���;w 7J1��dTѼ�36��k\.ٗi�ݶMf1s�~}�[7�hڔM���b޼y�ѣ 
+      &&���˷����Y#yt�B
+      ���%eۄy�K���-))�-�<���_9�����n݀�݁j��/���x�\�����e`�j).�����7
+E�r��9�v�(��et4Х��H�z+���)�����K%�.Y�={���X(�Tj��8���䤠���B�kW�E
+      ���Q�a�H���cB����.Ο������;�[V��Sn���\�^�9���:t�$إ�|���(��G�x����U�d
+      6+�kKm�\^�W�B1�����ٿ�PA�_ݺI</tm-sym>-\8ßb%š¸ŃGÊ5‐–ŔľľÀŒ_˜§}&amp;/ÞWﬀ˝ĳî:ţ$Ş#ĂWÚűM¡iØš%ëě¡ąąòýëÓˇxè!ăXśüŊŞĹ(0ùńxŇŔŮ=|_~Źu⁠o@jÓťn-şhÝž´ţjùä‐ﬄ0._ŰĆÛØ"óÏ?Y?ůP!YÑÓůŕ|?ÃÂò/NćüÄâŚrÍŒÅãÁČÀďIÀÌŹÀŹ3Ź?Çĳœă[7ı–ěĲĽŃS¯påJ9Ĳ93ÅŁ´›<tm-sym> ԫ��1_�k�'�~��e��bŀ�o�ڹ3`J㔍�;Հ��g=
+      [�
+п?Я��N��k�(�n`�bIv˖e�B\�б�$�;�`�3_HJ~�Q���2J��6m�����ZLD�|Q<&%_|!��۷g���Ue6�kW�m[�2Nys�lY� ��'iʓQDг��ћn������#�Z^���x`�4`ʔ̗�DF�z�</tm-sym>˙Ü|3¸⁠‐rżeŔäg§´şfeÞtğB˝àñÇĄ'đŘ”U""Êżĳ»ŔżvÉÀëg§I#ĲŇÊŤŚﬁÚğ›Ðřąŕ"ęÌďďÈĂìťiÒğ!şčÂêÕ˜˚˛`ﬃ|Ř[CHo,ﬃ)ŒrS<tm-sym>�[|�Q�Kj��F
+��ʕ�uĔ��O?��]���|X�4�8P�S#""_�xLO�Ε��_2N���}��m��&O�=����1��<��4�#�ۋ�߹�22ڨ�l̟=�Z8��Ȳ�d��С,�R�8��3Ү|�J��W�w����e�L����f�����|��E`�(`��+�B��Q˦M�����p�˵��GG��r�n�~��E��WO��.ZdO�D����j�|9k�ᇥ�Y�2��!r0�%���R��m[`�i�</tm-sym>bĎĲ”iűo§»ŽţkËà@fËtĹĹ(œ.]ˆÞ{OŽÃ‚ﬀ˚ﬁ;fý|ÍŽÀ;ïHCťéÓåŸ*rĘÈHY2ĳv-řuń4Ï)RÄúĲ5kä¡OŻ6ò<tm-sym>"�:�Ś52�x���Z?׼9��'2*7v�8L�.E�9RT���4l�T""_p�eA���s��O�υ�In��G`��|�R��J�k�Pz<���ԩc����7�(���#QN�x$�ڱCZ�t��o4��N.��Yx�,c]�R�C</tm-sym>òĹuęxçNŐă„”åÕĆ˝šbçŚGdÐÎPă`ðüó2‘7w.œİëĺD¯‘Ð Éą+V\ÙĄuÑ"ăA˜9oùjgJ„ÙĽÅ#ùH5<tm-sym>�tI4j$���n���7Iv\R�ԑ�8w�#Ť�n�8�JD�S))MѺ5н�u�NX�tMݷ?�\پ�wڵV���L��n7���2�<xp�Giم�#�Qy  ؍�s[��5l({�h�®�ȟbce_�ڵ2�h�p�$ć������ !.��LW���̘�c�U�N�'�/�j����4`���3b�4�!r�A�����z
+Ǝu(j�\��o ���%5���[�����r�հa�(��(�:<���ZU	��o�3h�Ҟ���/�1o��:e�\�r����1,<����⑼�b��cW�&�-��ȑa�׏/l����X^{��o��ʕ���z��'6""�y<r���/II��5l����FQ�JL�}W�
+f�ql�@�6lhOlD,)��_�Q1�O� c�o�@��D�9MZ����u���w˛'��ID���A|�xN#p*|�����������oʹ��.���+��L$�)�q�#�Ȋr�����1$�`�� F�pa�C�)�@8
+      G}DF��͙#�%��־�����|��tQ5��_��:(Vl!G�([Vf
+      ���_ݿ|9h���3�����#]Ub��U����L�vm`ɒ� 8cWx���Ee���-@Ӧ�~|��@�s��Q�:xP:k</tm-sym>óŇuŹjÇŐÀûïŕ`ð!ĂËvĚGjÿæjÙ‹2oﬃPśćž£}żĲİ=bĎ»ŤDùĄÅ#e)şÙÆÐPàĚ⁠dďńysŮ¡´ŠVbcĄõëe¯‹g!Ľ(Ðe5ÛXć¨0}žt#/[6Õ¿`I;Æ1.}úĺ{ĲĚďüÆâŚőpţÙÆ_‐˝ÆŊ˜˙—ť/&gt;ÒWxÿìÓà,$”˝šńÍ6þñˇÐůŕ}śŚÞJŮŰc=8¸IvañH—ÙÍ6űjeo|»08¸IDĄ('şŊŢ+Û⁠ﬄ˝‹ÎBŠ]X<tm-sym> 
+      =x�+gk�֬�l#�^v��}� ����GD�ӧ%�r���Kv��c��.���g%����u����e��썏[V���gm� G��QN��!�=+V�{%J Ӧq���Ϙ���[ݻ|��� R���|��c���O�2'��5e�q�x�P!�b��a��l�D�߲Eސ�]k_lDDW���2���?�����l�c���ҥ�Y�d�Bu�,ছ�c�싍��
+      �p��a<p@���ؼ���d��X`�:��'��Č��ED���#��z�R�TCB�\[�6�]�w�����ս���!7��Aꭷ�;�.^T����b�싋(2RK��&���d�`��b��fII�7{��ݣHi�5b��Dv��V�|P�;~��f���틋��
+      ���?�ꫀ�-�
+��R
+�P�D�C,���J�{&���s�싋��ۡC@���wߩ{�\#���˾���
+</tm-sym>û˛øSSßÔ{żÔTàąĞĂ!CÔ{@"ośT˘"GŔJ˜Šŕ¿Rœ*WŰýŊœÝg_\DYéÐAŰÙÔŋńîýôŞ,Çùë/ûâ"ćàťfŊìÃÞ¿]ÝkÓFŰ˝6h‘_\DYyñE‘Ñ"iàd0?ﬃèÒ˝8‐Þ¿ÿH_,ﬃČÄžušÞ}ófuŕU+Ixæ˚%DN««˜üöŻ$:Ãþý@ËŰŠ“ĽĹòÃÔľ@ûörĲŘą‐‐i8WőĲ}q”eğS'‘Ã˚9~Ířd¯Ðć˝řgŔ}qŚđX<tm-sym>��3��m����G� c�@DNU�80</tm-sym>ðÒKêÞÅŃÒ0‘ôhûâ"ćÀŮđ‹<tm-sym>����/˽�p���ɓ��{�#ʉڵ����vuo�)
+      �.�/.��� 7f�t�LK��0��w�s��L="����Y��2n��1h�jZAD�+ii�磏Խ2e��zʾ��r�dI`�b9��p��t���K��"��x`ÇKUC�R�L��g틉(�z�V�*UR�</tm-sym>ø`xâ¯6` "SSIMŢőäóæľ{õêÉvŔűmíŃŃ(/ÂÂdÏã'§`˝˙È¡ôtàĄˇäﬃQvX<tm-sym>��_^]]W�*��:t�/&"_i�T��]��7u�,��QD�W�ɲ�z�u�}{�P��}q���+W�F:n��T�<�޸��X<�g��~[]W�.35��D���~�h�H���3��LO�/."��ŋ�/l�
+u�;�A�A�@r��s^��\{<��O�oo\�l,��`���UK
+�k��/.")SFFN[�P���F�(�-��r��yY����ޝws�ʹyD��Ii�X�����r</tm-sym>$QfX<tm-sym>�g�</tm-sym>þX]ÇÆˆńVYœĘ”˝ŽŠ%ĄåËåň5ÃĳyÀýœs¯+”å\b"Ðśčtď4Ü{/0g‹ﬀÌQ‘żþzy£0ﬂŋî¡ôŠ4X$ÊĹÅcĂ02ÄÚ‚őaCﬃÅAÁčX1i5Þ¿¡žœÝwÀC›śĽ‹”e/9ıèÜYz˜0ﬃzHž;ĞĞÛ⁠⁠Q~ľSG˙ÈłUÕ¡ç§ˇ&amp;Nť/&amp;r&amp;—Ŕ´à£ßŢÎYĘúõe‚{ÙšöÅDŤSS˙⁠˚—.¨nźEÝŻ=ﬀxüqﬃãADYKMŢ3cWŕVœﬃ|PÎH‹¸ş/.ćü—«#¡¨Ì+Öđ~ZŐw#2řxÔÜĺQÀŻołëžue¯§śùŹ(Ÿ»*$M-ZůVœfÎäylDŤźť4ăW/àğ§Ô¡{îŚŒŊP¿Cć T¡žL@Tĺ Œﬃ›Ðŕ§ÌÂ«´`⁠chì¡œĂaÃÔuLŇüÂŻ7=Şß$$`ÇŔKČĚôtùÿ|YöÙĚĚÉRğðp "ˆ(ZTžČŰ)cwÔĄŕH”àĞﬄĂ[oŢã<tm-sym> `�$��7��؈�9�n�μx��׽��I挣�y<@|<p���dͣn�5�FD����hɧ�_�k���[nN�����<ڣ��ё�X<jj�b������J�ɨ(�b
+$����m���R
+      ;f���q
+      %���n��5*J����5d�j���z�M����er����ro�xI����9�+���hC�Nҭ�{}��`��С�s�ɓ��m�f̡�����lp�����?���`��<� �v��W��ŗH��%��F#��h!�R�޸te��7��]��ө��%I��e����fMi�ݤ	д��cȂ�{�J�R��n�O@��֩c��JD�g�l�y�m��Ϣ#�Μ�= �  
+       IDATܹi�ʣY幼JL�퓏�DFJi��&MXP�V�F2۾�|ߓ�ev��߹�-��x<l%��s���eF�s�֬�"#�c9�Ҧ͕qqq�6�yv�ӧe����^(���2Ici�����UcNRR�~�ʛo�v��Ӧ�;xh�8{V�˕�78�rD<6m���T��YS��(U*�c�7oz��:����˪"r����Aٯ��P������&%���	ԫ'���[��o�.ݔ3��={��s�[�j7���ţF\.YV�|��7k��B�A��q�n`�Iv���X���Y�J��\c<�X1g/���D'���ϸ8��x3s5!!@��@�n���#�[�R�,���u���u򆅈�ǉ2�'�ŋK�X��=��R<�ݒ;�<j���N�b��4::�e�QQ2����D���e���#2���)���<ʕ[�{������S��هţF�}x�}u��K��1�������u�F�ۻ���7F%���v,sIO��˺|v����VV�
+t�"	�m[�f���g�Q׽z�����b"��s��Y����#:w�/&'�II�dq�BY���+&��墵j��k�y���v���ʆeUO�n7�B��W�a�k^����Q3f �=���t�Ϸ����ǿ�</tm-sym>þXÚň_-ÑŢ)˜ÜqˇpãŊÎÞ›Śđ.#ĳŻ6ÉLÙâÅ2ÂŽŢâÅeCûÀĄšÙİňúœůŐŤŐﬁiﬂI%ćÀõðÃÀg§ľë1cd“ÖNN,ﬃŒŕŮČá£ýöêńałWŮœ"-ZØS(æŤźăüå⁠iˆŞŸŸõóŕźFjńõëÇ}}ı%'Ëûęŋ[å:<tm-sym>X�T�DR�`�u�dF)-M��֕�S���8�xt��%K$�-]����Z���b��z�b�x��\�@</tm-sym>vìÈúź7Ý$EdÏđš¨ŮdSSLûöšO0Ř7:SS}ÇÖãDĄnüx‘È“uÝğ›ðÅ⁠öÅcpJñŸĲ,Û‘&amp;MRĚAFąąR(vë&amp;źTŒ´ÊKŮďçĄś2éèÑÌ§⁠ı)ùsà@6Y3;|XöŐđ:%ŒěK˜ﬀ7JÇx˙‹,ﬃﬂîÈ”ù%=yRőKŢŠ_ÒŸ0{ãˆì/ﬃO§˚ęOˇ&amp;OŰıÇŇÂÂĂVŋÔđĘÚţó-ť|søř*$WŋR˜˛f–+ÊÞĎ'đ`*WÎß0İ&amp;&gt;^Ű&amp;ﬄ&gt;,ŒEŁÈ`MýúöÆEDþśtľÌŘıK⁠Ż5˜VŕŰĘsvşżxÜşG˚^?ýTÎ,ÎĺpaăCˇÉą]ž¨æLÜŰ-*ŔfU8Œŕ›˛0 +{xÎďl¸jŒN¡çÿî:ŹÔ‘«ćàÀâÑÁ2.›˘¸Ş$xëŋöÆeřńxÜţ¸0=ZÖÝ_žtåçńVŢåĽŔ?‹Tĺàœpﬁ#!AŰdMŽ${<tm-sym>2
+���W^�7O�l�v�}6��]{��/[�޸�ȷ���2�0�����J���`W�l��I3��4m*3n��*�/!9���e��Ψxqࡇd�s��N�.�N�NE�������Q���S8����o_ٟ�����1$��6i'}�
+      ���U8@ɒ��AR\���,�1v�r���ysi�g�}�ڭA��O������In�&"g:^f̌±@`�\��vذA��t�xe�X���#������=H0� P����y��ƶli����|�fM���P��Ǭ�r-��_�����ѡ&N�v���<ؾx�t���U�UKᘻ��.<��tS]�L��q/���o/{���G�DEY?��w�_�_?ղ</tm-sym>Øôê˝˛ﬀęőWŋbóﬁć@Ò££ţÓöŤ)2¸ıŇvïŰ´ÅŰ-ěiŇYL˛0nĲ»L3gre˙ ˜‚›&gt;(ÍČűlŚı6óÑNľľò=ń^]VB%'Û⁠ńİÞyÇÚ,gôhéAAĄŊËVﬂèï£evÍXRwÃ‚šźÛiÝ@ý¡l59ıxœ]‘ìØ+œbTŋ*oüûô¯¿ŚÑÜHOŮĆqäÈ+Ïç*T˘xúi‘èP{‹ÉűŞÇ˜ÜuŮÌF`2ðř~=SS<tm-sym>�n���{��/ț}����գG�#d�E��*Z���U;N��4		��iҥ���碢d���ǭ+~��ٳ������\���D	{�"��̣�x<2�h�ŋ_}��џ\.�sP��,�0�e�JA�w��H�p̙�p9�i�N��a</tm-sym>“9%E˙ôêÕ%)fűŔ4PĚĎÈHżśwÅåŠe[Áô= ˙4ññÀSOľëęMe)b09‐^ŰUÖň){ÓÌĚclňlaXů‹ÿýv—Ő9UšďňĆ:xPÞŻ»)ć&gt;wüÿ4Ôľ[W˚.ĆIéÒÀŮ_łU_GŔÊŁ0˙\,ﬃﬂfâDëŠŠwÞś¿Ñ›tżwKŞă´˜Ă«'ÔýćEeTïàAàÙgeI¯y/,LöśìÛ'{hËŤQ§KHŘÙÇÆŊeÏKř(QÂzöã_‐ÉH=”ééľğÔ9£˝˙Èň[0mgøáˇ)“ÇŊşđÓXţł˛ŰíØ![<tm-sym>(w��xCfڞz�z���2�ݵ���d4͚�����1��W�G��o�ŷ�.����%�_�I�gCd�,�<p@�\��o(
+      #�Hs!��_�R�_���e��0v�4�
+      "�̙c��y�5}�#�VB�v�l��^��D��+++��7*T��9�w�{[gp-����</tm-sym>ş/¿ü6bĎõwŋ‐ßÌŔ‐!ýñ%Ä!2[őjđ‚¯dÆlã‐þcﬂ%íÑC&gt;œÁˇĄyűŤ«Ť(´Ňj%čěæĄ˙ŮKŰy5j»<tm-sym>�����D:�l��y@6�-^ԫ'����p<xx�9����ՁY���΍7����?,��ǎ�_~����m._|,"���\r�T���2ed����K�l����e֟�]�d�����U"��rՄ����:�x���WG���h��k�{�Y;����~j_l���W��G8x�::ڱc�/WݳGi�%�lcϞ�����-��v�tI3�k.�})g�߽�c�g�Hg����U�,��(	�f.�6M��[�
+�cնo��BE~׮�~�(���~��|5аx���#oV�i��E2:�a��g�6~�������l��eYJ
+      3���\��(�g]�t��rU��G��x��_������l�oW�v'���z�I����������ɲi
+,m��rUc�U
+      =Z��]���q�љ2��LK����</tm-sym>{åŹaĄćxq9LÜÀåńDÎ—LËUŞŞěŻçðáRDˆĲmtłňf!Ŕﬂ˜n¿ıøâ¸ûbóůŇ˜83grùj añhč‘ZőŽŠ"ÝÈ^y˝pżå^ąBÒĽŇşŊÎeÌBþð˜PłŤžßþû@ğNÒ“ “qù*ŚﬃĆiźêáÃšÝãÛoÕ¡łUĄõë9ÛèdÆ,äŸ1łÓmj*ðàČR‘ıïĽˆ‚Ůŕ˚.—Ŕ6j808Űńﬃ=˙ťi#ËR‚Ţ+˜kÖÈŃ'9_ğNR<tm-sym>խ��-_4o.�YQ�嫏?�I�HG.�QN�@^��f�|}۶�{7�(��M���Lh�L,Z$��c�J��@,�2[�:t��1�o�x�Ɋ�����Uׯ����7�{�ZI�.��KL����Y�ۿh�R����:;w�n_<Dd5np�<��F5�L�
+�o���2��r%P��}q��:u�<Z����d���}���_2�L��_g�a�h��_V��5�媳fm�Z;�=�(���r4�xq`�k2�p��M@���wީ��g�"'8u�����3��\��=s���/˽�p9�~�
+      "���(w�ԑ�<�ݦ���-+y~�پ��e�0�R%y��.�sIo,m������0f�}���ԩ�$�x�&�~�T���P���e���r��^x!0˼����8t�4��x�H���</tm-sym>JŤŘýôĄÄíŰÁÖ¯«Ô¡2eĂﬄ‐ťvŰ%=Ţ,)¡¨Ì]H«„Ă;î˘ĳÆ2Ě˙´ŕ¡ęőçÌ´űlś/ﬃÊ;—Ŕù,=ﬂxõUuÝą˜Ðőİ}ñøÃˇﬄ`O<tm-sym>�:�e�"I���G��#� 0rd��i��:ࡇ���o�l+���A`�du��@�����k����j</tm-sym>£16VfńÚűţ/.ò-cPýŞOÔăzjłňvŹ?SSÞØ|ŋo_ăV-yìñXWSSŚ~X<tm-sym>�3��{�qHH��:��
+�r�˘yy��M��k���ս1co�`�H5�z�����=�S�8+V�כ˗�{���J�k���W��,����
+      �
+�uZЫ��7���K��2�jX�\z��X<棔yj���qc���)S����uT�������5� �W�QE@F2ľ�|�J�R�w�U�:�(�l�n����k�C�u�������W�n�Q�h�,i_\���&�U��kc������^��Ǉ!�V)��h�9�Q�Q��Ƿ`�H��re)�G;P�TI���+Ə��񯼢Z�'&ʞ+"�_C���-11�u40���ɱ��;u�];`�R�X1����s�Ͳ���3���}����¼���߭g��</tm-sym>X<tm-sym>�s笿4�?.�/0<
+��*U~��ڊ�_Ŋ�)�<`�曁3HR�4,3�'�m_<D�f�*k3�7ސ�X�� ����n�޹�)��/*��ZY._������Wڵ�^�W_�"����1����t�d�����:�I~@�
+���F[�"��+'��恃aÀ���ɗ�{N3s��|mD�?�M67����a���^�n-������qv����%�GY�ƌ���� �9��x�{,�A\�������~@���
+�K?F�J��bP���a�͢����j�Խ�����2�̞8	����͓���G�7�:[�� u�H�fҝ�3���Mi�c4jKJ�w����7���#�'�#��1v����/�����A��]W		@�&.<���!�]D���l�����9���Y��PA�8T�bo\y��.Ks���N������\=�k�\�k�7on����4ɣ��p��5u�����˲U�z�6�ao\y���Qc��1�K/��g���Q��С��.�,R�# �C�F�m����Fi5n�I:yRFN���+��í�r�,6m�/�@����pd�Qw'N�y~F�\Dt��,ɢgO`�pu�f������+11���������~6y�Y��
+�_�_��`�X _�9Y���uհu+�����+��k=�棏�~.����{wYѠ��4)
+�5��Fd�~�"�z�5�}4L�9�׀��ٳֳM��X<������i�_?�~]W�|"g�)? x9�g�YG���zX��BB�A_�������̶�/_y�I`�z����ȧBB�W��޳�Jws�EEY��틅���я��^�� �ԭ{�ɫ��%�j�t�2jJ���</tm-sym>Š‹ĆĘaÃďıĂÎúôQKÐSRØ1ŐÈﬄÌo(ëÔŚýŐ:{œ]ëkEŻ6G´¨À:\òń"EĂùóěč9 +Úî¿[ßãć˚‹TŔ‐ßİ[@tÁâÑŔÌIŕ[79ßPWçÏKwňKŮäždI‘öìD`⁠lŊŃô“ı)Č)FşﬁŔˇxðAàÈ”{ãÊŃÂĚĄĞﬄVŒﬄ‐ňŽj“QÞ]ĳ˘|aÚ”1‘Ă}śøÂÆŊÖşbŻ4´đzjŃ}´ŚVőź˚øî;Õ,çÌıy_ęó9Ľ7Ü`4lĺő9ûĺˇ—Ŕ~òç§ÀêÕêÚ<tm-sym>����S�3��d�^��q��+_^FN���.\�.gՑ��z���{��(/</tm-sym>ß\˙H@f^ÌČ5žźt¯xä”i8ˇÈyśóæ´˝˙0ŔRÎţicÝïÿiŞ4ŻÑŹyPèńŕĂsçìŃĚrĘÅč§d\jÓ¿¡}śäÕ›?XŮÙüç?ÀmůÙ⁠›éńQ#‘ìXuýãŔÖ}Ážľ]ÛúżÍQS"SSŹ4I=îÝ[ïNåÃĞ[;Æ~ò¯Pźš}ñŘ¿úõşđŞ8rďì‚Ö–ůĂèĞÅčﬄ$&amp;ÊĹľÁĳOP7çÏ[œjÆÆÊĄőDź5‘`Ðűŋž~á˝¡ŮŕŽgﬄ⁠/˚‹ﬄű/—ć@śzţõ‚ñSOÙ⁠K^mÜ˘Ňﬀğőﬄ{˛ÿývûâ!ý}ôŚňæ´ď{ï#Ŕèż|5ãłˆn´q&gt;—Ŕ~‘^jSÿřüRëêźçĂÿ8yﬁﬃ.čěŚŚöÆDz¸¯´fÌ`Ł—ŢkÝŮŕvïőö3ż\r<tm-sym>�y�U+k�I�d\�Z�
+��;��D�+[��;�y���W̓���˗�e�ţ�R�̖�6mj_<8��x�mu���հ0�����2LD�s�4�2��3
+      �r�iӀ��틇�]w���ڵ������X<�ؚ5�Ν�Zפ��`}C\��$A"_	�����x'OJG<"ʝ�S�d@�&��n{�ɭ��U��ȷi�����E��d,}���eKi��!C�\��+�嫺���y��6�Q�e\�ݷ/P��}��������Z���ooLx2[�j��	���#�� ��Ӂ��f��+��6ib_<N��
+l�l�
+:?;&�9##~.*3Q%KJa-V�*g5j$�ă��|�h��t�,a�qt~�@`�y�v��koLD�Y�X�où�S�\5+��[� ;vȿ�9��?/9��-��R
+      94:�Vh�XVD��]��W��F��zKf�˖�7.o���*�)�������9K��ÞF�2c�tQ�ҥ��P��.]$�@�� 3�u<w�J�.��u\\����)����
+      {?W���?��͒��PY�ߤ�,���E-=	6�4�ذA�7���BB�+7��N�a|�u`�0{�!����}&��C�"�$%5j�v@z̚��s�͛�=z  bbb�o߾|�2���,C\�Z�������,ԯ/�:t�AG��`/?sF��g��}�ޘr��q��7f�W�n��ޘ�J\��C��]��Y8�YcM֯�|�U�ݶme�M�</tm-sym>20ř}żïö„ÿÝRd|ñĚ˛8DEI´õÖ[Àđ=¿ù‐è"$¨03F]oÙćFPuÓşğzĳ‘Ą}q“éÈíŰÁ:Ã]wÙ⁠K^ĳûő*ﬁ#"ĂQčìŊÇ‹[ű`ßýŕ»wÕł´Ï<tm-sym>#+3|U8�h�FY�٣P�����<Y��`R���0L�$��tc�20�:g}$5U�$%������n�Q���}�֬g�i���%�'ʛ�;�熇�r�:u�R��(y񎌔ϻ\����i뒜}�d�ΥKW��[dd���,�S'�7 ��௿T]l��h!�CBdI���D���_�6m�qh��f�"��Y�s�\?�4��Y??�fSR�ٳ�pټ���-RD�pT�nͣ�KK����K��7��c�h�ޫ���H�W/�q���:�*1QfO���</tm-sym>ýÔÞŸrcìXÙ.˝`5kÊ£59¸ŃGﬄYĳXFĳ`Źq<tm-sym>}Z5��@�n�z�bY6��@(SS�@�?��9%JHaӦ�,��__�����˒�6m�B��ԋ}F���O��@�/�m�,Y5^�&N���:�xd����r�����GD����#
+      ����On���:ǱhQ�+W+��x<qB��fΔ����Z��Y�]�4����<�}KL���͛��+��~��53H}����?����A�84TVLիgoL�ڳG~</tm-sym>˛żvYŕÉ´<tm-sym>���{<��������h��ry<�ꩯᦛ��;gϞ� ��#..����Hz��3u��S������*y<�y<?����7���Y���y�%�'&&�xʔ�xƍ�xRS���z�V_sT�Ǔ�dwD���O}w�aw4D��][��mw4�;|��)P@}Æe�w�Ν�o�����</tm-sym>ŤŘàñĳòŁÇSÿpæyńA˜ŔgäHŔgëVßÇŠĲìñÌ§ïñ<tm-sym>���S�t��ԭ��|���c�ӥKO�j�k����r�V-�5�����PF,}���x����ĉvG�O?��Ȯ_���ѵx�7��S������z�$��t{bs�=��x���	�2�*U<��3�y����'"B}�o�iwD�[�@�_��Ǔ�hwDDηg�����?��{�</tm-sym>łâ/[Öãźp!û£čcñŸŰ&amp;ČŹŹ–i˝¸z<tm-sym>=�����}�x<�|��4o�y٢�ǳf�}����[�^��!CT��[�eĆ9</tm-sym>řyşňÃ7ŸŮ~ê =ﬂ0&gt;\]wï.gT˚ŽÓğěİõİwˆżwńûF{èÝżĄåËe§ą]K[BBďkÜÜźÒąnÈ“ë„Ù#GäìřÛn¸Ì˜tńWůđõø£ßIëvİÜzńêøŮŽ*GŔ“ÑÕŹﬀÎÅÄHçbİìÙčžÄˆÀ+ŕ`ÅŁÙ⁠Ŕ£ìØ´4o.źéìYu£dIàÍ7e§œğ§ł¡SSv(XPžönØ ÛCzõš~~Ã˚éà9h“ŘĲlOŇþÔżůlŕ1ĳúł}śäVŒőêñúõòþŊĲČÅč›ŸżA5nň‹9ÕÅüùRĺ`šFþŋůìŊÇﬄ¿ýVÞŇ0çð´RĺÝ}ůì?Ĳ2˝ĺUË¿ø2Sźšì#Ù£_Îl2⁠ť?ý$û0ˆñ“ÝaÃÔıŸçÏ˜§|bo<tm-sym>�*TH
+H��e��{b~㨋?T�T���9�YIO���M���tC�B�W��A)�˔�/��4i"y�F�];u�������"�$4=Z]�^m�7�A���g�햣^�9X<��9��6�HcC�.���^Mj��@�}��uwӦ�L���yEcF�*Ɂ��a-J.^���CΣ*ȿ�a�$�bɭ������(؝=��|��Ѥ$����zՕ�#G��������л�t�m�T)��ˉf���eˤ#����n</tm-sym>th‘¡NSSqĞţQŐù}đ‹ÂÂň‚ﬀ9˘ë,,ﬃóèðaéfeÐmÄtœnéTf˘ďÑÒÿ8YŽbNêŚŚ2şúÛoR@êďNﬂYVûñÇÖåPKŰÈ„!óR\ÝŹ‐‹œìŚďŕŞő]U'ÁøxYvCDŹ[ĳXÍÚŢ*%GFéäŃ/ÔÑﬁĚ˙ÉÖĆ@śvŋäÊMŻÔ¡Ł–ĄyóĂYşô[iuÛmšôvÐ u˛ŹÇ#g‚wëęþﬂ˜Ąź[ùìÙúm´1›"ýøcöGĲQþañŸGæÑŘÊŢeÙłNÌş:11òÂj˘6lŘŚÆSS‐WœŽ4ŚČŃĞ‹Õż]œ«O`;wˆíÛń{{œÊ&gt;Õ%KìŃËŮbcěð7è6jZ¿ĳì¸2pÔŤ(kæSSŔNİô;ÛÖĲGïżÏùşp95mŽ,õ4ﬄ%ußýšÕč{wûâÊńÂĚĄœSSˇVŋŠ}öĘÅŃ%ŔjxZJęﬃ|P‚4'%éwæcÇŐj˚?)I£Aä@Æâ1ŔÌŻţUđ/`` `IDATüuŻuLNű¿Ÿ<tm-sym>����ق��7��� Y�v�%���kd$�8H�Q�.]d�f
+      0�</tm-sym>.X 3É:1£ﬃŸ_'ĹHIKŞěĎ˚ÝŰňő]k]}ôÔSöÅâKŕĳ"ŊäÒÒä:<tm-sym>�0Af�L�;k�M�Q��A�۵KV�l�h_\�R����Z�-
+      E�ʒb�s�x̃���_ԵnIo�,��!P��̙#�Ռ�aa����t%��� �,���eɔё�햙�	��z���Q�4kЭ(6��ڥ�R��v������yԉyUD�f��Ew�?om�R�4�t)��3���/�JɊ���սs礿�������a3nSҁ9����}q���<ؾ]��EDXGHt��G��}��?���������_��t�z�y{��</tm-sym>}ďŻZźrêÞàÁú-õÌ("BF¿‚SğJ”ľŃzõĂèhum^BMDÂ<tm-sym>�ӢP��}�x+</tm-sym>^:yﬀˆaÖñĚ⁠ĂwSSUŒ5kÊ6“ó6Ľ@«—˚ĳœđ,Ó5űť\ĳ(‚[~ûÍÞØòł^=¡ůĂŸůRﬂ&gt;l]BMöañŸˇæ‚äõêYÏãsžõë˜kľÍòåš⁠Ã(.Ł⁠Ůeİﬂ;ÚﬀW~iÖLöoDEľ{O?mm—ďč'đPû§ŐﬄŮ&amp;‚:1ÏBŸ_/ĹHŸ‐/tkb6}žj@.S˚ÿœ^{ãÉńŚ#ĄwÞQŒŒ]'˜Ş11öÅŤ§ﬃ{˛øê+ıÿ¨ďĂìØQz˛èÌ<tm-sym>�8��\r��Q(QB]3�:��<ؼY=�m�ʗ_�Ǻ/�ٳG��0�x�b����+�խ+˨�����ܭ[go\yQ��uي��V��+���@ɣ�</tm-sym>łŒ`rFSS|˜Ň0ąőëÖ˝~þYåŞ‘Ñń⁠ðõŒjÐòüyÉA:ﬄR§q¸ĹyűÜéBBňŊ(ŹGİĄÅcﬃèĲôÌﬀŔ{œű/ŐĳJHŘ⁠vcïfĄˆšTţeK{ãšKŋZÀO?ľn‐iiŠ8Őﬁś7őĳÿß~õXůvÝæŒĚ-[ìŃČÈĽÎđ˝þþ[]ëŤG›ﬂŠ#ﬄ˛:çÑŋ[ŋ=›łUŞÎŰåËÛ⁠ŞİzôŘfĆF˜Á‐þŚćÒ|ÆěN""$~ČnÝ£Í+„X<tm-sym>:��\JI��K]��v�6�Эя���b�^uo����`+#��ލ�'��zr��q喹]wb�^��I��9��A�b!r�JѢ@�����-��*U�F��%/N��懢E�k3o�F�{����W�һa��}���z���<���1��oW�GD ����7�I/6�zΑNƌ�p�^ zȾx��C`�8u�u����2���iԴbEk�&</tm-sym>"ÅüûÐřątŘÖĚùuHůcžÌﬃzHŋL¯¯ŚîÝõêÙﬀŞS˛ﬄ.+w˛Ş'ËđHﬂÝrŃjFuùš^gBŻŃÇčGÙ4Ç¯4zľvŰŇÍrt:˚ÂĳdUŒYÇİ;ĄŒ_WŒůSS.ÇVŘòìş@SS¿êzòd}›ÙÕùÌD6Í!ÊĲőÍr.\ŘŹ(ČőytêTëıŻŕ£.şŘ$BBďé\Č˚êÞÓOËjﬃÝDDÈû$ČNČřlŽã<tm-sym>,sI���'NX��1饧�<��//���2MR</tm-sym>úÈž»ìśÇÔŹj:1ßĲÆÅé5ČÇ%7DŹÓ5Ŕ.]łö£–+˚ťmko<tm-sym>�q����1�k���}�8U�"2�h4C:s0�ޘr˜G�,���+6�q���k�[�P�p@�
+r��n�~ۺWf�D�lY��q����3�r�C��_�7�ܨRE��t55Ϩ�i�йY�����ہ�H�bɭ�W�E�ʱ#F���SǺ�i�\�:@�Ϊ�lB��}���8��\йY�9�u�_����|S]�{/p�]�ţ�V���S�S� ۶�On�GMu*ͯl�C$tm��������q��ܹr6�����־xt����.�C��{A��*�n��uͣ,���1tm���f��c�9R�`�.|�����b�(�7 ���С�Ɠ��m��9�Ms���k���~�A
+      @�Jt�lo<�r���So�	x�I���EX0c���$�����1�9��A��Ms�E��kg1o֍�էY�Ν��
+ڷ�7o��#/ކ�C�\5�
+�Ұt����4��{���:��Y�tZ��q�zܴ�b���O�]����q��@�Kݺ�7����j
+      A�9���?��8��\غU=֩C����n]���a�Ԍo�*���r��{���_zɾXrK�"�7�=F�)n �t	1B]�uЬ�}���׀�qB������tY	��i�X<��?���u����tm� ���~���W��(gBB���R�6 ��b_<��뾇�X���a��
+      r���{�<�?f�Rg:��Y�P�DE�����`jm</tm-sym>ğSﬃ¡î:õŸyÔ^,ﬃsáøqõØĳŮÉétNzŞ&amp;ľ.śÕłÉQﬂä¡ÛoˇnÿA]OĲh_,źąkñ0–ěﬃëšWŞÈ_N§VG]`úäÑ¸⁠dľ§Aů<tm-sym>j~���~}�9���f��,H�0�R^�x��������Ҁ?�P�:%����O��O�LǼx�)�x�<9�S�eb�N��y�_'�(X�shh��ի��[�
+      f��֙�۸�Z(�� y�dI�Ou=i�}�䆮�^��̓8��X<z)%8^]�R<��)$
+      ��yق�}���	Hs"�u�^�^������ԩ��㍪U�MstI|_'8jJ���Ư|y}ͯ7�3�t`�ul��z�yo�@���?�:3�<yp�</tm-sym>Ms8óèﬁ,ﬃ¡ŤñˇVŮå6æMþuêĺ‚SS:0Ï:Þ}7;ňæUdďţ`7‐‐uăcÓĲBĚdťÚÀQS˙fæ<tm-sym>�K����|�0��XE��-
+      :��:u�l�c~�8uJ5P�����K�7}E�ʇ�/:u�;sX�V]��k_,��\<<h]��tܯA�7s�e��o]�\�U���w��3��E� �۾X��k��k���<i_,��ţ�t1ݱC=6�;v�ŋ��R��@�6��(j԰��Y���X�e~�f��v:��
+      :���Tk������}{���r�.]���x`�z{��y�lY
+      "B]3�ڇţ�t1��S�k԰/o-\�w�����U=֩x�^]=</tm-sym>qB§Ñ^óë˝Şﬃ˝3ﬂóèścłY‹ăOﬃõxd“ÖÐŋŻ}ś¨ŽòåĄæÍÕţőyÔüþÐÉBBĂŁ–Õ5óĺ}X<tm-sym>zI�S��:��K�v��e��5��o���7�ȩ�?�.��}Ё����V)��Guݲ�i���!!�AC�;s5�N��`&�8�G/�8b��Z���	�3
+�wZ�TM\<)
+      uP��uZ��k�&�5�/ lؠ7h`������I=6�gq:]�0�Qg`��%��,,L�3�̝�j�J��/�@jݷ�˦y]��p�H��g��Gu)xkm�̾8U�zr�'
+      ?�[��ON��t:{�y�X<zI�b��PAm�v:s1�S[t��si��)�t�6��̣�� 󨿅���k]�g3�:�&e�s��tIz:� �^~��Q�b���
+      )ɾX��bΡ��2���hr2�k��f��h�B��\��Q�<:{Wz)!A=.Wξ8��������L"�r�$Q��!�cc�믷��v�F���8Y��C#H����αe</tm-sym>˝§sçÔãŠ%õéăŋcﬃÝ£_ﬂu–j*ùÈéRRĂmÛĂ¡{ĄÂĚ%œÇÄÈv˝ğ2çQóû—ğŃŐ˚Î§ŮÇžäQóûnók¯å/M^űİÁÜt˚pvQ‘ęãĹiJŁţPŕRÅ¿XšŞđ‹Ňı#ﬄıgŞ"#Ą´˜ĂůÞŠDè4Ţ+[ŕŔﬄŮýěNğãÌcÆ7Éı_OĹĆĄùç^Ůﬁ˙èŹGÍ˝Aùò@ĄˆöÅŠİ3gĂAČĂŕ£V˝ŕątiÉąO<tm-sym>aOl�1�Q]�
+      ?��̴.q��(s�}�l����k]�����=wN����2Ĵ4���e��С��/;�[���2�hn���Q�ǌ�'D���s�K�ϣN͡�4���fϾ�p��g�'��Ù��{{�T�_��Gͯ̡�a�腌/Z�,��tI=6��9���q�Z��l�þ}@߾�C��B�Y<������q���s�K�ϣN�-MMx�zuV�,�H����a��(s�}X<z!�(�.���.1�[�;5���3���9�ʕ�=?��GM��w'3��2�jݷ�K�D��c</tm-sym>ˆôŇ[Ğ#QÆŇ´öìÉùóSS|Sör:IźrÖı1æQßÑ1æ@ÄâÑ¸ž—Ŕ:ŐôęďĺÇNİuüñÇüù;þfnÚbþ¿;Źő¯DŒÿĽ|EÇ"˛Ð?Ŕ:ţ9Ůů9ñòeıÿuŠŘ“é^j‘ﬃõﬄﬂc‹D,ﬃ¡ăkñĺcšÖ!æÜťävâ´Â:¿0ëžïAŒÿĽ|EĞŒöÌè0ůÓcvźďşłůŸG}CÇ|ďcÌĄĹÅcﬃ8źutV0şïäfßć«œ<tm-sym>:��{5:��7�?����c�:Ɯ�Q�`̔[,��k�7�sn\v�!�:.��1f@߸�|E�������c4���1��c��b��][��8�o�?��h_Ws�m���|G^��1ߝ��˱��k�D����</tm-sym>@ß<tm-sym>��QRN�m�� n��?���c���<�?:��X<zA��Q�dm</tm-sym>‐ÈľÇGťk'-Æsłm[àąĞü⁠OnŹ££æïżŞéŸ@<tm-sym>��V׺�M�K:�#@ϸuȣ/�Ԫ����
+P����ɍӧ�3ḅ�ÙGg`�腌�@�g��Ϫr2s[��D��</tm-sym>NŸ`4nĲýóbbĂı3Ĳź^_ĞşÀ2JMUŔ##íŃÃﬀı_/t: İÈWtĲÁ˜ôÏčæŒy')T˘øâ¸ăBĚì§Ûś#ðêńþŔÉ[æïmX0P¿ĳ}śxCœ<tm-sym>�j�^�u�c�r�.�e,b���J�6l ^(\���GF�;v �^���e'98^];�,���?Ǻ$ꌯ5�`��}xY�=�:5�@�f����/�WF�KS� K�8�`0o˗��kp"󨎳����z/d|��%��S��dT�P�$��
+      �G�x��%?��Æ�r�]��Pt���X�^=g��=j��e���s�K̜y$����Cy���Oy�K5�:%3��T')S�=�6ؾسGd5��;N\�c0�Q]��g5�f0�ڇţ������ƒS:,]�L�:�o���mۀ���';aaR,֫gw$9�u�z\�P��}�xÜ�t�-���^�*eODv2��'$�@�35:�ј�޺\��z�N�iS�����V��C�<Z��}qxK�<�j.[���	DǙG�ڎ{�f��d��۟gE�}�昋��/"��s�ۭ�P]�h��@ݺ�y�?ṭ))j"�3��R�"�^�1���N��v|t2���c��1�q����)c]ʯc�e�`���t٪b�%�f��c%o�x���	���r���_����6v��s��-[Ե.I���V�@8bJ${��G�Gu)x�����G���յ4$D�h���{W��</tm-sym>[VŸGİĄÅčŮtL åÊYżRéŠňccĄbÅäśÇ˜,[fo<tm-sym>�f��l%$h���xr*</tm-sym>ÞÚ|FŮâŚ#ęDBÇ<tm-sym>�K�ҌZ�T��o�g��.�.U��֕-	:�5�w�a��%g3��꒬��nS��K
+      2?�7���w2��oXX��s�i���yT���3j�D�Fz<���h�y�K���[? �N���K:���I�p��}qx�[7����:T���I��}v�����PM^�tM�D��c����K:wV����S�d�A�<j~�d��0��G��]Ρ�) ԯ���wxU�ߦ-��{	��*
+      H��t,4i"D�P��iR?P�Ф7)��HOvw�?���	H��ݙ=���qg��CH����s���}nήC��{x8p��x���u���ZO����������#cD�㨏P��r��qT���o-.#ٱCi@�'�����8����GG���1��?�z+]���Z�\@����U�b1���D	}�My��X/M~ ^ydL�ǕG@��h�V@�,�86ظQl<F�G;t�O�ժ=�R/�����M?[V�H'?��#��</tm-sym>¡ÌŽł_ﬁ.^¨bbÄÅŠV˜˚(Ŕ‐ø´xüX\,FŘŘ`ňXą\ń££zăÇãEôzę—cŐăÇŢG@£Éčŕ/Ð¡żrﬂﬁ,.—č8s˚øóOåzà@qśďÕěKÚÕg¡ŇčêŒŁÀ@ě*Ŋe&gt;NﬃÓ(K— {våZ/şęUł(gkY,ÀéÓbãIŃŒ_ˇræďÇññÀÊŢbãÑżMŻŤãZ<tm-sym>=��C�Ɠ�oS銬fMq���^��b�ԓ'И��כ3g����7��'Oj�건S'�+M���%��%J 9r��%-�z�yp��Z�$�^^��D=͚fɢ��[�L?o6�ї_*�_}U_�`���@�P!q����uBOgj1��1�j����ի+Msbc��Ɲ]����W=��y�X�N�9R\,����;�:N�A��=���gy�����o�ƣW{��+ףF��%=��ߑ=��r禪�^��lٴMs�8��֯._��͝��}������'�xe��c:+�<�xQ\i���T)�ה�3��8q��$S�(�u� M���'=�:cz���hQqq0�L&�H����ѧP�0=�X��S�ƣG��*ףF����I+�U�m��Q��<�C���c���K�4Go��?�X�
+      }��ݤ�?h��ϙ#.���k򨎻Fqq0�,�0��)n ����W�O?Ǐ��G�</tm-sym>üPi80“`Lđ,6đťJþÞO/ãĺ$iSS£ð8*—'Ŕéăþe;‐đŽÿèAŢ*JżnŃĚÎ{ÒŞšeĄAČŤëYşÿójjÅÅigŹÛűÕŒ˚‐Ă„0uşĲÚţÅÅŠVzMzıs»¡őàÕľč<tm-sym></tm-sym>qˆxòD\,é1‘`P¿ĳr=aˆ¡1g/wéŠűSùďIúi6#ÛşGy\žť~â£~İöŽÊxﬁ–ŃŞÇtĺVMY´KL¨Îđ–ﬀOjyy´-Z(ŒÛůŃŃ%¡fÌP„à'OĂůÞ„ﬀŔ^LŻF/¿`ŢŇÍđ-6đôPßĳVńę§nkœîiœtéěC,cŐďþ=8uJ9lÝÙÕŋńtßűXĂİ;ÅÆŞVîîÀ'§(Œˇ‹`ËŮŃŃG/,—ŽĳŰ›ľ/P`0=ZlLéąﬃGÛů⁠⁠GZľ'Ÿ˙–â3ﬃEãä1ﬂšd´*TPőõ4kÚľŞòxÇ‹ýÍ8—,˘ĳœđr¡q#řyşÿxôàÈ”‘þ|åzèPJ¿ôF=èľ‐Őİİúõ!G‹jŊÎŸńSŮİEGëğyŃĞˇÐőİrŋÇIØ.]ĂVŋŤë¯«ĂŻ7ÅÅčˇóç˜GŔ*Œóæ)«ÙzñäĽölJ¡Őčĳê(ﬃ'ŔéďŒŠŻW^QžŰÞ£ŕÏşđ&amp;OÖ¿ñ09R[ÎÈ»qq4[*Ïê⁠-JČđÞÜźčÝäŕğAO¡/Łœi0Fræ¨Ł⁠Wőõ4Ővìĺ<tm-sym>޳HHKz�XA�c
+      *
+<X�ə��%����.]��i�ٵK9�4
+       h�Xl<i���F��c:�5y̟_[.��YS��o��3����O�Sfz�M�����'��g�q���<xƔ1��:��k�5	����xңH�D����G�iEG�z)��s��.Sz���v�轔$o���x�<������9�4���6zL�re��'��`�Dq�8�E��U���aÀ�-�œ�S���p�ȘmzM�e�6��8:t(к�r=m�~�.�
+      It��3ʽ%K���.1��'��4�r����c:�i�Mϟn�KFL�B]Ce��]+.g������u�����Ɉ�3�z*Y�f9��L�Ms ��zEGo֬Q�~�$�o_�g�̙ڞ
+Ç�\ ~�x��{zj��:;n��|8yL'=7ͩR(VL���L��;5�)[V�7t(p𠸘����@Ϟ��ڭ[__�q��zO��м��x҂��0�2��(�4����;���Q޼��m��I��0�q��a��(k҄V�J�</tm-sym>ŕQ#Úóĺ⁠\¡ã|8yÌ`¡ŰÜ`ÚŠĚõëÅÅŚQÙşÓÀ'£“ÆÇ˜ﬂ:èş”Ř=\źBěľáátíåE3ğòÌšﬃmØă<tm-sym>nݚ��n��X���4�hQ�</tm-sym>!Óó8Z¡:řzţrýÏ?tňŒČˇâb„iË—*WŢﬀ˘–+˚lÚďìsÕŻÄDŁ_ęğêﬂĂŻå8#Nﬃ3@ÏÉčžôâøqí/ğÞŤ-¸|ß¡Ò@'2ŠŠŇÃĞÅÆŢÙ.^¨Ž6ěRIĂžê~õ–P£¿Øÿ2"4Ť&amp;ˇd¡zĽŃ%=xÆŤś⁠3Ê8žzţÒTEŔzôăsŤe⁠/ˆÍŽ)ãĽńØťĽ*wäőďÙşÓł]îÜbãÊĹÍŻŢ‐G››ă{wśñď˝7ËqNĲ<tm-sym>f����ԫ�=�/8X\,�к5�P��Þ=�{��Fv�8�ըK��,�=,_�����O-����G�^L�{��I����I�ǏiSϦOƍS�/\���_SfZ��&(��Ϗ�C�W��H���sg�@q��7�qN�<f@�j������v�#G*�7nTJ��kW*���h:�������h��� ��ro�":�C��h�С�i-��Su��ڵ���R�^�����C�nݔk�O�4^��\_�J�F������,`�X��'+���ݻ��u�ƖQ����\�%.��ػWy\�7�q�<f@�,�v�z�֧�d @l�vσ^u�Ne'�8�x�]`�@}����JǓ����K��˖�#66{زEYI��F�Dݠ�\9m�*�i�P9{6�qz�~3~��JomY����˞<ڴ�wØ�����*�r䠎����^������G��!��8y�
+      =��Κ�6�˖-S6��Y��Ԗ:~�޷��,�ܾMe��}��˞�~��=��N����Œ�AOo
+�,^^�������A�jU���� 0k���Ju��L���{S2i�jiW�ʕ��:u��e/QQ�����fz��c������{�n���ի4�fu��</tm-sym>@õ9b!!T/?{űRŽćGËŮ˜Ţ*´ûö)œJŮ˚ŐﬃěıT#ÿp´8p@źÖ[ľÍýûť˙!ãAŔśŤľ‐?víRŽŢèĚúMùĘ‚úSSˆ"ﬀ2ĎÆŹÀ@åÞĘ‚@ÅŁÚFfz««˜ŇﬃMŢcêØtðŐ`` `IDATýĲrğöÒěÅÅfOkŒRˆ˚ÐbĄÞz ĺŔéÊŽŢ:`3çÀÉc˚–)ćİuÔÛňiò2˚čÌŽˆťRuð Ðŕ§r/&gt;ﬃxï=J.õÖĲáòeZmﬁ1Bı“`ăm[JTÊŢ«⁠Ż¡%/ţÑÛăścĞràyđ<tm-sym>Ԡ�1f[�tn/@�סCb�I��}�l��Q���6��Xu��{��W_��/�}�z�w/�g[�X��2��I������h�q�woe��^��O��.����Գ�zK����?Ӫ�Q�� k� ?�@o�e'NP�=�lDgJ�b*VԮ��S�����:��e<�2cو�bI/��@���1f[ΜT�)��8�|ȢE��c_�U�̜�=�p�z�T)J��}���q��l��vM�_��F~���^�w�S dzk�g�P���w���~U���Qy|�$��דΝ�fV+0u��x�{w��</tm-sym>SSHŠĂﬄ‐ďďløpçK"ßýŮjâŤ.M]GÕěű-Z`‐ßmĲýŊjﬄ}D{5`Ž)ﬂ8Pl<tm-sym>i���5z���z�[�  x�-e���m`�R��؛���4�Z��r?6�;���Y���gr�$���;ƚL�ov����H���Q���
+9=��O�g�͍:�3��ɣԬ�=7Go���Á�n�YF�ɓ�V
+      �nʖU���W_Qyd�V��SԞHI���.](���3�e�SI���-*&FG�q��t�&L�_�;}�����֭��Øt�<�v��ד�e����|��^`U��6�y�h�XAυ
+�޺��c\U�ԩC嶛6i?_�_�d	������3���Y�bI/�R�z@���ba����L&���ޒG��V��\O�,.G�ܙV!���:�$QRֵ+%n�GS"���V+p�0}�˔�dc�Vm�3'�W��o%.-�MShΗ���������|s��.�����8:s��/��#z�6"`�x��{�=��W�\\m�[�V(?�8}��1�����С4��mZ����49n�c8lIH�qT��+ڒp��n���$IF8�A��;��ۛ??�1�������]�^|�Nxx8r��CCCQ@��qq�op�m	��4��*s�*���^�����8AI�Ν��ϖ��i�����[�K�3g�͆������D����)�-3fi1c�0q�r�P��T��7�����c??���V��֭[ѥK @�R�p���L�Ҿ�ݣ�U�hҖ"E�=Rݺ�X�\��FEQw��*G����U:jU��ڿ�RZlTK�(�<��Ѹ�^Ѓ˗� /\ ʗ{'�vG����t�i��kbcJ����jUzq6�l?�ɣL��p��`J��N��xx�</tm-sym>Éòå)źŞ?ˆ˜ľŹĂĞˇŋj&amp;&amp;Ò$BX0uď¸¸čãPÎđ}y3ĚęMľŚQŮ.ôçźĆöíiŞ?@M0.^ÔSSSSýØ1å|0ŞĽöŋêôWĆśLwè“MÒ´ôÆœÞ=mč3=xüŸöß={FŒo¡EoèSbĎäQ—«CGy¨ˇÓ^Ã⁠ÉŽ–ĺVŊ¿W˝˙(ãhÎĲôžïîNU?ññtôŚzﬁ=wŐłp^4N{{˜ÝžÑ¨ďﬃWÞÒ#*˙(YRŹŇîSS_Û|N/&gt;ûŇ&amp;Š`łHpű~»˛ÐÙ[3çåãCûåűněëíÛõŹ<tm-sym>~��2x�9CA��bc�&���kG�~���z�l�l��zOAF��ц����F]��
+PG����-q��65jp��XZԯO���Qb�c0h���&W.z����t��W��q@��b��������B��o��n�EG�D�=W�}|��\�N4񪷉���?_I���dX��㨺�s��ю�u�;v�UwÆt��l�4�VWQ�����7z!^�x�Z��WB��F+�}�R'ջw�#Gh���%����c[�г��x2b�f�1��`,m�ܴ��O?��%#ƌ�=� ��r"�J����?�J��7�\���i��^���Z�huq�Z�ݱ6��Ǉ�{lG��gS��0z/$�q�9q٪=zD+rÏ�k)9Л���r�$d�T�3R�jj��ъ�S��[�R�ǏiU�b�7A@�T�#��.L������'�Q�.՞5�g�</tm-sym>;Ťþþ;ÐňŹr}îﬁŢ73ÆRO¡œÞÍŊöćëñMppřöl¡Ť^ŒŇTűŽZááTÖzö,ŢöńÇÑğOi˛ţZľtÕÓŞ„Ay˛-PĂjÚ˝˝ÑëńúÜIWÖń⁠ðýœôØSS§öÚê1Ąđ9Séþ§7/ﬂ}gô}łzÄÉčİľ‐ĄëÕčĘ(z4d˘řr%=öðăîdAAÚçÿbòÈìëæMăreå\ÇűmţåńzÒčˇİﬀ˙ÐﬃŻCĞÄÆÃŸﬃY,Ťﬁüû/]Ođ˛Ìđ-6ęôHLďj–ùÈŚÂĚiB)[6íó\1ydöõÓOť£S6{ű&gt;;æŻÍôż/§ŢþÞ{tä‚s&gt;\űjgêŹÆ#GhĚJŔæÍčőŚ`ýB›ﬁèzåńÌś$ĽöÆÈĽcűlť?HŔÂÂŤýÎĂöuĂ1ŰzîîÚ‹Å+Wêsìñô¨¿ùFY5źsĞ:ś2fOŔﬃi+wĆĆĂwSS–⁠OFlÛę$ŐÉ_ˇŸsáäÑÎj5ćŢ»YpřÿX2" @ûFþÜ9*'‘Ì^Ű-č—ëšyóhv^Ŕ¿þZ)WÏŻW§Íš0s—CĞ*åĹ›ﬄ*+úzSżűöŊüŁ–ÀÞ¡ââaÆóÖ[JŞﬁ//ŽřÐcş9@û~źCˇê?ÁĲ«'Ŕ‹ă&gt;ŻnýzłáŒčöíţˇÒÏİKﬂÔ0ËĺŻ7ŢVÜ`í˝j:T\<tm-sym>a6k'Z�A�1�</tm-sym>yóˆ]ż*ŒzİĎ˝hÒU}FÝŘ!Ê1ﬃŇeÄO?)Ûď`àČ›ôwęčìÒ%ídšz5Ţ9ﬄNﬃﬂă_?Úř˛ÐźGSS|#6đŇXÿŘËWŹ}Ù*W]śBlLıś};ŮÚ0foê7ŔĞ›ÛœhďÌäíÍåńÌþlŢńNŽ$.đŇZžTy\žť&gt;Żæź„NﬃﬂÀÏŔ„HŹúŮBošgğŠ<tm-sym>����J^�����-W�Ԇ1Gh�X�����G[�{����韑�U���o�U�G���������A�3B�/����%�ڵӖ�Ι��6X��</tm-sym>ŋ}«Õž5ŢqéÕěKÚSSm.ţaÌ~Ô[@ÖŋÓï—“àùòÕĄ˜ŢŐšŇěÅŁ–Æ)W˝ť£ÛYš`Č˚ĽŊĞ¡ﬁ'Ŕ‹Rś"ÍĲÊô<tm-sym>k
+h�W-:���u��a�����C�z/W�U�Jq�c����|uBo���޻t����8�R��Ac����ǽz���̹�������({v�x'7	z����_�@�d�vnߦk�	X�F��11\jØ#��}�*�z�P��ܹ�����_�ӕ۷�����;W.���[�
+<������N�kW
+      _</tm-sym>zĲĳ#čﬃÕńGûÕdWŕž˜Ø`þ1b/3j»ðç§ÊõĞﬄÒ*ďđqľ‚cŐğđĎMÞŚQŔÆŊÓn˜9xř“Ă)Ââaú“ﬂ‚têDGŒ`Ť0þø#PćĎØÿ2J¡êXń—ŋď2çÇïúﬂÈÓSż§ëëŕĄÿ8qñØÃăAÀŸ1ê;í´|*(jęˇŃ⁠ÓASSšﬃ=ĂœSS⁠⁠Ŕ=H„ðÅ⁠ÊuÏđ@ÎĲââaÌĺ*UćóŞeŃ⁠ŃŃÅ^Ű-čÉXÅÇ`:˙ŁĘ9;Ić¯ˇõ˙ÝÂĚ@şfâbšĞř0‘Ó&amp;åŽ{˚èˇ'Ŕ‹6|ÿRR“—ę}ÃľWóæ%SSÛ5´@SS»đÍ\Ù¿}ÚűôÕń˜ńWŃŃÇ^¿ßﬃ8{VźæRﬀÆﬁGýûţmﬀpìŸÿXìÁÛﬀØĳı(TH¿ã˚‘ﬂ„„J¯ŇŁ9ńŔ&gt;Ò&amp;YÃĘıcÌùðC &gt;đﬃçÊEûﬂŹ&gt;Ÿ$IŠDˇatÃĘ)Ç]äÌ¯ÜÿA{˘õ,"ˆ˘˙šàÆŊßvß#‹;vDćCĞ<tm-sym>B�b���u����	]�=�sh�I������]bcb��,�re��E�n�L�� ԯoAB���p�~Q�b`I6o�u��G�V�����6=�v��Q���?�T��\	�<f�3hO@o����*
+       X�</tm-sym>˙Àşßîøă_£Ĳ8wNdTÌYÜź˜ťlľ$Ő^^4˘ê=q¨ĺCňĲ8ŽLÀìÙbãaÌèÜÝĄYşŤëSS~3ÆqQAAÀ[oİLž6ŻŃćm[àÙş⁠|”sıûö´}ú(ĽcÑćÀO?é?q¨hëŁĲ8—,˘ĳóŐØxXÚpòŸ¯˙»Ðþb,\H%ňzWęŇ–@/`V`@xÿ;Zűďs-Źë˙¸˜Zť`nÞTî˝ˇ˜‚jĹŃÉ^ćčľÔFÖż7Pţłÿx0s–ŕ¿łÝ'8yšòęZÏj5˙˝ăÌ@ﬂ?NÕ˛QQâbbâﬂ<tm-sym>Hr�</tm-sym>ıYşRÉvﬃ˜»wİ<tm-sym>I]beӧ+,L8y�$�&�j@-��o@�m7�� h�h�\Y�a���J�^U�}�!0x����i�B:���ߏ</tm-sym>„ﬀ›cőäSUoűSğťˇěëÛT`ÊfðÃĞĄŐﬂĄØXq”1qŐﬃ˝:tPÎDöö˚űl1ÎDězâğlYàŊ7ÄÆÃÒŐŞÇLŠ#ˇýÂÈVňăŽocX˝@Ù¡}œ.íIQ'“ÌøîÝčĽ˜y_„`Lİ˙LŻ&amp;.&amp;{züX[r&gt;|8Pĳÿÿx0s5ŊﬀÓłĲìýœŢ3ïôMˆ0¨~~ÛŞîüþ;ðÊ+TíÀ\ÇŚ#@Ûű@d$]{zRľjńVbãšŮ}ûĂ_‐Uő?þŸÊÒŹ¿pòŸĽÞyĞjż´łõÖûq˝ZK1}úÓďń;wĂ&amp;MťĽ¨3őÐPúœ&gt;‐^ź7~<tm-sym>F1{�����8I1cz2{6�5��e�
+��؏y�N�k�)w���&���N�����ƍ�
+iSTG�֪È��p򘉲d</tm-sym>ø@źþáˇłý6ŁaÃćñÙgÊuX0%»ê#‚ŸñÜžE+ˆWő(œFŔę#]ŇâÎﬂí1;cÇRœXÆXæłZ–xýuåúÃ›Ŋş:g2Yśa˜ÐěŃrïÐ!ZuŁĹ“⁠⁠sĳ¡{ţ{]=<tm-sym>�u뀮]��eO�6ў^٧|D�nq���x(S�K�����}�q�g�</tm-sym>ď¨Ò˘İñØóŐﬄˇêŒğãgdŞ'ÓÞ@#Ź&gt;]9Ŕ*wn‘Â¨śñ0æÊ&gt;úHé8yïđś^o<tm-sym>=ibY}��_j_g�q|�5Ǒ��zy?���!6.{2�i��U+�����L��|�r��Tn$o�,[�$�@�����b�b��n�8޽�ܛ1�xGW\� �Y�\O�
+�����1WW��9�͝K{��B^u0@�w�<���|KF,�b4H�����n���F�j�R�d2��q�(@�n@͚ʵ��(�֮�.a �H��}�d�d�R��}�6�nn���
+��L�J?� ��5r��xc���Ϗ?{f�I+77`�j�1_O� m�hK�</tm-sym>ÉŞêêUóĂ`‘Œ.mS(#ĹŊ˝fÎTőżwˇjÔ“⁠›Ë8Nﬃ˝QÏžﬁ?‹ň\).—GéÓĞ‹sÎŮOźœÍ7@ÓęÊqˇL_đ=čòjuŒÑlÙĂ§‐˚ÆŊ«⁠Ůčüò¸ÍˆËfÎT&amp;D0câ¨˚ÒłŊlÉ„mÃ.#0ŹĂEŃĂŕ¿RÊtÍfłîı6Ì(İf]ÏěK@íÚÚí<tm-sym>��ǎQ�z���#�B���X��\'���hA3��q�)��ԫGɱz���Q�</tm-sym>qB\\,íő^˝êÔ´vîTîŢ.MûqÚů⁠⁠Ůč<tm-sym>{�\W���'.Ƙք	J㪄`�@�J�H���-������=|(..�v�v�8�</tm-sym>Êň}{jGKŮ—⁠ŮčĲ8ąİlﬃ:ÔŸ‐OWÃÉč@KŮˆYşÒãgÏh&amp;ÑĹ˙–ˆþøCÛ!/4ŤöËľœŠ1çţ{7‚xŮ.)œZţć´ŕ\9qq9ÒÿqÀ£ßÒcwwł‹pãWLÆĲĘ££űĎ3ùﬀU#iÔĹþ~Õł)œ‹ﬂâĽX¡řZľâňcGåÈ'`Ÿ8Ś*wše«⁠ŻčÄÇk't˙–2^yźńâůBˆ–/‹ÌŹč\ßòŃ1ËW´:ędýzzáŘSSĂÇÆRCĂő]ĄûœÅÆÇlŞWSSÚůˇÂÃŢûcÆPBŹ#ĞÿØﬁ)ùïâĎ¯ÔňĆ1æ\žwğ›ÙŇıÆ+_Ţ–)ˆüùğölĳÛůľÂçýœiõŢ9§kŒĺëüŤ)ŤDˆÔ0çżïè=ăQ'%gÎÔþ.~ý5Ř=żÿxŸý0ôGV?FŊć=Ă2čŰŕÊ&amp;O˚űmÓÎšmÙˆTň˘lØ ..öĳ¡{ĄJŢťĞp{yQŒť˝¸h5ÎĹŠŮńVĺ@oHıcÎéË/ŢŠN#ŮŕˆĂŕ/ﬂåñáĞJGsşŹžÿŒň¯ĎĎĹŊŔ)ňVjĹSě˙ŋ„Ë˙»ăjň&gt;}ÄÅæhÉń`˚‚ˆÚű–⁠›ş/Nﬃ˝3ŹèÍÿ+ŤŕÊ^yĚöAÖŋńÜ{ü0èÝŻW!İĄĲ<tm-sym>�i���(_��A��Ŗ���~�7�a̙��C	���� �o�6���,����oWyR<y�q�X��F��������V��bcb��ɣp��UY�2��̝K�2^���j��;�qꔱ<��U�+W*_��m�;Go�e�
+)VJ�������Fuz#�rU����I��m�l��U���	()�SG�/�Bv�ܸ!.</tm-sym>Wrïﬃ0xříÕÆÃĞič£ÑWSSđ&gt;ÕŰńVňÈåłŇéĽŋòUşYlLŐ—“@çAîØAåŘ2y–ròdmČ—æ8ğOğĳÚxþ<tm-sym>п���2����U�7��rU#���I�L��._U��5�r�	@�Uȭ[�so�ť����)0u*P��O�ԫ��k��/3%/W]���	3cF�j�j:P��|r��D	`�|*'d�w�:Mxר��j�:�7��x�֢.W�?_lL�18yt"��W��1~��,�U��Dz3P���<�j/qq��%K�f����\i�Q��/���Uӧ���K�,�U�Ǐ���i�����m&�����|��� IR</tm-sym>çJńŊ2.WuﬂĲ<tm-sym>:W,_U�W!��������</tm-sym>ćdgÁˆđAM/ŃĚŠď2eĂwSSě7–šĂ`J$]iţ”àrUÆŇÆ–ËWÕäUÈwSSÕVóÜ¿MeĎUłPe›K§gÏĺ)QÉŠô^%1Qù\éÒÔ‚ŒUVﬀe\őêZ8yt2űÊW{õrŋÎiîîÀÈŚT˙òÉ'ÚŹńGŔ(ą.SĘŽžĺœ–řŤ%&amp;ˆSS‐›TőL{ﬀÕ«„YšÐAÅ7nÐ9TőšÚ˘ÐLñăA\őÊŸŚØ*_İ<tm-sym>Y\<" �}\�J��꣕.\����SՅzŌ�,"���%J�{u�N���ҥ��U�|��'O��_�rUW�ɣ*^\;�s�0%S���x�=JjƏ~u�PjS</tm-sym>nﬁ‚ŘìyąąTî[ť(MB\ĳĺ|ÎÝİ¿ĞWŕRźtŐﬁââ»eÆ˛êð+ãrUÆŇą{wăG›åúóÏĄ5kÄÅ#JąB4ÑzîﬁﬂĚěvä˘ÐőﬂMÆÎŻGI`{ÞľSÀŘ!ô~câDÛ–;Œő´#F`ﬃﬃââ»ÁlęSSşëŒŢ{_}ÅåłĘ'1ğÕşğ$ÑĲ },\(:"ŋ'OđH`Š&gt;BCCﬂúßż}[ŠÞxCŠÜÝţSS⁠@ŠL&amp;IjÕJŠűlŚ$şÙąaèÂŕ£JRŮ.Šäáñüœ˙ŘďŒ^ŞďKŮDG)ÖŔ?ÒÏŊü=iÒDŠ„„DGÅ0şŮĹ˘I*[VùﬂœöŰďčGEGěţeËŰď1ťTľR‹ßßýõŮ$5kf{\ðñŚď´˜$éØ1ĞĞáôââ$éÛo%ľNİŤ£W«&amp;HÒãÇć#–ëíůţSSŮ)SDGÄ2ČIŠÿ‘ÁYÅÄ`Ŋj´'OÒţż;ř{7ÐłŢØÿdáááÈŹ3gÒuhh(˙dBŚßÅŃÔÌåûïmï},\006ŇVÕòæux8N#"Ć:ż-]˙\¿üüçÝÝĄNİĺ4ÕÕWŒN§˚j4ăSS1`(VŇöläÎ-6.ÆŸ}]¿LGVDDÐuþüôż^řăØÿd[ůnEŮ.]``ěJŢÂÕL*čÙşĞJ0œïů]űZş&amp;U<tm-sym>��:mmp7n ˖���G���|�l�g�d��e�
+m���i/��4'�N��z�/U�#p�uMT�({􈚿,[����ws�գ��S'j�c4�n۷�ǁڍ������f�p� �����}�����4�re�q1��_����'�fM��A�VQD%��˗i���o�[��hْ�Ў���L/S��(���Ӷ�S�
+54�Ӈ�W��@��J?�
+��G�q���ɣ</tm-sym>LﬂXÕ£ďGŐÐ˛ŸHćŞGŹÕJo‹ĆČieÖjţýĳÒěiðëÔ¯hØPÛ@@/$ĽfÍåĄîï£S~nŞ&amp;4Øuéˆxzf^ŇÎ,1Ś˚<tm-sym>�,.�	��'�1ƌ��ϩ���O����#�<�bb���i=u��s�ܨ��HV���1�K|<��n�Nǚ�Ӓ��^{��ц37Fgv�M�<x@�9sҢFɒb�b���G�X��Z�^yضMly��$�j7o�J�U�Ç)?/gN�}{��hV��+��L-�����8A;waa)??{v�o_�*Tȼ8�b�P*��͜I�c�7p
+      ���</tm-sym>ý»Ÿ4I\<tm-sym>��$�jG�R��t&pJJ��cA�ԡd�L��s6�Ѵ�B:{���_))Z���b̕֌����M���M޷h!6.��8yԑ1c�E���I�h���G��Be?�L��W������4�D�`P�1f�f3���|�9��� �QVT�6u�$�|�����u�nt�3��a��_|<�F=J�nn4</tm-sym>tè .&amp;gLﬃeÑÑŤhmSSN«Ů/ŽŘ˝ĺdśzuj?åŔ2e2wŠ[İ(đ8Aß¡t)åŁ$YţjÊ—ŮăăÌĽUŔzôăI˝ÙćEÀ;ïĹŃĞĽÁÉčŐX,ÔVûŒ_Ţ{ëÖ´¡{ŃĽÇŹŞÇä._VJ=ŔﬁQö¿ĳĹğ'Pű,í«,PĂö‹ÊßU?NMšf6˜œî´wïÒÊąŋß^žôòD”ădğF‚eăńVíå_ãêöïˇÚťQ‹˙ŕVŊ&amp;⁠|}ÅÆÅ0Ë\œîÑ¨ah(]gËFÉdùòbâqæäQÍjěśSđŘUﬄûô"þþ4ŐłÇÌäßÍŻ7u¯flň2fÚjGïÜąčğ^Ű(ˆ4n7młŇčĚ¸ğîïãÊ&gt;þ0Ÿ6Mźﬃ2¨øúkqñ0q8yÔŹðpÚspíj]gÉˆüñˇ‚ĘŹﬄŃ~ŠGţGŔh—õůSShfòÒěÔ%ŞűŸLŤĂxxPšéáAﬄ—¸íŕ3Żé#::ýˇ1ŻLť_3(˘hÜŸVıźñMêÝÿA‚rä3Ìˆ˜iSShŚ"bãbŇĽqâ¨u2Ů'ëJŮ˚þúKÌYůzHﬃãÎÎÅÐmÍś|ZMÈómŒőQ"yè“ŋîÝžŢþ?SSÝİÞËĺÇPwwj;åq41QéŐİﬃ^^T]Tş&amp;uňoÓĘŻżďÅÖŋtNĺü&gt;ęaC‘SS&gt;őtrUĲ<tm-sym>��ŋ�z��3�.P�^����8��<&���ȥ.I(3B�(�5j�o��W�Q�-ϒ{z�*$7?`̵�_OMsdM�Rõ������1|�+���N��<)<��#햋�&��N�q�reNt���1��(�-R�&`y?��� K���i��ԉ�3�ޥ�������ԯO29��vM[�~������R����D	�/�}��S�yuy՗_r����g�s����S��m�8��2#��xz�<)�ȝ�V�ڴQ�=zD�Unݲ=�޻�l%H�ch��t$'��s���ʉ��/�Br���8yԩ���رt}�&�8@/�,cl%��=}J��ӧJyjb"�X��+�7��t.T����9޳g4��9��7N{�1c̵͚E�?�D׿�BA6m��nWdM�D�����&�x�Qһ  
+       IDAT�]y���TLJ͈�����)mW̝�JDS"I�`��ф��L�jՎ�TV�??���YΟZ�V��tw��m�W�E_�a���70_��$�yR�-av�=;}0�E���W�I�-�1&ss�*��]i<@+�}��}=��Qѧ��π�8�X��@PP9��c����۵S8y���ǂ
+þ��M�3��TM&z���W�����~��#�vs�cn�Ld�GCx�}��O��*U���W����Gl,�����ʽA���+�HƘm��ԈL�ɼ_?��o̄S�y�<��M�0��E���S��|ʢ�;��޸ި��kC����
+      w$6��|d�Y�̵	<b������+�g��^/yƈ1WCo Չc��4�q��K��7��j�X��v-�Y�8M8����s&����</tm-sym>PİaRr<tm-sym>ܽ��sr�hP׮͚)�#@�8qdj\�j��Q��/���S�����3�3��H�|�r�[7`͚�=��1�O��T�ں5�gP�^|<%���@Z}�
+n</tm-sym>5ÁÇ'¸||ĳá´3âããŚ“ﬄĞx)`ÅÊäČûÃkÿñ¨ðÉŠ˝&gt;&gt;đ0Y„“ﬄ⁠Ğÿ83ĳ˙ŰEĽ`łÁţÆĎáêÍ˘Ÿ||Ś5Ń7ÜÌqĹŐŐĚ{¿2(ﬃŘňN7ú,Öŕź˘øTEÛ˙ŒðËÉŊX‐ú}4n— àûÀﬁíâEZxÿ{Wźů‘´mû‘LŊŞG˜YšĎfIŮ-čësçĂ&amp;Mè,ﬃ&gt;⁠ŘıUD¨Ðű-İÓ&amp;{õUŒÝşÄ0Kﬄ??:őčMﬀåõdãFJ 7n»ÕÁ3˚!ÓŻćÉŁûű?İw˘‹\[ˆßEíPcö‚ŻOľ£î´þìMﬀ¸cÏÌBŃú_ ô˝Ï!¯ÿĳò],¡[˜S~ý–ﬄVźŇŔÛ6Ç'ã¿Ä[GęćR&amp;ﬄiÂﬁëìYjnôàĄroÎﬁêŋÁXr<tm-sym>'o
+      &�t)0z�r��e*�u�c���1m�W'�={?�H�c,-�g����)��l�F!qq""�A�����%��8��/LX��DO�:+����P�Rl �,]����'��.�:f/�����[��1q�|���5�����
+      o��5�	��z����x����p�j^�
+	�J5u�p!0q����s�95y�r~@����+P�����0��t������r�`�*^qd�eLL���o�r�E�iϣ"��0'��(�m�rUa���qyE3��~ǜ��ʵ�� x4�ҫ�cD�dEf���ԥ���6\ہ^��_G��k�v���Š^p5�݉yr`����f��w�05�{�__$yb�p�q1��+����������@ݺ�nr��Չ@͚��q�P�ȉ#c,�|}�;��پ}@�z�?���ɯ�-�\��a����y��_N$�O���ⵗ���1�ڂ�����X���8�����,q �0�GCX�h�\I��h�G�2�<،�D���i
+      \�P\L.!�,���'bDbL6hۈ��o˗sWUƘ����J㫯*�Νjբ�2�wx��Ҭ"rn�s�bpz�R���pq�r��R�!�v1��a����o\��B���� 5�Z�8PllL8y4�I�h&I��o� c�R����V�?���q=Zt
+      �b�R9v��t�#@3��g�s���?//�C=j�r��c*����g�:m��fqh�z\����on½R/$5D����Q'����@��\�7�BgN!"�:�ϟ�� ~���K\\L_8yt��,��Ȏիi������3��Ŀ�Bq�A�b!�^Ϟ�;k��f�l�F	%c�9��%�˗+���f୷��/11�bq��c{*7�-ÊS� ,��{6=�C�i��ɠ"�=!��D� �x��"��B�ѯ�4��R._����Q�-K�ڶ�N]D���O,(H�w�0�	��Y�����+x� �´���1Q��nOa�p���ݱC�W�p�(��+��b���a�h�cՉ_}E�t</tm-sym>Ìň(ščîĺÁ(Źt}ˇk¿ø˜á¯ŒñÃü¡Ĺ‚ìŐ1ŋŃ#hèHTùïıñû⁠aãţ¨À„Łí¸ű!"ă«Æt,˘Þﬃî:~ùĚ„Ç+WŤ{ò”WölďÈ\˜'Ŕ.ďP!:D]]Žðï£ÔŠüûïÅÅěkÑğśďO5»È_˙5[vÇřI§bùæÃÿĞpﬁSSš„§MﬂĚÞíêą|ą|ĺðê\ﬁŊàì1-þœ?ăvm:ĳXÖš%pì0P¿ĳÿÿ0cőľQ#àøqăjUåÞÁČť›òÌŹÌĽÁůò@ĳıďÔé?Ùĳ˘[œŋÄ⁠!„J˛jĚz´ĂWŹÞ0ÝT^Z<tm-sym>���gqe�����G�y.~��*�ͣRU�1 ��.�s'M�X�I�%͚%Inn�(S�H�՚�?�ɓ'�����P��������zT������#��8QZ}�/:L�Y�P��ݵ?��GK��,:2Ƙ�����nݴ�OY�JҦMi�s�lْ4^�*U*�_e�B׶�������PC�wIi,҃�]�1)�ui��PN�~&.mA2]����~��?��ޒ�f��Ș��ԓ��2�������=���EF��K�ܑ�jO��</tm-sym>¨wþú`ÊĆXIŇ?p⁠⁠űÏÁÀžy§kyÎlKH`Ę˛´ÆŇą˚O`5ŋXźŠ:˝óQﬁŇ1Ñšf˝~øĄžŽËÍžćčĄîÝéđcOÐvGĄ‹cÑE9fıŚœ«áÓr˛zŢŠGj7äi1˚ŕËG/?ØĂwŮSSĆ{ÝůÑ£Ćů#ČcN ,˛hÒ¨XżVźŮ??pà`Ðŕ§ÿÿŸ1pòèÂ:vď}c%ŢÍ«Ø¿İöAﬃ9"..ýŁÆÙõkp”&gt;ĺÚű˚šâ:6ő?ŊgćÃÒŚóçĄ˚‚(QŤåÍK‚§ÞxC\\Ň1ŰĲÉDç)oÚDÉ$@IãÌŹt,Ö£ß:ð‐đč1Þî_D}˜İÇt@AõäŽ_mŇﬁZV}˜íÆvE1›0˜Û¿ﬂĺQČö3ÊjÕć¿⁠uêĹŃŃıˇ'Ŕ.őB˝Ú?ÖćĚrïÊ–ăaCłĽŔŃKùkİŢ5ú..İ£ĹËŒßÁíÐ0Ü£ﬄĘÐÛ7qãÚe\8‐¯wčŋřÆÝÇŢ¸⁠qåÆMÜź{›œÂBqûæu\źtﬃ⁠nDÀŠôĞÅ ìò˝\ĳr˜ůBÃp/ì‹n^żĎŃßĺđó§ĎË+ñîÒżĺ1e›ößĳ›£NŕČÇ+ÇáËs:ü&amp;f2ŃĚV¿ČĆhĂŞÕĺAûŃêŒ⁠⁠ﬀcŇ¡HŒőÔĂőX1åÞđ=@ěJtTŰcdEõą#QY¿,Ô›čŻæLöﬁoTèß‹êÊ¯eđn0Ó:ﬄ£ñ3ĺðpZUìÜıÿwOźSSğ›ðÇﬄ@Ąˆ)‐-ci"žnŰ9ĞÄDIj3FŠL&amp;m}|ÙšŠtøříŕqÖ=ŔŚˇĘHy§Û{(‐äŢĘﬁĹŤbONŚJďôĲúëďˇòﬄ—uXzńàKđ#IŠdź'mîYD*7âg)LÞŞg~ ý:őŽTĺã:)ŤœéěèÜ9IłYSûsˇHR§&gt;Š»«#::Æ0KİĞ›%ľEŃç_ËÚţŞď;wl‐Múö<tm-sym>������S�xI^����r_��'������b���b��m�$�˧�������sEGƌ�'� :�j��n��=�|Y��</tm-sym>e˚báŒËśdRcdUÝœm0´Ń£^ĹĄe|àYď+æňXŐ/?hŔﬁIÏ(Ę´sŰbÕ{uŚť–Ôż$^§¡`3G4Fv`ÈÛﬁČ'NÇüqţąÚ.˙DSSÄÍÊ¸ř{Ñ+È'ÏòžçAË9;śň~0nF9ð/ňS)ŋ6æÉCĞr‐œﬂŘ%Ńÿø0c,-rç˚~ý–øâ¸ěŇ–`vïű¡˙ŹŸŸĹ+łş«ﬃ?~Ň-[ű 444ußCœĆè¡%˛Ŕﬄ=ÁĄÑemïńw¸DÇ5ů“þèıBęUĄOŽßVÌŹěťÚXţ*UŢMŸ .6f‘ćşWæ|"#%iÄĹŮŕB:ëÊcŠÈ?ďŚ˝TńĚyˇKû#Š='úÿ4ľĎüﬁ›ľÁÒ‐ďÄçþ ŃtïÇNŠﬄ|ěvﬀîJŰÌĽÞÐRZmìÑČfïıcLÏő_ŮďęMS^Ě<tm-sym>v�T�bE��/nnnҸq��X^'d)Ki�q�tIJH32^yd����.5�*�_m�ZN�����4'-z�!g��.^�K����-lY�Q��al���_$^�����4{�czV����U�2e6�N�z8��ͯ�Z��?</tm-sym>jÕłĚèèèLŁŸéÅËVﬀgÌ`<tm-sym>=��ǌ���5o��70b�Ҋ�j</tm-sym>ßﬁĺV‚8vÌÙÏLðFĚ´ïă^RgźHìZÿ–ůÍÊ3bNŕÄÒ£U_rq9Ű§ÐÖŸÆ_\ŃÅĞÍ(6ðM4˘ptÌÆuþ<tm-sym>P�.��{@�*A���p��M\l�1fo&���ٳ@Ӧ��P�Ǝ�$%o���s��aҤI����������{���0?N��s4N��h�]; ��Ky튱m���-���r���_|���Ы����ſ�q�WD���p�0rp5�f^�E�62�\�z���} OS������p��c�p�6лwʫ�ӧ�j#�<�<�T��
+)I& �\011&���-/Z�����l�)D��ݍ����4��d��"�-��P��</tm-sym>þ‚ŃÖĚÂńÙhĳ^Úf;ˆŰĆĎ¨‘É„:GtæL^mdŇź.y–šPą?ÓôuŠ$áðáÃ‹ŁŁ9żGŔĂścĄ2eĂ‚ﬀŤûĳÚÈDâäŚěZJńŘ@v`ﬄč~ý@¨ˇ˜ĽĽĆˆLAöžč0ÿďr}gÍ⁠ø#<tm-sym>�������</tm-sym>ę5Łˇ‚ÅÈ*ß=!~?—mĳĘ¨X“ž}´űE¨ăÓŸŐÚÃŮYŁňV*ľ)W‹xçﬂàÁ˜åsĳÚÈ0sUQQQÿuëZŽ£îÔľS‹ĹĘ9şĺ(àÃ›iòuáBíä+ŕ62Ñ8ydi&amp;ŕBNĲ0¸@Ùﬄøðą;Þ|«(_đfÈ$I\Ňj¿Ţ1ðÍ $ŋŃ&gt;ÙŇE[œaå⁠!ŘJ˛Âĺz´ĂWıôﬃÝ4ľÕùÉàÕ8ﬀq˝ﬀ—ýĘĎĆ¡1žy.þeIĚ]żĂêÕi3ß?ß(œ¡¡Ą1cĂŃ⁠yţŚ1æŽšdÉˆﬄ§ťﬄŰ”“ÀŻí]Eb"Ţ7Ů,IÉáşgÊçˆ˜ĄEŃxţŚĽÇïĞYžøù´Ş'Ç´(¯‘¯ĂĎďÏ]£Nţù5j`£ü"*B5/Ťì9˚-ŞÎ˛ŇÅđÑČřà:PcÔ Tñ˝`w»ê8˚ŕdßï)7VcþÊE˘&gt;˜Ťﬀ2ﬁţülþÁì?GŐ`MŽ`ﬂ:Ps˘ŹŻﬀ0‘`íŚ]ř`ÈåĳÛcıcÌąÜÝÝQěJŢŮ?1Ź|ùj: jæL$¯Xů‹([—xûmmÅŐ£?Ţĺ^£NÕ<tm-sym>���D��e� � (��]c���:}h�h���/Q��0�KN�F�}$��Ę^��V������w� �]�[�u�v�
+���u��y��_�</tm-sym>ðÇﬄÚÏuì˘Ĳ9˜|ó‚PťĺŸø0cÌŹtëÚ5Ŋ_ŚﬀcÆ4Áﬀo`wî8$$&amp;Ÿ\śÓůŕűbÇË¸0=ŽŠÆéÓiÒđ1gÀÉ#şŞ‐řdI¨NİˆÚůŒ~æœSSéĹĘ.]ĂŘ“1Ñ´9ÐøíþIMq` Gç1èăÙÈèĞÚ#ĞćňúNżśèZÌ˜LëÒ%‘Ð ăJ–jﬂőÖř!pè“ÝŕTIL|Ň1ætňVŇ=s˚ţÓôE_ÀjÍĽÕńľiÊøñÀ£ß:(&gt;ŰľöïW*vÎĲQîżźÑÖŔËŮi£cđ<tm-sym>�bd�N�]U���I�P��k?�u+P�&P����@\\�Ɩ��P��,_B��M�3�s�+��;u�2��i�|�[ 0��M�h�k��h�*��\��g��A�Aqq2ƘӱZ��~=�xٖ57 �QEM�������Sú.]�_u��,U�</tm-sym>˝—/ę1ťEŃç+v^yĚłűÖňIÞŸŘ1çÁoŃŹC4j¨üù'řmﬀPśćösÇŐ´˜ˇˆĚ˙´«&amp;`7nďýÏŔŇŇDtttÚ¿Èż,úMîĎ``^‚ÞÅĺăňÏ?Çč0ž¡Œ¸y´Ÿł¿Ŋś‚ÿQÁÝżťSSćhQă{wàůSSť§/VŇ˚žÓğiàcŇ1ęò_â(§ì^„Àá*%ðÞř‹ÈŮG;ÆdÍâŊ&amp;ě¸áĹżﬀűâ,.KeřÀk„rgWÚŸ[,4ıÛž5uţ^ř`ĹĹÈÌ£“Kń3gĂaÃĂĆ˝ľ»õÒ%íçﬀ4ăĽŒ§‐ęĽXÆĲŹIŠxÞŁ¡@t4e›aaôSSĞ›ľgťÙŇðÈHäĲ5+éľą«&amp;ă@ÎĲĂĞˇ–ëçÉ˜»(`kÞüøîŔ"Ÿﬄìč)ÍŘŹL@Ż6ÀĺQT¿áŰÂŤÆï£ßŐEŃ—!$$¨wþÛüQćD¯ÔňY««'NDPPP*þBVÄ=¯Ğ%{.dMñè‚+â#ÂŚè§¸~.|<tm-sym>���@p0M ����tiڼ?l�s3�K&Y� �%��8
+      k��w}G (�/'��777x�?�q�0����Ȭ����Q,�]w�</tm-sym>ß£ñõ˝zõćş$kÔÈŤ£ı{Ľøx:Ž*8ŸŽÊÙÒĺ”MćwìŸźś1Ű”Ĳ<tm-sym>�����Ij���J�('���)~i8�)�P
+      �� ��p8G�ƦGMo}�eXѢ�����!J�BBƍ���`������ɓ'c�̙pK)�d/��)�/[F�j$��N���F�ZQ��c̆�$� 4�c�8��Ӥ�&O
+      ���ϻ��QC?_"�]�^�{��q2ˠ�7i]���ۓ����8�Fq_ �O�<�9Q	N���޸��MiNU"Vb0�c8n���~/+��jƠ�^ػw
+</tm-sym>ûìSﬀ‐Êó—.\ĹÑčGğ2˙˚ÐûŻ#G(i\£đ—ŻŞËŻŮ„úáÃĄÂĚ3?FÆ0ÓŢT$ŐÀŃŞGÀvˆĽÝżĄĘ‚qñ"ŋjŋYč=›PŰ+⁠ðÆﬀÀëŕS7Oæ811ÀÞ¡ÀŁ–ôÏčîˇ ńT¯09ŠŽáøûg~ŇŇÙ¸'ŔFvõ*řcˇpôhĘ«EÉ/¸ňĄ´ŘreČäå¯xÿ#ÜjEÞČ‐'=çfČJ(àá‹Ÿ-0%Žazô»n›#‘ŁŇMñÏţÂ‚;Ñ´Á0Ě=h˜¯ÉŮšN`ĺ˜ÀÆ+ś‚¿¿¿8{ö,JŰ,Źö£ď¸ĽŐ˚öìąŐĺżvÙđﬂ˝ĺďfÔ(àţŒøl)Æ0KŢT&amp;ŐÀËŞGàÅ¯$@ŕçSS}ˇ,]˙Ż[C`ŽôëØ”èÔĽŐÏâŋ˚ıwïﬃíQÜ¿ﬂØů›ĹţñVÇÓ«èÚŢÆÑÆŊ3?FÆﬁĄŞG#śXĂÃĞŢWşËŮSõeŠŔ⁠,å˙ÃZ8“Rđ`Xó¨@ÊŞİŠÅÜ´ř˚˚`&gt;ÏŔ4”OčQňÁÛIŒ⁠œ‐ŐüĄ9đßﬄÄ%P„ùð£dòa¨ÜﬃDPryç´Ü/ÝĘ)6´7PˆK1„ń1˘Ŕ!§&amp;?jÀâ4}ﬀ&gt;ùä«ĳœÞ{iújW“jłühìSSOû1láŠjÆ0Kğ4$Ő@êŠGàå¯ďìÏ?i5rÓ&amp; !ÁvĹþþÔgăS':Z+W.ÛÏcÏ;{VıGŔﬄOy&gt;¿paêˇ0t(Uî0f$|ĂİÞEEiŮŘﬃ=záÓåDÑRś8,–ŁÂRś0ňÅó˜î‹Ü'èã˝ká@ăp ,ű&gt;oţÂí§0ä;‐¸ﬄ_ØČé‐‐ČM⁠ê‘Mb_üĘãiþSSĚĹ;LÒéĲ:ě˛t'Oę<tm-sym>й��</tm-sym>Ź~ýÿďĘ1ÆÒ%ŊĽcZŸŻWGÌüQJˆı–˝ťkœ\ˆÙă´},\˘ň\¯lØ@¯ŔZd$%ŮŻ6Ñ&gt;öúõ)ŚìÜŹją1Eb"pà`Ŋą?ßLûıSŠ%¸Ðš%Ţ˙wìHSS[ÆŇĹWﬃõ(!ĄZx}œﬂíŸOi¯¯Ăěp Ì‚+ÁRľÿÝ«ÅTŕ<tm-sym>���
+��B�9��i�M{l)^�6o9�J��񫫰Z��wH�aܹ�};����RӛN��	N``���c����1�+��Ԯ@�ݺE����%&��T�-K]����� W�G��!!tt����H.%��4~v�D㩯o��ʘ(.��� nݢ^+W��IM2�`�V�Րش�%S���ɸ��Z� *U/�OaG
+��Yի�^�T5�fM����I#�ݳZ�jH��q���f7j��+]˖܉�1�2�j��֭K�e���R��V�(��������/J�Rx����/kw�����*e׿�0�DQ�#x�����*V�1�cGJ���;s5�<:;I�W��`z����K��s�JHlV��U
+      ��&
+      PǨY�~Ic�Hv����}	2oo�Je�Y��J�EYQLK�(�R��N�����k0Ƙ�db���#��e���Af3p萲��ڵ�A{���W��J(K�t�EN�F�!!�K�`j�Xi8T����e̙q٪�z��	Z��~��OK�HlY���\�<���ُC�V��42�^�����_�d �Q��WQ	V�n:��(P�V���W'�o�������њ��{�.|�U�$��`W����f�1�g��1�e�j�)a}��)�<|����M�����<v�g��ܶ�J�X������fӅ�yxФrPU�kG	3c��ʣ�	</tm-sym>ú˘X¡ÚfÆ‘ÍŮ˜¯ÝŽ"ą[cHźş¸˘0seœœÅŠŹČÐ}ÔˆXŋ/đçðòôÀűàđĺsîC$l<tm-sym>�3��"AAN�&���̈́2!�6��h#<@If�|�@��G���'�W�a�о�Y���Ғ�"'���c���8&��H[ʗ�كڕ�%�QQ��+��"Y�*ch�|�u��8��Nc��q4"BC��O��aJ�DQ���J���؋�ʣ�x��3X��2	��nĿ����52c�Q�����Wn���|�J���`�/U�nX��8p^����s0��N�:%�n�p"�%���Ur�ZNc�	�J��D��'�Yy��{�EҒP:N�NE���,</tm-sym>ý»xòDó)É?¸„^mĹĎđÍ‘-ŰOPĂ)ËÌä”`â«„śßÏó8}á&amp;.^¸ĚŻÉĎŁe˙čZÅćh^£„ÜSHłÝn?ĂŒ›£Ásó!ÿ=Ón»ŇÊ^“⁠û|ŇżM^GØ«oŻ%/›ﬃØÜjj7&amp;«ŢÄęTæSă`Pőﬁ'ŁŇ1&amp;Ĳﬂ«GÀ&gt;É#Řź¯drœï˜Wŕę\.zœîóŊyìÍÃČÎSLiëIĄˆťłÊĽ"cıÇÉč(—¸ðÍ7ÀŇıÏMÛIÙ|”?ÿ=â{ů`šx¸˙ðå2;yÌřøDxmÜ›ïŕvÀíišn3ùó˜ﬄ|`˛ıòÜùﬃ—¸‚ŐêA1,Ň—ĹÕě4ryŊÅB%7ê„ﬁź$ÇÇG)}UŮî8sÃﬃÆ0cř{â˘Ø/y¨RH wíć‚ðĆÅÅ´œîi«Êˇ›èďśäcĺÙLSSêäÛAäqÔÏïùIÖ<tm-sym>y��)c���<��y30u*��T��=�Ч%����=�����	�
+      �k#x���k���@�F��ϧ=�=z$��swWf.c��
+      $��fsd��N�@�� Ŋ�cL�x�&3ݹ�m���&q��ݐЭ	"w��q�9qt4_Ŀ����
+      �W3H���^z��k/��c��t�8��2i\�ȃ��3N3��_�*{�$ݒ $����m#v� H�\�i@R��{�����vu���޿�\X����d�1�zt�8��ͫ#f'��1�������ڴ��=K�m�Y��!f�(�l��J�E��pDm�s�
+�'���Q�x�1�\�G��'��1���ё��ƽ{�nIY��~_D��K���cɭ��  
+       IDATY�A�w3c
+      ����l�
+�c�Eǉ��HƘ#p��)�6�.�ȭ!�W�f,��$vk�ȭ#�~E�&�B2Ƙk0@�(��1fo�<��ڵ)�6�� �`n���Ԓ��D�W�S^�\�J\p�1��b1L�(��1fO�<ڋ��G��6F����o�ER1��?�0�P���HƘ�p�h�"�`A�-^m4er�v��/�<��cq�1��8'�2N
+      c���cF]�Ԯ�)S�χ���j��$vk��M3`)Y@��?���;'.0�c�����H�XFq��wu�����IlXQ����7�Z8Q�"�i5��@�z��m�c�1�v.�8�8�d�e'����g�+� O�&݊�1��_��1�˚1K�FܰW�{QQ@�.�����1�X�`�(��1�^�<�U|<Я0q"��
+      yy
+      f�č����%�L��+b捀��E�$	�6����c����p�(��1���ELС��wI��y��$v�/00&Jb�ڈZ;�|9��?� �mDF��1Ƙm���\*q�q�K+NS+2��}��n�+G���`�\\``L4k����~:��K)7��h�ZS��cL���ec].q�q�KNS��SJT/��ͪ!��ɐs�����reC���HhSK�y�(Т�䉸�c�NS�	$c,�8y|��pJ �M��Цb�	x{
+�9O�������{!!@�f|$c��ĉ�Kq�KN_��3*U	I��Щ</tm-sym>bç‹ˇä⁠WÆÔÜÝ“ûÉ‘$ĳÖXźwö,Ðł–“”!..Æ0sUĲ8ęj'ŘŇśŮáä1%ÑÑÔﬁçØśď[¯ŕ5BìÇo`îümc/àæĘØı˜“SSńźrïÔ)ăMﬀnćÃ0cŹĽ«Ç4ã¨Š1ö"Ĳ˝Ù„⁠ˇtê¨ﬁ:Ťt+ąs˜ÄÎ0ÈGqřÔ1Ź“œ~_ÄwoćÜ;vŇ˚àèhqq1ÆŸńàÄ1Ý8ĄdŇěĎ3ąä$¯èÓˇØ£?éVBżÚĹýh“‘2¯˛ŇéQÜˇýŚÐIuŇËąCt‹ä‐gĎ2Æ0s`Ń˝èSS§«Ç˛à¨Š1f¸'ŔÉÍŸ´lÞĲtŹØć˚bg›å–GŰ&gt;&amp;«b?z˜¯íj+œvî¨ęL”⁠«cŇıŹĲ8ő_§tŃ«ÇôśŹ@űkÇ¯$c.Ň3"ţMŻĂŔ&gt;Jž4Œ,ŃŸy#ÿ9‹Ë0w7ÄÎﬃŁÄz–Ť{sçjfÄıcŇÙ´'Ővœ\ˆıﬂÍ¯$c.ŇŞGÙŹ3ÀÀĄTű˙ÀZ ⁠b—Ňˆ<tm-sym>=�����F�R$P�7dpℸ�c�H8qtN
+      c2N��C�s�F&RoD1R��1#��gE��!e��qq���aabc�1�����8�d��<���k��n $ 1���Z��ظ�!YK�G�����K��@�.@|���cL�8q�4�@2�8y|�-͋^���an$0
+      ft�&U?�5��_Æ��1���L�	$c�͵���`૯�.[�D��Nb�"~p{$t���X���sq1Ƙ�p�('���.�MϝƎM���-��Y��,G�ib?s�bʍɓ��'��cz���p�@2�\3y4���jB ����/��x��oO�,~�\��Z��LLc�9�����8q�d�@2�z\3y�;	I����?����\���3*7��[s�(c�1�%��</tm-sym>ˆ˜s]Ĳ@2æZ\/y<tm-sym>w�93�2�m-�[�su�ՐЩ�rc�l._e���8qtZ�@2�:\+yL^���qS�
+�1
+      vroX��E��S�sy�8:=N
+      s��<Ι�-W}���b�?���ޝ�GU�}�Ζ��EYDYQ,((*�R�(�%�"����ŭH��;(�"��RZ%�,
+FT�l	$d����Cf�Bd�3s��˜�~��<��9'M������U ���A@�/q�q�Z�����XS��Շ��U ��땮��p��o����
+���U 8�,g�
+�"큀�Wb���O���:�NWEl����)S�� &��G@�)��1/O�81�Y|��*����@��U8}�ᇥ={� �D8��?���'K�wK��In�s�၀���j�S�������w @�#�	ė���]���l����MN08P3���*��������o77 D��H
+      ~�w<��o��$�T��2�5Wt�%�e�[�I��gv
+       ��1��@|��xܴI�׿�E7]*��d��h����̙��_�� "�pLV@��b@~���� �X���	RI�$��0SE��8z��](_٩�^�t��f��D8&��</tm-sym>]*˚äěŮ„ŘĂMÄg<tm-sym>��H���,ʺ\JM68p��<:4�����oK+V�� jᘰH���3��W��$y[4V�^��]����m�,�㮻� ��pLx$`O���.eg6�n"��0v�t�и��-��-37 �J��T�1����_<N���{js�\|��a��Qz�*��*�c�4s� ���2��	���%��q߾�������ap
+      ��_wap��7��\s� ��"Q�����^�
+%I���ax
+      ���\r�|u�n��Hz�y�@M��	�C�ģ�/=�l`�x�yRWXEI��dH������gn �	�W</tm-sym>ĲpDţ˘H öÅO<tm-sym>Ο/}�M`�����`�������lc���L� GV�!��"q$$��'C.
+      Rzv;�Bom �	�I�U��N�\8@�"q�H v�G<n�.͝��#�Y����l���� �!q�H
+      6�G<N�n-T�|3U��,��SzAg��6�6|�����q�#j		��ǣ�o]e���.��^d�x�t������3�p��@8���@l�<�^-��c`��7�DG�=�/��in���f �B@����8gN�Ko����1�Ly;���< ��#a$�*K�t18]��߉G ���0���u��fM`��ϙ��+�͒��37��D8"�H�,{�c��߯��wZK�� ��k�\ޓwp�@4�0��̉�x,��)�H<��9u��##
+      3������Ł�R</tm-sym>ïĹ¨»öęÉÒěÒđ=æĘ´Ř0˘GÄĹÒ&gt;]Tðx%´ıòó!ĂÚeSSxĲ7O*.Ű$ùSŞUÚ¡¡áĄĂèóvm+‐Ý4kčťTzï=ş˜´ĹoŢĚãYĎ#Ì)í]I@^vı´¯DĹ}ãqîÜÀŮě£î(%y˛‹˜0âvľďçéÁíŘç˝`Ô*ŕWúío+ĘãşĎ#Ì" Ąèśo<tm-sym>.Y���3�U�;���� jMY8Ξ�E8"��@t�3��6olz;�18`Vi���;�]��
+      ���	�<{���Ձ/����nbp�,���䫛ܱj��a ��6C@�e�x��o!9���Ԗ�{��<? ����)�{VWh<vly���K<�M�#l��"#ⱕ�A���<
+      �q��j�����rN#��#�\4��"gH�v�/�XP�����M��9 ��8E@������r�����
+�h��s$P;�W^99�/��8e(v��矛���H$p���?���׺��A���m�,��u��A ��C@��~�cG�K_�zb��afp#�y �"��*�K/%
+      ��W<��aW��7�<���k�fJn�TZjn ��pD�+��EO�dA	Ԁ��q�n��$���2����G��~駟�
+      v��$��3H�(�+CN��;�7��#P�_/C~�;��SW�G8aH���+w�|�?�����@��}�1�� �#P9�9{�W�G.�Tv*7G�!�#"
+      ���W<�I�q�����Hq��D85D@ճW<�y�b9@a����#�lϞ=���ҟ��'}��W�ǁD8G���I999���5i�$�
+��D,�W<����kH<兝��/:�_��v��y�M�2E�;wV�^�4k�,�-1��1!
+      a����5c��}��j֬����1���^�XX�:-��@��</B�/@�,w���%K4l�0�h�Bw�}��n�jh�D8ǅ��	�����믿�޽{�S�N�:u����Ng�W<���<�d��y� &���O�4i�N</tm-sym>ùd]~ùåÊÎÎŰSSï7=Vü"ﬁĄZA@"Vň[ůNcÇŐUşfÍ4fÌ0čﬄ‚śm<tm-sym>r����EI��9�Jx�^͙3GP۶m5e��ٳ��X�pj�Xr��=��F?��G�����_�&M:��l����|3寛^K��Xx�</tm-sym>}œCðsumZüJnŐ˘ﬀåÈ?(gî~k#%E:ùdş˜!ąlÙšE˝Ğ_čŔÆÀĄ˜5wîÜ˘L»_ﬃ}ôQ¡ôÒKGþAáÇﬄěýû˜ŻþŤ$ùŽđ 9xÃ5—åﬄ,ÔŐ§öJŠ<tm-sym>n�Nn�+��*��Cr��#G`�Cj�JJM59��������x<���{u��wG`�����Z��?��?
+ `3�/���oz���e��|�ɜ� ���r�4JW��[�ݺu�� ��өv�ڙ#�5k�LM�65= 
+      5j�(jVԎ<��~-\�P���˱�&��/</tm-sym>Ĳ[|EOŢöìTKÓáXﬁ,(ÒØ{^˘l?:ázÕÏäTbŞ\Ë£VòŻĞ?ĞqêľÒÄĽfˇBByàĄˇťnÝžj?ÞãñèŠK.Ñ#Ŕ<tm-sym>�SO=5��Ň��B}��***��A7J�&I�I������/_gNa�E��ݬ�ffK�7����:��D�TI��f�/��?�u�&�/����Bܹ��k���z������ɓ���������i�|IR៯U�(���P�~�������i��'B��J��K�F�^���	�o߾Z�`A��;��s����k��F���v��-[&
+      �����T�#cTڿ���P�</tm-sym>ú\ÃÇ=-Ij}RcåĳßŘáĽPÁąběýáIy&gt;‚ù,ÚåŮKoĳ!y<tm-sym>��B\r���z��</tm-sym>fðàÁÊÊÊRSS¿}č4YÈ§ﬄõ?ñxĎ¿żãõŹŻ˜ĹUąÏ¸Þ‚E˛IKKÓřaÃŤŢŢě3Ï<tm-sym>��8����y�������gH�h��!M�6ըQ�4z�h5o������2��(�v@��faC�Uv�]�v3f�F��z���*A���!a@rrr������[YYY���+厁��v�	'�t�=`p
+      69v�7B�/@4</tm-sym>\nů[.ŮKCĘ˛ÑüùóţaÃ˚Ŋﬀ7Őp4ą, ëÔŚď@@ž?\mx0 Æ”Ő0dÄĹ”ŠďžuëjìØśZůnİ—.\ĺńŕ¿:&amp;ÂQšÛŚÇŘ+Í9rœjﬁ¨ĹMÎÜ}Á‚őÌĹ(ﬀ6lŸ.ÿàˆ%%%EõÊo8ˆŐ@ˆGĞpĎAÓęMÓíůSSő«O<tm-sym>Qiii�ǩ���<��0�:� �Ú7oN8��@5C8"�m�6f�Q�[<6k����#<HLao��<_��+=�}�|����T�@ŵ:�����0���</tm-sym>ﬂû2Zďü˜ÑYEí–ŔąGﬃ‐!ﬃĄòÂÞTáÈ#ćą‘Č^Ìêğs{›ÖÀşŽłÕ%«õÉîÊV£ˆŋ‐þV‚¿zĆ&gt;ü)äû¿ÝúèŔgľnÝ::åęß*Ů¸iG‹´¯TŐpĎA˝ﬀ^TV£sÕ{ð@İÕťŢ.ŹøĽ*_FŒëù[ˇëê¯ﬄ*|ıýH‐<tm-sym>����9E7�7W�^F���G�����bLq��y��yD�yw�1��Z������{�J͛�a�.W�K��v��?dM��7_ײܐ���h�kT,i��g�)�H�,G8�
+      �η4f�kj�p�</tm-sym>^0OÏ]Yďy«ĘéÞå–VQízç›ÊŽ&gt;Wo¿¿LáËè˛¡řęXÒ6Í~öSEzıţW<tm-sym>�;����U
+      ��K���<"��-�Owgi긮�tJŻw*_��O��r��弫ϋ%58G=O
+��Gf/���E�#IE�*�.L�G@�F����&jw�T��)���{g����t�/
+_F���粖ў
+_F�уY��E���2j�xLI���l:�h�fJZ���in�?3e����Z�ݒ�GK_�D%�С��B|P�?�</tm-sym>IđÎ˜ÔśNèœŠÕnÔ?5å|ŔÔăŊŽďDï?!ą”ŘHtĎ#˛óþ8GSŰuÕøń[[ů£ØşTŕ|rPÒ¯êÐű¿ÂŮÑ‚Êþt§$Ŕ:›èĺðeťİFýsŁňeťĽ"¡ŇÚ+ﬃ%&gt;œ˘T!ìÍ»Ő:"Òv/Ñìİýôżs›£IŚżXÏgïŞÔP˜GvSØ[⁠ÅÛťxþ6IÒi˜żńaùŢÇÝ\}.ïăŇŞÏSŻôÊþ0ŕöňĲłŚ}ŕÓŇïźňNŋ! Śĺ‹–+},á˘şv/Źŋİý~ğà2úĳňetăFv¸?`Pĳmśňeô4‚ìÞřBÀźŻœÑåﬂ2tòymTé2ZŃëĺ¡îó(Y§ãZo=Ùİ;vﬀﬃ˚ĹﬂÎİ!Ïˇ&gt;ïĹHk8H3?ĳ\‚Ò%ÉğÜO^ÐGùŠŽ\ľŻÎľ⁠öP_îrýgČ$ţRß^Í*]x|þdţ¿ăŃjŢŋĹÅ[õÞ3ÏiÁ7ÛťéńŢZ¿d¡vùÛĺyﬃWÔľUÜˇ„Ľæp8žŮ«Ő0ńáăŹúðò˚VìùrõÉ¸ﬄÉZFoRø2êSîòßÈZFûńWşJWQùŞ[ëĆ.ŊĆaıąuÔ~Gﬃ;t˘|éüzńÁAĂØâúúĞàFÈó¨Ĺ˘gŽj5Hś—”SS/Z<tm-sym>c�H:��խN�C�������=ԯme����7��������n�Hm�6=���7�뱞�H���#�H�#b�3���X)��e�f,8
+      �D]}c���R�_9s��ZF���e�}Vr���~�j$�Q�y��-�k��� �ŵ.$C�'@��ri�����:�;e�ֿ�R��<gT�:���+{S[]~f�i:I-t���o�����q�pD��)w�Y����s�O���+�%yt��.�|�֦��+t��:j�#�]���k[��W`p
+      Fɹygp�+?�!z����������[�k��%I.���:��[+NR�4D]UG
+      ?Xex0�8��i��j�RY�����.���v�e�To���+t�s�e�~�ؾ�u%���N��k�V9�~k#)I����@H
+      Eڶr��$�:��i��-�N˷JR3�׽I%��PΫKu��~���V��SY@��,	��,���pD�(ڦ�k�$�ԡ�i�,|�\�2z��7���9zu�)��WQ	;�-�.�ԥKps�f�� �!���O���R�g��٢��ʯ*ރ�[
+      Iծi���~�֓�����"</tm-sym>)jèĳóďìlˆ„öWU8¿þ:áĹØQzPÖ2Žľ—MÓ*ÄŹœà^YËh;U\F}ú)ûI-;sťćţŇÚ/ﬃěðSWŒsä”˘{ﬃpÊ*ć*EM;4ŞCRáđĳr7'ö)wÙżúÊ+IĞŤWè-œïﬃÐÊÇﬃQÞÍ‐ROnKj[zô  aoĎ#ì"ěľ:4sH*ÔđĳðUT¿\-{œ+YËhđ*.č+õØ#yžùO=–ŋeÔđñÈEsĂ0őu!Ï˜.ŰČĺréďAůkpęTÿä9¡ż9xß(ïőßè‐'æjèřŞ%}čůç|ńCĄï—kÛ[wèŔSSŇÔŞ7ţśáÕÛ„`´¯ż"ﬁa'őŞ4èöÁÊTąŰ<tm-sym>���˨W��󿚘;T�2���|\EU�Mo��G}3�I��&z��=���.�S����	����0W�z!�g�6�</tm-sym>eõêńùŒôŒıuwháÜŊêxßńzøÂ<tm-sym>�ȼ^c'�Q��oՠ�Iڹj�rR���ϏR�d���RY@^|q�*�w</tm-sym>ńˆÝłÒŃxč˙1ĹpĎíÿÔ|è¸Êþù6Ŋź/K¡úÎŒ5ýÏPÝﬂ¸5wcGÝßêÃž0ŕĞ2ŕﬄń¯}úëû[ˇľ}ÒNŋZŘčÔńﬃŒóčÚ*ŽËĺ=ãśìć9˝Öçl\ëůÈ{îiĘĞˆÌpmØ*ĞŔŃåÀ$ğê§3N/ŋjěĞŒőÖ⁠ﬀů*?í"M¡¡ŻÚÔsKjłáÓŰëł{ÖjéŠ5Úîmď¸ŕžMŞ[eÚt”J0¨$ìĆpĎ]9ëëĲq/iÕĺĞţvõ⁠Úÿ5_i⁠MÕíÝÚÈZFĞkÚòńtÏÚěZšfżĳŊ.ÔUůMVńÌèŕćö\ů].éňşď%K$IîåëĽG$,œŁŘEšsg.Ű˜sĲijÖźŮŽuőôŻJiÒY}ŕłôŻĹu¨$bﬂáĹ8àLkęÎ¡Žľòe4EM:œŢéeÔđ§yŤň˝ì0ÏÂ/˛‹ˆŸ–öœ‐À`sČ`Ĺo|˚„śŁp¨ćÆ¿ñ8hPàKŒęﬂrlÏ58˛‘Ęãç¡rĘ^i5äy´ÄŊÒ¡ÚŢçŮtP?í9TíÃ”A¨$b‚á˘Tŕ—ŒQûÆãıgH-[˚69úĹDäYťFŐšŊęMěşÏ69‹P{ĳÛôòÐ3tJË&amp;łŮÑ^wňó(Éş[3û7VFÃ«Õæť¸uïgˇMOŹŸ˘HÄ˙Â”ĺZĎÖQ{~æśÌăAÒÓOKŠ<tm-sym
+      xml:space="preserve">sT|}���^��8Pr8�~0`'��4|�7=*�g aڡb���	�W|�G8AZG�{�Q�|�Z��u� Q�/�!� �8�@��0���ػ�T��$k��,���@@���������HK���3;��C@"�G�({ǣ�vuI7�{D	��o��RJ��a $.�B8��;���Kz�|%����O�C��s�U &��4��	����.���u��r/]kx  �\+7ȹ7��p:�G �����������</tm-sym>ëŢ4{ąÁaĂèHđţ ÿqþùRãÆæĘ´Ă2¨$jﬀá˘Ä»ûÇč$ÝzkàKœŠţrlÏ58˛“YŐ§öĘSSćcÌ0sÃ`@yU˚ägĘˇČí“Ő@ÌĽŔxﬁ8PjÑBŠäðûŢüú"Ã˜´ŚŞôú"9|~kčiSéÊ+Í‹¨`åŢ˝dÈ–ÑÓîĲN@ćæ*¸Ç+ŕ$ﬁ´Ãâ#ﬃ].iôèÀęçSS§HÅ%˚ˇˆ"ďďTIo}ﬁÜþÝïXD´Äęﬃ=ďyó˘Hﬁ¡łÂqölÖ<tm-sym>����GI5JJJ�$9��g������e���vK��bv
+       8G�pbZ��c���o~�Lzm��S�k!�<Xj���0 P$j�pb^�ģ$ee�t���_�`p�v97�(����!�
+      �����B|�cϞR�΁�d�</tm-sym>"Ő$Í˙9êØ¿¡Ôůŕźa`àh”ŘĺŞä=Ě``“ÀIDAT˙á˘ØF|Åč»vÛˆÏ‐ŰËñÓ^ČÃ`ţÃś;OIï.‚î˘ź=‚`Ø˚´Ľò˘GÀVâ/ﬃĞ›Ůj4Ř$9ŁJŤ2í]Ã˜´Ç/ùÙ9r»—YﬀŹŹÒÈŚfˇˆĂcE@ć˛á˘ØNüÅcFĘtŒ]ĄMÏ;KäÜšËà@ÀñqlÏUÒﬀŃČ;îĳÓ˙H`ř+ˆ„ĞŁŢđõ8á˘ØLüÅč$Ŋﬂ+İtŠ$kAJyâSSĘˇˆŐ]ÊSoËQêţ6Ž4ŚÆŔ7;“`Ô˚ˆ2qŢĚãÊ‚Á}Ď#‘¸ñıŔ))Ò}œ˝6=ﬄőŠëńÍ˚ˇˆŐŊsÃVyþż<tm-sym>�c�)-��@ P���C8���(I#FH:6S{��0��Iy�-9�6ڴ�F�29 �</tm-sym>ˆ2q“ŐĂíÅo<tm-sym
+      xml:space="preserve">�\҃6�+7Ƚl������Z�Q�%_wL���
+ </tm-sym>”ŘñŔp¨âBüÆčd¡(İ{n‘3åś7$£SSà@@Íě<tm-sym>r���3��C� �F@�/�������C�/]_o����j���j���</tm-sym>ÿãï‐ŮﬁŐłß˝`Ĺˇ¨dü!ﬁĄÿ„ßñxÁ˝Ò%Ů¨6SﬃŽ%Ç¿˜˚ˇˆłŚWăÔIŕ¨ůûôŚ.¿ØÜ<tm-sym> Md�
+      ����(I�'KII�$�|�<��၀��</tm-sym>ôłĲźûň‚ů[Ž2Åì@`“m¨ďý”Ő@\JŇxìØQžçđÀfÒû+åþpţÁĄĂÊź⁠}ąď9ËĆ;îžËúĳ#`$jˆÒ¿˘G n%F<tm-sym>J�_�"u��L�ۋr��78PN^�R�1�}���}
+      Q��!egWHO6�*�!CG
+      N$N<���̙����U�tՐ�� ���=�B@�����IU��k��@�H�x��N��O_����"&Tz��Yg� b	�G
+      !$V<J������ P=2v�@�H�x���Չ��
+sR��
+��@M�����pH�ţT����ϔ�b������f-P��O�;8] �����EJ���#�@3%������)��.�ҵB�q��Z)��ѥ��@M���@BJ�xt���[j�D�������g���'Ã!8��*�irx}֎F��w��tU �)��HX���Լ����Rr�$ɑ_���OH��C\+8��?<)���ֶ�#���Բ�ٹ �n��#�����(Yϳ�6]�w)����gp(�-�_iw�K�o�{�)����� vF@F�$<�Q�F��Əlz�|����48�U���ȳ
+      '�c��[� 񀀌<���Ǡɓ��/l&�0O��ˎ�/ GǓ��������Gz�Is@<!
+      #�pp�X��^۶�J�w�\�/��1r�|�Ի���lG���oXn ���� B���Փ�}W�̔$9�K���'�����`�3���J��Q9[;22��g� �Y{G ���o/��z��	��"��yL���;rnت�я�q���^}U:�t��@<#
+      ����ce.�H�=;pJ��@��GO�s�VÃ�N��~T��)r��%��%��4h��� 
+      �ǎpP�*W\!�����$G^��o�,׺-��87nS��ȹ7������5ט 	y�G G@<�СҌ�ú̉3��o�,ךM�C,s�ۢ�C����%z��f�DD@����cun��:b���r(T��)r����`�E�5��~��੪���3ҨQf�DVU@�[ix�B8��&F��Na-�d�!�����6<b�{�J��#r(�v�\���bv0 ��|��'G
+      ���q�l�@ⱦ���z-�
+�b������H~���`Z����?<%Ga������p1��` ��sΩ��~
+�{(�x<C�Ho�-��K��R����;�IEfg����z�t�<�eo"��Z�{��Z�� *"
+      �G G�x<Z�^*-]*�l���p�2��$ǎ_�hs�ڣ�����Ww�x���'ҕW� pd$������3��</tm-sym>ŞÎ??řËţqŻ2ĘþŊ¸é$˘Œ⁠SS)cè˜rŋß!ÿşG›ëïEŒőæ˚˜`ÔL"ˇ$á˘à0”ŔÇłQ#iþ|iôèÀ.çÞ|ěSS<tm-sym>YIo,28"���'֭8v�w�)-\(5ibn0 ��IĀ$��xx<�����O��Z�U��/*����s���P�R|Yi^������rI�</tm-sym>j]U59Ùì|`ĂčŮH´I8ˆ8NÄcmøýïŋĚğAČÀőď7⁠ńÎŘ{ä˙}ĄĘmź&gt;ßVıCîQòň˝ÁİõëKï¡'Ŋﬄon0`ÀñKĎĂ$ﬁ´Ôˆâśűôéc}ÞŋSğÀ.çö\ěSSô›ěL|ŹčŘvuĺX)›ÏRúĹĞäÚúsp‐ûöÒŁ–ÒE⁠ŹŻ‚`P{â9 ¯G`ţĎxňMŋ[[A1nĲäpHšnçŚüÚˆŐBÚPàhãKﬄ˚oÃápHYYÖﬀ˝ğđjv@`@íŁÇĂ$ﬁ´Ô"âśűěěIŔ?.-^,İrJ‘7G!mďłčŊŋ[Kﬄ}$Mİ*edŸŻ›`“9ñ»ŘĎ#ĂZF<tm-sym>FJ�^җ_J��.9���ÎB����|����o�</tm-sym>ÚøåŮÖéÉ`ĂøVU@Î[ixřč@8ˆĹ`â1ŠRSěÇﬃńô(dÆÍŞŢ6ö¯9£Ýnp@Ťq~£SiãđVÆ‚ﬁm¨`(0ŘŹŹŠ‹ˇä_þiŔĂ$ﬁ´D˘ñ0‚={V8˙)IđEkŤ1ä^ěþÏsrìøÅàĂĽËśkŔR'ÌPÆ–ß+ÏG§Ğ|ČčŊ`ŘðÎ9GÊÎűW@„Ő`"ĹxŇŰÐčŘgĲ”ØíðûŢ4gŹê\úWě<tm-sym>��{�𛠶8�P��٪s�]Jz{�</tm-sym>‐ðŻﬂ;rť”`‘śS@„Ő`"ŇxŇűđ=ěĲﬁéåŮŋS"›sŤzŢüò|ÕıpŮŠğ¡+–ﬁ28dﬁ+,Ròôźłsñ_Ťü‐Ùr»Ů˚£ŒćĚ4s&amp;Gﬀ´`áì“ŘĎ#Ă( ﬃMp8ďSSþVÚÿQzê)ľqãàů˙‹)eÚżVÜüë£ﬁĽň%Ő}ˇŤ4ã}Õıð⁠ě<tm-sym>��
+��l��:*��7҈a� 
+      )��p%��l��#�+m�$��T�N�[ν�Jy�-չ��J��t�r�38�}��ܤ��yNu.�C���!���Ȑ&L�����v)9�ܠ ���I8�"^UbAF�t�=�Z|Pz��Ⱥ��ԫ��V(��;I���Q�e=�4B�J�����r%�^(��*~��n��
+ǐ��  T�,
+      /�Xڿ?��T2�{tg�,���G ���Xz��wJ�}۵q�R�Qu/�C)�^������M�~R�óT��;�v�̊�X��4~|�� Pc�p�p` �.��E���x�:�d�4iepAr(T�)�ՏTک�J{wQI�.�;���f8��.Ϣ5r/�B�5���A]�ZGu��κ�-  ���H��!��Ĳ��.#FH�W[9k�T�؋{�f��nV��o�״�Jz���</tm-sym>głôìvŠ'‹ßï-õÊţjč<tm-sym>���g�9��V���i�P+�G�4" @b0��# �x����]�矗yĺ��3�H�~����J��@ɳȟ���_wRI�.*�y����T��</tm-sym>Çþ˜r/Y+œć/äYòŢﬁùĚU?ÿMﬀéÖ[ěŻnŠN8!zCˆ`„S4˜Šp¨‘0ŕ4vSöź¡ÛoŮVňŘæÎŢæÌŚÖő‚{Ÿãà!y&gt;X%Ïˇń$I¿f‚äíØZÞŐ-å=ŋŢĳﬂ[Ê§Źaâ£àĹﬁû›Êţ~Ń\ë‐ŘkİõÏ*Ŕ.Ű9í4iÐ ið‘ľG›ëV(``DK4ˆŠp¨“˜xţś+ĞC:œ\ëŒČ›JŻ7[”9gŐôñÇRiiØÃİ;vËźců<tm-sym>�
+�+����ר������J���'��\��m�y(J�"ٳ���[G 0�s�</tm-sym>Ř.ž(0Ř‐đ.ľ—ˆŠp¨“#xÅĽ⁠ŋ[KãÆY£öíŞæÍşBòýœŋíJT—ŤŠäŕŞ*_čzò7ÌŤŕq}ùﬀeÊŒ(SþFõåkXWJòHnŮﬁĚEá£SSw?ÊŢż_òzěć„9wçÉñó&gt;9‐Ùoý3w§ﬁźûåÌÝ{äSO+Sůő4‘Ă–ŃŮ^jﬂĄ˝` ŰtïﬃﬃŘ&gt;ßñˇ$á˘ Ęðł«ŔêÕŞő¡ÖúåóYůęX¡:ø+'G:păÊ‐ÝŚ_(W~ąTÍŋ@JÊmgŇ~Tţr"lzžÔěŃõ9ÏnÝň‐űo/9źş˛` ÆÕf@„Ő`b˛ŕ<tm-sym>���:t�~n����{I�Z�5k�����W��Թ3� ����#�īO"r:�@k�</tm-sym>0ŤŠu4rÇ‹içÎà?C£ÞśCúùgľÿØúLeIĽ–ćą£ŕÇc-jIIRčFRşfRÓęUßşŐ}ŕˆ¸`@ŢŐ' ¯G`1ŁW ¨edHmÛZ£jbïÞðÛalÛfE!``8űĂ$ﬁ´Ä0Î‚¨``ĹŤšĂÌÌŤď@@zæŋňøXÂ”@Ň#ﬃ´``"ľŁĂtç|ﬀ|ŇSSO8ˆĹyÄ#``@ďU„ŘIßŮﬂøű3wﬄá˘ æ”Ŕ```ÑP&gt; ýÁo9ŁBnĂE8ˆĹQÄ#``@ťŤ¸È˙˘G`1Ňx¨``ĹęšĂLK¸SSO8ˆĹqÄ#``@ťuï.Ý{op;#Čp¨“óĹG```«BïńÜď¯á˘ æ”Ŕ````Ăj”Ŕ````Ăj”Ŕ````Ăj”Ŕ````Ăj”Ŕ````Ăj”Ŕ````Ăj”Ŕ8fﬃŔG‹Ğ#řİŤŤdpj``ì%tÝLNN68¯`Ô˛ñĹcŰŚŚą!CĘHŠ˚‚jďĘ‚ﬀjđ˘``ûèÓğŔZťh!IžñÆﬀ‚O˜`Õsøý~£é!‘oSS}œİN9å»Óc``‘;%%%ÚścĞZűliz»`ĺ—ñ˘````ĺ—ğŋˆ````łE<tm-sym>    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    �E<    ����#\[���    IEND�B`�</tm-sym></raw-data></tm-arg><tm-arg>png</tm-arg></tuple></tm-arg><tm-arg></tm-arg><tm-arg>0.6par</tm-arg><tm-arg></tm-arg><tm-arg>11</tm-arg></image>
+    </tm-par>
+    
+    <tm-par>
+      Consider this figure in a Langrange-multipliers way.
+    </tm-par>
+    
+    <tm-par>
+      <paragraph>Multiple outputs</paragraph><label>header-n81</label>
+    </tm-par>
+    
+    <tm-par>
+      <math><tm-arg></tm-arg></math>Of course we can decouple into multiple,
+      independent regression problems, however there is an approach using the
+      same set of basis functions so that y
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          y<around><tm-arg>(</tm-arg><tm-arg>x,w</tm-arg><tm-arg>)</tm-arg></around>=W<rsup>T</rsup>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      and
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          p<around><tm-arg>(</tm-arg><tm-arg><math-up>t</math-up>|x,W,β</tm-arg><tm-arg>)</tm-arg></around>=<with
+          math-font="cal">N</with><around><tm-arg>(</tm-arg><tm-arg><math-up>t</math-up>|W<rsup>T</rsup>*ϕ<around><tm-arg>(</tm-arg><tm-arg>x</tm-arg><tm-arg>)</tm-arg></around>,β<rsup>-1</rsup>*I</tm-arg><tm-arg>)</tm-arg></around>
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      which yields
+    </tm-par>
+    
+    <tm-par>
+      <equation_42_>
+        <tm-par>
+          W<rsub>M*L</rsub>=Φ<rsup>†</rsup>*T
+        </tm-par>
+      </equation_42_>
+    </tm-par>
+    
+    <tm-par>
+      <htab>5mm</htab>For the case of arbitrary covariance matrices, see MAL
+      of multi-variate Gaussian distribution.
+    </tm-par>
+  </body>
+  
+  <initial>
+    <collection>
+      <tm-arg>
+        <associate>
+          <tm-arg>page-medium</tm-arg>
+          <tm-arg>paper</tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>par-first</tm-arg>
+          <tm-arg>1tab</tm-arg>
+        </associate>
+      </tm-arg>
+    </collection>
+  </initial>
+  
+  <references>
+    <collection>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-1</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>1</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-2</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>1</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-3</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>1</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-4</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>2</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-5</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>2</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-6</tm-arg>
+          <tm-arg><tuple><tm-arg>1</tm-arg><tm-arg>2</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-7</tm-arg>
+          <tm-arg><tuple><tm-arg>2</tm-arg><tm-arg>3</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-8</tm-arg>
+          <tm-arg><tuple><tm-arg>3</tm-arg><tm-arg>4</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>auto-9</tm-arg>
+          <tm-arg><tuple><tm-arg>4</tm-arg><tm-arg>5</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n0</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>1</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n10</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>2</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n13</tm-arg>
+          <tm-arg><tuple><tm-arg>?</tm-arg><tm-arg>2</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n34</tm-arg>
+          <tm-arg><tuple><tm-arg>1</tm-arg><tm-arg>2</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n55</tm-arg>
+          <tm-arg><tuple><tm-arg>2</tm-arg><tm-arg>3</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n70</tm-arg>
+          <tm-arg><tuple><tm-arg>3</tm-arg><tm-arg>4</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+      <tm-arg>
+        <associate>
+          <tm-arg>header-n81</tm-arg>
+          <tm-arg><tuple><tm-arg>4</tm-arg><tm-arg>5</tm-arg></tuple></tm-arg>
+        </associate>
+      </tm-arg>
+    </collection>
+  </references>
+  
+  <auxiliary>
+    <collection>
+      <associate>
+        <tm-arg>toc</tm-arg>
+        <tm-arg>
+          <tm-par>
+            <vspace_42_>2fn</vspace_42_><with font-series="bold" math-font-series="bold"
+            font-size="1.19">2. Probability Distribution</with>
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-1</pageref><vspace>1fn</vspace>
+          </tm-par>
+          
+          <tm-par>
+            <vspace_42_>1fn</vspace_42_><with font-series="bold" math-font-series="bold">2.3
+            The Gaussian Distribution</with>
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-2</pageref><vspace>0.5fn</vspace>
+          </tm-par>
+          
+          <tm-par>
+            <with par-left="1tab">2.3.1 Conditional and Marginal Gaussian
+            distributions
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-3</pageref></with>
+          </tm-par>
+          
+          <tm-par>
+            <vspace_42_>2fn</vspace_42_><with font-series="bold" math-font-series="bold"
+            font-size="1.19">3. Linear Models for Regression</with>
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-4</pageref><vspace>1fn</vspace>
+          </tm-par>
+          
+          <tm-par>
+            <vspace_42_>1fn</vspace_42_><with font-series="bold" math-font-series="bold">3.1
+            Linear Basis Function Models</with>
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-5</pageref><vspace>0.5fn</vspace>
+          </tm-par>
+          
+          <tm-par>
+            <with par-left="4tab">Maximum Likelihood and least squares
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-6</pageref><vspace>0.15fn</vspace></with>
+          </tm-par>
+          
+          <tm-par>
+            <with par-left="4tab">Sequential learning (online algorithms)
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-7</pageref><vspace>0.15fn</vspace></with>
+          </tm-par>
+          
+          <tm-par>
+            <with par-left="4tab">Regularized least squares
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-8</pageref><vspace>0.15fn</vspace></with>
+          </tm-par>
+          
+          <tm-par>
+            <with par-left="4tab">Multiple outputs
+            <datoms><tm-arg><macro><tm-arg>x</tm-arg><tm-arg><repeat><tm-arg><arg>x</arg></tm-arg><tm-arg><with
+            font-series="medium"><with font-size="1"><space>0.2fn</space>.<space>0.2fn</space></with></with></tm-arg></repeat></tm-arg></macro></tm-arg><tm-arg><htab>5mm</htab></tm-arg></datoms>
+            <no-break/><pageref>auto-9</pageref><vspace>0.15fn</vspace></with>
+          </tm-par>
+        </tm-arg>
+      </associate>
+    </collection>
+  </auxiliary>
+</TeXmacs>

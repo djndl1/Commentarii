@@ -2,7 +2,7 @@
 
 _Density estimation_
 
-$\quad\quad$Data points are independent and identically distributed. There are infinitely many probability distributions that could have given rise to the observed finite data set. 
+Data points are independent and identically distributed. There are infinitely many probability distributions that could have given rise to the observed finite data set. 
 
 __Parametric__ and __non-parametric__ approaches.
 
@@ -10,7 +10,7 @@ __Parametric__ and __non-parametric__ approaches.
 
 # 3. Linear Models for Regression
 
-$\quad\quad$The goal of regression is to predict the value of one or more continuous _target_ variables $t$ given the value of a $D$-dimensional vector $\vec{x}$ _input_ variables.
+The goal of regression is to predict the value of one or more continuous _target_ variables $t$ given the value of a $D$-dimensional vector $\vec{x}$ _input_ variables.
 
 ## 3.1 Linear Basis Function Models
 
@@ -24,7 +24,7 @@ $$
 where $\phi_j(\vec{x})$ are known as _basis functions_, and $w_0$ _bias_ parameter.  
 $w=(w_0,...,w_{M-1})^T $ and $\phi=(\phi_0,...,\phi_{M-1})^T$.
 
-$\quad\quad$By using nonlinear basis functions, we allow the function $y(x,w)$ to be a non-linear function of the input vector $x$. Thus Eq. above is called a _linear model_.
+By using nonlinear basis functions, we allow the function $y(x,w)$ to be a non-linear function of the input vector $x$. Thus Eq. above is called a _linear model_.
 
 __Choices for the basis functions__
 
@@ -50,7 +50,7 @@ _the Fourier basis_: Each basis function represents a specific frequency and has
 
 [Mode](https://en.wikipedia.org/wiki/Mode_(statistics))
 
-$\quad\quad$Assume $p(t,|X,w,\beta)=\mathcal{N}(t|y,\beta^{-1})$, where $t=y+\epsilon$ and $y=w^T\phi(x)$
+Assume $p(t,|X,w,\beta)=\mathcal{N}(t|y,\beta^{-1})$, where $t=y+\epsilon$ and $y=w^T\phi(x)$
 $$
 \begin{align}
 p(\mathrm{t}|X,w,\beta)&=\prod\limits^{N}_{n=1}\mathcal{N}(t_n|w^T\phi(x_n),\beta^{-1})\\
@@ -63,17 +63,17 @@ w_{ML}=(\Phi^T\Phi)^{-1}\Phi^T\mathrm{t}
 $$
 where _design matrix_ $\Phi$ is given by $\Phi_{nj}=\phi_j(x_n)$
 
-$\quad\quad$Take the derivative w.r.t. $w_0$
+Take the derivative w.r.t. $w_0$
 $$
 w_0=\bar{t}-\sum\limits^N_{j=1}w_j\bar{\phi}_j
 $$
 where $\bar{t}$ and $\bar{\phi_j}$ are the arithmetic mean of their elements.
 
-$\quad\quad$Maximize the log likehood w.r.t. the noise precision parameter $\beta$:
+Maximize the log likehood w.r.t. the noise precision parameter $\beta$:
 $$
 \dfrac{1}{\beta_{ML}}=\dfrac{1}{N}\sum\limits^N_{n=1}[t_n-w^T_{ML}\phi(x_n)]^2
 $$
-$\quad\quad$The least-squares regression function (Euclidean distance) is obtained by finding the orthogonal projection of the data vector $t$ onto the subspace spanned by the basis functions $\phi_j(x)$ in which each basis function is viewed as a vector $\phi_j$ of length *N* with elements $\phi_j(x_n)$.
+The least-squares regression function (Euclidean distance) is obtained by finding the orthogonal projection of the data vector $t$ onto the subspace spanned by the basis functions $\phi_j(x)$ in which each basis function is viewed as a vector $\phi_j$ of length *N* with elements $\phi_j(x_n)$.
 
 #### Sequential learning (online algorithms)
 
@@ -89,7 +89,7 @@ where $t$ is the iteration number and $\eta$ is a _learning rate_.
 
 _LMS (least-mean-squares) algorithm_
 
-$\quad\quad$For the case of the sum-of-squares error function:
+For the case of the sum-of-squares error function:
 $$
 \triangledown E_n=(t_n-w^{(t)T}\phi_n)\phi_n
 $$
@@ -111,7 +111,7 @@ Think about this figure in a Langrange-multipliers way.
 
 #### Multiple outputs
 
-$\quad\quad$Of course we can decouple into multiple, independent regression problems, however there is an approach using the same set of basis functions so that y
+Of course we can decouple into multiple, independent regression problems, however there is an approach using the same set of basis functions so that y
 $$
 y(x,w)=W^T\phi(x)
 $$

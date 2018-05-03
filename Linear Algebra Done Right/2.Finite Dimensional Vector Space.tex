@@ -1,0 +1,125 @@
+\documentclass{amsart}
+\usepackage[english]{babel}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\tmdfn}[1]{\textbf{#1}}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmstrong}[1]{\textbf{#1}}
+\newtheorem{theorem}{Theorem}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Finite-Dimensional Vector Space}
+
+\author{DJN\_DL}
+
+{\maketitle}
+
+{\tmdfn{Given a list of vectors $v_1, v_2, \ldots, v_n \in V (F)$, and a list
+of scalars $c_1, c_2, \ldots, c_n (i = 1, 2, \ldots, n) \in F$
+\[ c_1 v_1 + c_2 v_2 + \ldots + c_n v_n \]
+is then called {\tmem{linear combination}} of $\{ v_1, v_2, \ldots, v_n \}$.
+All linear combinations of a certain list of vectors form a set called
+{\tmem{spanning set}}, notation by $\tmop{span} \{ v_1, v_2, \ldots, v_n
+\}$.}}
+
+\
+
+{\tmstrong{Span is the smallest containing subspace}}
+
+\begin{theorem}
+  The span of a list of vectors is the smallest subspace containing all the
+  vectors of the list.
+\end{theorem}
+
+\begin{proof}
+  For a list of vectors $v_1, v_2, \ldots, v_n \in V$
+  
+  Let $a_i = 0 \tmop{for} \quad i = 1, 2, \ldots, n$, $a_1 v_1 + a_2 v_2 +
+  \ldots + a_n v_n = 0 \in \tmop{span} (v_1, v_2, \ldots, v_n)$
+  
+  $\{ b_i \} \tmop{for} i = 1, 2, \ldots, n$ is another list of scalars than
+  $\{ a_i \}, a_i \neq 0$ here
+  \[ \underset{\in \tmop{span}}{(b_1 v_1 + \ldots + b_n v_n)} + \underset{\in
+     \tmop{span}}{(a_1 v_1 + a_2 v_2 + \ldots + a_n v_n)} = (a_1 + b_1) v_1 +
+     \ldots + (a_n + b_n) v_n \in \tmop{span} \{ v_1, v_2, \ldots, v_n \} \]
+  \qquad{\tmem{$\lambda$}} is a scalar in $F$
+  \[ \lambda (a_1 v_1 + \ldots + a_n v_n) = \lambda a_1 v_1 + \ldots + \lambda
+     a_n v_n \in \tmop{span} \{ v_1, v_2, \ldots, v_n \} \]
+  Thus $\tmop{span} \{ v_1, v_2, \ldots, v_n \}$ is a subspace of V, and since
+  any subspace containing all vectors of $\{ v_i \}$ must contain their span
+  (from the definition of vector space), any subspace other than the span is
+  ``larger'' (containing more vectors) than the span.
+  
+  \ 
+\end{proof}
+
+If a list of vectors form a span which is equal to $V$, in other words,
+$\tmop{span} \{ v_1, v_2, \ldots, v_n \} = V$, we say $v_1, v_2, \ldots, v_n$
+span $V$. If a vector space can be spanned by a finite set of vectors within
+itself, it is a {\tmem{finite dimensional vector space}}, otherwise, an
+{\tmem{infinite vecotr space.}} (Not really defined yet here)
+
+\
+
+{\tmstrong{Polynomial $P (F)$}}
+
+A function $P : F \rightarrow F$ is said to be a {\tmem{po{\tmem{}}lynomial}}
+with coeffecients if there are $a_0, a_1, a_2, \ldots, a_m \in F$ s.t.
+\[ p (x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_m x^m \tmop{for} x \in F \]
+$P (F)$ is the set of all polynomials with coefficients in $F$, it is a
+subspace of $F^F$. Every polynomial can be uniquely determined by its
+coefficients.
+
+A polynomial is said to have a {\tmem{degree}} of $m$ if there are
+coefficients $a_m \neq 0, a_i (i > m) = 0$ s.t.
+\[ p (x) = a_0 + a_1 x + \ldots + a_m x^m + \underset{= 0}{(a_i x^{m + 1} +
+   \ldots)} \]
+
+
+Zero polynomial is defined to have a degree $- \infty$
+
+$P_m (F)$ is defined as the set containing all polynomials of which degree is
+no more than $m$.
+
+\
+
+What if a vector in a span can be uniquely represented, i.e. only one list of
+scalars makes it a linear combination of a certain list of vectors. Here we
+define {\tmem{linear independence}}.
+
+\
+
+Suppose a list of vectors $v_1, v_2, \ldots, v_n \tmop{in} V_F$, if the only
+choice to make $a_1 v_1 + a_2 v_2 + \ldots + a_n v_n$ is $a_1 = a_2 = \ldots =
+a_n = 0$, then $v_1, v_2, v_3, \ldots, v_n$ are {\tmem{linear independent.}}
+
+\
+
+The definition is just a unique of representatin of zero. Suppose there is a
+nonzero vector $v \in \tmop{span} \{ v_1, v_2, \ldots, v_n \}$, and that it
+cannot be uniquely represented, that is
+
+there exist $\{ a_i \}$ $\{ b_i \}$ s.t.
+\begin{equation}
+  v = a_1 v_1 + a_2 v_2 + \ldots + a_n v_n
+\end{equation}
+\begin{equation}
+  v = b_1 v_1 + b_2 v_2 + \ldots + b_n v_n
+\end{equation}
+$(1) - (2)$: $(a_1 - b_1) v_1 + \ldots + (a_n - b_n) v_n = 0$
+
+Since $\{ v_i \}$ is linearly independent, $a_i - b_i = 0 (i = 1, 2, \ldots,
+n) \rightarrow a_i = b_i$, thus $v$ must be uniquely represented by $\{ v_i
+\}$.
+
+Conversely, if all vectors can be uniquely represented, choose $0$, all
+coefficients must be zero, implying linear independence (the definition of
+linear independence). Thus, for a list of vectors, linear independence is
+equivalent to unique representation. And {\tmem{linear independence}} is so
+defined that we can coefficients other than all zeros s.t. $a_1 v_1 + \ldots .
++ a_n v_n = 0$.
+
+\end{document}

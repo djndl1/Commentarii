@@ -1,0 +1,834 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{ifxetex}
+\usepackage{ifluatex}\usepackage{fixltx2e}% provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+\else
+    \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{grffile}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+
+\def\fps@figure{htbp}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding utf8
+\fontencoding T1
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "lmodern" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks false
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref section
+\pdf_pdfusetitle false
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 2
+\use_package esint 1
+\use_package mathdots 2
+\use_package mathtools 2
+\use_package mhchem 2
+\use_package stackrel 2
+\use_package stmaryrd 2
+\use_package undertilde 2
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 0
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part
+2.
+ Probability Distribution
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Density estimation
+\end_layout
+
+\begin_layout Standard
+Data points are independent and identically distributed.
+ There are infinitely many probability distributions that could have given
+ rise to the observed finite data set.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Parametric
+\series default
+ and 
+\series bold
+non-parametric
+\series default
+ approaches.
+\end_layout
+
+\begin_layout Section
+2.3 The Gaussian Distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+N(x|\mu,\sigma^{2})=\dfrac{1}{(2\pi)^{D/2}}\dfrac{1}{|\Sigma|^{1/2}}exp\Bigg\{-\dfrac{1}{2}(x-\mu)^{T}\Sigma^{-1}(x-\mu)\Bigg\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Mahalanobis distance
+\end_layout
+
+\begin_layout Subsection*
+2.3.1 Conditional and Marginal Gaussian distributions
+\end_layout
+
+\begin_layout Standard
+An important property of the multivariate Gaussian distribution is that
+ if two sets of variables are jointly Gaussian, then the conditional distributio
+n of one set conditoned on the other is again Gaussian.
+ Similarly, the marginal distribution of either set is also Gaussian.
+\end_layout
+
+\begin_layout Subsection*
+2.3.3 Bayes ' theorem for Gaussian variables
+\end_layout
+
+\begin_layout Standard
+Given a marginal Gaussian distribution 
+\begin_inset Formula $p(x)$
+\end_inset
+
+ for 
+\begin_inset Formula $x$
+\end_inset
+
+ and a condition Gaussian distribution 
+\begin_inset Formula $p(y|x)$
+\end_inset
+
+ for 
+\begin_inset Formula $y$
+\end_inset
+
+ given 
+\begin_inset Formula $x$
+\end_inset
+
+, the marginal distribution of 
+\begin_inset Formula $y$
+\end_inset
+
+ and the conditional distribution of 
+\begin_inset Formula $x$
+\end_inset
+
+ given 
+\begin_inset Formula $y$
+\end_inset
+
+ are also Gaussian.
+\end_layout
+
+\begin_layout Subsection*
+2.3.4 Maximum likelihood for the Gaussian
+\end_layout
+
+\begin_layout Standard
+Given a data set 
+\begin_inset Formula $X=(x_{1},...,x_{N})^{T}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ln p(X|\mu,\Sigma)=-\dfrac{ND}{2}\ln(2\pi)-\dfrac{N}{2}\ln|\Sigma|-\dfrac{1}{2}\sum_{n=1}^{N}(x_{n}-\mu)^{T}\Sigma^{-1}(x_{n}-\mu)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the derivative w.r.t.
+ 
+\begin_inset Formula $\mu$
+\end_inset
+
+and set it to zero
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu_{ML}=\dfrac{1}{N}\sum_{n=1}^{N}x_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And the covariance (Magnus and Neudecker (1999))
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Sigma_{ML}=\dfrac{1}{N}\sum_{n=1}^{N}(x_{n}-\mu_{ML})(x_{n}-\mu_{ML})^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+3.
+ Linear Models for Regression
+\end_layout
+
+\begin_layout Standard
+The goal of regression is to predict the value of one or more continuous
+ 
+\emph on
+target
+\emph default
+ variables 
+\begin_inset Formula $t$
+\end_inset
+
+ given the value of a 
+\begin_inset Formula $D$
+\end_inset
+
+-dimensional vector 
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+ 
+\emph on
+input
+\emph default
+ variables.
+\end_layout
+
+\begin_layout Subsection
+3.1 Linear Basis Function Models
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+y(x,w)= & w_{0}+\sum\limits _{j=1}^{M-1}w_{j}\phi_{j}(x)\\
+= & w^{T}\phi(x)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\phi_{j}(\vec{x})$
+\end_inset
+
+ are known as 
+\emph on
+basis functions
+\emph default
+, and 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+ 
+\emph on
+bias
+\emph default
+ parameter.
+\begin_inset Formula $w=(w_{0},...,w_{M-1})^{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi=(\phi_{0},...,\phi_{M-1})^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+By using nonlinear basis functions, we allow the function 
+\begin_inset Formula $y(x,w)$
+\end_inset
+
+ to be a non-linear function of the input vector 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Thus Eq.
+ above is called a 
+\emph on
+linear model
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Choices for the basis functions
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Gaussian
+\emph default
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\phi_{j}(x)=exp\Bigg\{-\dfrac{(x-\mu_{j})^{2}}{2s^{2}}\Bigg\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mu_{j}$
+\end_inset
+
+ govern the locations of the basis functions in input space.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Sigmoidal basis function
+\emph default
+:
+\begin_inset Formula 
+\[
+\phi_{j}(x)=\sigma(\dfrac{x-\mu_{j}}{s}): \sigma(a)=\dfrac{1}{1+exp(-a)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula $tanh(a)=2\sigma(a)-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+the Fourier basis
+\emph default
+: Each basis function represents a specific frequency and has infinite spatial
+ extent.
+\end_layout
+
+\begin_layout Paragraph
+Maximum Likelihood and least squares
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Mode"
+target "https://en.wikipedia.org/wiki/Mode_(statistics)"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $p(t,|X,w,\beta)=\mathcal{N}(t|y,\beta^{-1})$
+\end_inset
+
+, where 
+\begin_inset Formula $t=y+\epsilon$
+\end_inset
+
+ and 
+\begin_inset Formula $y=w^{T}\phi(x)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\ln p(t|w,\beta)= & \dfrac{1}{2}\sum_{n=1}^{N}\{t_{n}-w^{T}\phi(x_{n})\}^{2}\\
+= & \dfrac{N}{2}\ln\beta-\dfrac{N}{2}\ln(2\pi)-\beta E_{D}(w)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathrm{t}$
+\end_inset
+
+ is the column vector of targets and 
+\begin_inset Formula $E_{D}(w)=\dfrac{1}{2}\sum\limits _{n=1}^{N}\{t_{n}-w^{T}\phi(x_{n})\}^{2}$
+\end_inset
+
+.
+ It is easy to see that maximization of the likelihood function under a
+ conditional Gaussian noise distribution for a linear model is equivalent
+ to minimizing a sum-of-squares error function.
+ Take the gradient and set it to zero:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{ML}=(\Phi^{T}\Phi)^{-1}\Phi^{T}\mathrm{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\emph on
+design matrix
+\emph default
+ 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\Phi_{nj}=\phi_{j}(x_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the derivative w.r.t.
+ 
+\begin_inset Formula $w_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{0}=\bar{t}-\sum\limits _{j=1}^{N}w_{j}\bar{\phi}_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\phi_{j}}$
+\end_inset
+
+ are the arithmetic mean of their elements.
+\end_layout
+
+\begin_layout Standard
+Maximize the log likehood w.r.t.
+ the noise precision parameter 
+\begin_inset Formula $\beta$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\dfrac{1}{\beta_{ML}}=\dfrac{1}{N}\sum\limits _{n=1}^{N}[t_{n}-w_{ML}^{T}\phi(x_{n})]^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The least-squares regression function (Euclidean distance) is obtained by
+ finding the orthogonal projection of the data vector 
+\begin_inset Formula $t$
+\end_inset
+
+ onto the subspace spanned by the basis functions 
+\begin_inset Formula $\phi_{j}(x)$
+\end_inset
+
+ in which each basis function is viewed as a vector 
+\begin_inset Formula $\phi_{j}$
+\end_inset
+
+ of length 
+\emph on
+N
+\emph default
+ with elements 
+\begin_inset Formula $\phi_{j}(x_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Sequential learning (online algorithms)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Stochastic graidient descent (sequential gradient descent)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Gradient descent"
+target "https://en.wikipedia.org/wiki/Gradient_descent"
+
+\end_inset
+
+, see the description.
+\end_layout
+
+\begin_layout Standard
+Given an error function 
+\begin_inset Formula $E=\sum_{n}E_{n}$
+\end_inset
+
+ , a sum over data points, after presentation of pattern 
+\begin_inset Formula $n$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w^{(t+1)}=w^{(t)}-\eta\triangledown E_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $t$
+\end_inset
+
+ is the iteration number and 
+\begin_inset Formula $\eta$
+\end_inset
+
+ is a 
+\emph on
+learning rate
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+LMS (least-mean-squares) algorithm
+\end_layout
+
+\begin_layout Standard
+For the case of the sum-of-squares error function:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\triangledown E_{n}=(t_{n}-w^{(t)T}\phi_{n})\phi_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Regularized least squares
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+E(x)=E_{D}+\lambda E_{W}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general 
+\begin_inset Formula $E_{W}=\dfrac{\lambda}{2}\sum\limits _{j=1}^{M}|w_{j}|^{q}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $q=1$
+\end_inset
+
+: (lasso) if is large enough, some of the coefficients are driven to zero
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $q=2$
+\end_inset
+
+: 
+\begin_inset Formula $E_{w}(q=2)$
+\end_inset
+
+ is known in ML as 
+\emph on
+weight decay
+\emph default
+, because in sequential learning algorithms, it encourages weight values
+ to decay towards zero.
+ In statistics, it is an example of a 
+\emph on
+parameter shrinkage
+\emph default
+ method.
+ 
+\begin_inset Formula $w=(\lambda I+\Phi^{T}\Phi)^{-1}\Phi^{T}t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename D:/Documents/GitHub/Commentarii/PRML/1524666731026.png
+	scale 50
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Think about this figure in a Langrange-multipliers way.
+\end_layout
+
+\begin_layout Paragraph
+Multiple outputs
+\end_layout
+
+\begin_layout Standard
+Of course we can decouple into multiple, independent regression problems,
+ however there is an approach using the same set of basis functions so that
+ y
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y(x,w)=W^{T}\phi(x)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p(\mathrm{t}|x,W,\beta)=\mathcal{N}(\mathrm{t}|W^{T}\phi(x),\beta^{-1}I)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which yields
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+W_{ML}=\Phi^{\dagger}T
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the case of arbitrary covariance matrices, see MAL of multi-variate
+ Gaussian distribution.
+\end_layout
+
+\end_body
+\end_document

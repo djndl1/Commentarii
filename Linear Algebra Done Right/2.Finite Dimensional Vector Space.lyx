@@ -1,0 +1,451 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass amsart
+\begin_preamble
+\usepackage[english]{babel}
+
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\tmdfn}[1]{\textbf{#1}}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmstrong}[1]{\textbf{#1}}
+\newtheorem{theorem}{Theorem}
+\end_preamble
+\use_default_options false
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Finite-Dimensional Vector Space
+\end_layout
+
+\begin_layout Author
+DJN_DL
+\end_layout
+
+\begin_layout Definition*
+Given a list of vectors 
+\begin_inset Formula $v_{1},v_{2},\ldots,v_{n}\in V(F)$
+\end_inset
+
+, and a list of scalars 
+\begin_inset Formula $c_{1},c_{2},\ldots,c_{n}(i=1,2,\ldots,n)\in F$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+c_{1}v_{1}+c_{2}v_{2}+\ldots+c_{n}v_{n}
+\]
+
+\end_inset
+
+is then called 
+\emph on
+linear combination
+\emph default
+ of 
+\begin_inset Formula $\{v_{1},v_{2},\ldots,v_{n}\}$
+\end_inset
+
+.
+ All linear combinations of a certain list of vectors form a set called
+ spanning set, notation by 
+\begin_inset Formula $span\{v_{1},v_{2},\ldots,v_{n}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Span is the smallest containing subspace
+\end_layout
+
+\begin_layout Theorem*
+The span of a list of vectors is the smallest subspace containing all the
+ vectors of the list.
+ 
+\end_layout
+
+\begin_layout Proof
+For a list of vectors 
+\begin_inset Formula $v_{1},v_{2},\ldots,v_{n}\in V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $a_{i}=0\ for\ i=1,2,\ldots,n$
+\end_inset
+
+, 
+\begin_inset Formula $a_{1}v_{1}+a_{2}v_{2}+\ldots+a_{n}v_{n}=0\in span(v_{1},v_{2},\ldots,v_{n})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula $\{b_{i}\}\ for\ i=1,2,\ldots,n$
+\end_inset
+
+ is another list of scalars than 
+\begin_inset Formula $\{a_{i}\},a_{i}\neq0$
+\end_inset
+
+ here 
+\begin_inset Formula 
+\[
+\underset{\in span}{(b_{1}v_{1}+\ldots+b_{n}v_{n})}+\underset{\in span}{(a_{1}v_{1}+a_{2}v_{2}+\ldots+a_{n}v_{n})}=(a_{1}+b_{1})v_{1}+\ldots+(a_{n}+b_{n})v_{n}\in span\{v_{1},v_{2},\ldots,v_{n}\}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is a scalar in 
+\begin_inset Formula $F$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\lambda(a_{1}v_{1}+\ldots+a_{n}v_{n})=\lambda a_{1}v_{1}+\ldots+\lambda a_{n}v_{n}\in span\{v_{1},v_{2},\ldots,v_{n}\}
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $span\{v_{1},v_{2},\ldots,v_{n}\}$
+\end_inset
+
+ is a subspace of V, and since any subspace containing all vectors of 
+\begin_inset Formula $\{v_{i}\}$
+\end_inset
+
+ must contain their span (from the definition of vector space), any subspace
+ other than the span is 
+\begin_inset Quotes eld
+\end_inset
+
+larger
+\begin_inset Quotes erd
+\end_inset
+
+ (containing more vectors) than the span.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If a list of vectors form a span which is equal to 
+\begin_inset Formula $V$
+\end_inset
+
+, in other words, 
+\begin_inset Formula $span\{v_{1},v_{2},\ldots,v_{n}\}=V$
+\end_inset
+
+, we say 
+\begin_inset Formula $v_{1},v_{2},\ldots,v_{n}$
+\end_inset
+
+ span 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ If a vector space can be spanned by a finite set of vectors within itself,
+ it is a
+\emph on
+ finite dimensional vector space
+\emph default
+, otherwise, an
+\emph on
+ infinite vecotr space
+\emph default
+.
+ (Not really defined yet here)
+\end_layout
+
+\begin_layout Subsection*
+Polynomial 
+\begin_inset Formula $P(F)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition*
+A function 
+\begin_inset Formula $P:F\rightarrow F$
+\end_inset
+
+ is said to be a polynomial with coeffecients if there are 
+\begin_inset Formula $a_{0},a_{1},a_{2},\ldots,a_{m}\in F$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula 
+\[
+p(x)=a_{0}+a_{1}x+a_{2}x^{2}+\ldots+a_{m}x^{m}forx\in F
+\]
+
+\end_inset
+
+
+\begin_inset Formula $P(F)$
+\end_inset
+
+ is the set of all polynomials with coefficients in 
+\begin_inset Formula $F$
+\end_inset
+
+, it is a subspace of 
+\begin_inset Formula $F^{F}$
+\end_inset
+
+.
+ Every polynomial can be uniquely determined by its coefficients.
+\end_layout
+
+\begin_layout Standard
+A polynomial is said to have a degree of 
+\begin_inset Formula $m$
+\end_inset
+
+ if there are coefficients 
+\begin_inset Formula $a_{m}\neq0,a_{i}(i>m)=0$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula 
+\[
+p(x)=a_{0}+a_{1}x+\ldots+a_{m}x^{m}+\underset{=0}{(a_{i}x^{m+1}+\ldots)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zero polynomial is defined to have a degree 
+\begin_inset Formula $-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{m}(F)$
+\end_inset
+
+ is defined as the set containing all polynomials of which degree is no
+ more than 
+\begin_inset Formula $m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+What if a vector in a span can be uniquely represented, i.e.
+ only one list of scalars makes it a linear combination of a certain list
+ of vectors.
+ Here we define linear independence.
+\end_layout
+
+\begin_layout Definition*
+Suppose a list of vectors 
+\begin_inset Formula $v_{1},v_{2},\ldots,v_{n}\ in\ V_{F}$
+\end_inset
+
+, if the only choice to make 
+\begin_inset Formula $a_{1}v_{1}+a_{2}v_{2}+\ldots+a_{n}v_{n}$
+\end_inset
+
+ is 
+\begin_inset Formula $a_{1}=a_{2}=\ldots=a_{n}=0$
+\end_inset
+
+, then 
+\begin_inset Formula $v_{1},v_{2},v_{3},\ldots,v_{n}$
+\end_inset
+
+ are 
+\emph on
+linear independent
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+The definition is just a unique of representatin of zero.
+ Suppose there is a nonzero vector 
+\begin_inset Formula $v\in span\{v_{1},v_{2},\ldots,v_{n}\}$
+\end_inset
+
+, and that it cannot be uniquely represented, that is
+\end_layout
+
+\begin_layout Standard
+there exist 
+\begin_inset Formula $\{a_{i}\}$
+\end_inset
+
+ 
+\begin_inset Formula $\{b_{i}\}$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula 
+\begin{equation}
+v=a_{1}v_{1}+a_{2}v_{2}+\ldots+a_{n}v_{n}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+v=b_{1}v_{1}+b_{2}v_{2}+\ldots+b_{n}v_{n}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula $(1)-(2)$
+\end_inset
+
+: 
+\begin_inset Formula $(a_{1}-b_{1})v_{1}+\ldots+(a_{n}-b_{n})v_{n}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $\{v_{i}\}$
+\end_inset
+
+ is linearly independent, 
+\begin_inset Formula $a_{i}-b_{i}=0(i=1,2,\ldots,n)\rightarrow a_{i}=b_{i}$
+\end_inset
+
+, thus 
+\begin_inset Formula $v$
+\end_inset
+
+ must be uniquely represented by 
+\begin_inset Formula $\{v_{i}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Conversely, if all vectors can be uniquely represented, choose 
+\begin_inset Formula $0$
+\end_inset
+
+, all coefficients must be zero, implying linear independence (the definition
+ of linear independence).
+ Thus, for a list of vectors, linear independence is equivalent to unique
+ representation.
+ And linear independence is so defined that we can coefficients other than
+ all zeros s.t.
+ 
+\begin_inset Formula $a_{1}v_{1}+\ldots.+a_{n}v_{n}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

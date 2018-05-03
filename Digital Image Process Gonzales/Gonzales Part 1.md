@@ -832,7 +832,7 @@ Arising during image acquisition and or transmission.
 
 _White noise_: constant Fourier spectrum
 
-$\quad\quad\$In the discussion below we consider the noise uncorrelated w.r.t the image itself, independent of its spatial coordinates, though this is not always the case in reality.
+$\quad\quad$In the discussion below we consider the noise uncorrelated w.r.t the image itself, independent of its spatial coordinates, though this is not always the case in reality.
 
 ###### Some Important Noise Probability Density Functions
 
@@ -1143,10 +1143,45 @@ $$
 
 ## 5.10 Geometric Mean Filter
 
-\indA generalization of Wiener filter, called _geometric mean filter_:
+$\quad\quad$A generalization of Wiener filter, called _geometric mean filter_:
 $$
 \hat{F}(u,v)=\Bigg[\dfrac{H^*(u,v)}{|H*(u,v)|^2}\Bigg]^\alpha\Bigg[\dfrac{H^*(u,v)}{|H(u,v)|^2+\beta\big[\frac{S_\eta(u,v)}{S_f(u,v)}]}\Bigg]^{1-\alpha}G(u,v)
 $$
 $\alpha=1$: inverse filter  
 $\alpha =0​$: parametric Wiener filter  
 $\alpha=1/2$ and $\beta=1$: spectrum equailzaition filter.
+
+## 5.11 Image Reconstruction from Projections
+
+\indHow the shape of a 2-D object is reconstructed from 1-D projections from different angles and the principle of CT.
+
+ #### Projections and the Radon Transform
+
+[Hesse normal representation of a straight line](https://en.wikipedia.org/wiki/Line_(geometry)#In_normal_form)
+
+__Radon transform__:
+$$
+g(\rho,\theta)=\int^{\infin}_{-\infin}\int^{\infin}_{-\infin}f(x,y)\delta(x\ cos\theta +y\ sin\theta -\rho)dxdy
+$$
+The raysum, which is a line integral. The cornerstone of reconstruction from projections.
+
+Discrete version:
+$$
+g(\rho,\theta)=\sum\limits^{M-1}_{x=0}\sum\limits^{N-1}_{y=0}f(x,y)\delta(x\ cos\theta + y\ sin\theta -\rho)
+$$
+_Sinogram_: with $\rho$ and $\theta$ as rectilinear coordinates. A sinogram contains the data necessary to reconstruct $f(x,y)$.
+
+__Backprojection__:
+$$
+f_\theta(x,y)=g(x\ cos\theta + y\ sin\theta, \theta)
+$$
+
+$$
+f(x,y)=\int^{\pi}_{0}f_\theta(x,y)d\theta
+$$
+Discrete version:
+$$
+f(x,y)=\sum\limits^{\pi}_{\theta=0}f_\theta(x,y)
+$$
+A back-projected image is sometimes referred to as a _laminogram_. It is understood implicitly that a laminogram is only an approximation to the image from which the projections were generated.
+
