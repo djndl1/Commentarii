@@ -260,6 +260,23 @@ Times @@ prl[{2, 100}] // N
 
 `Quotient[]` can be used to drop the last digit.
 
+```mathematica
+A[n_] := NestList[Quotient[#, 10] &, n, Length[IntegerDigits[n]] - 1]
+B = Select[Range[1000, 9999], pure]
+re = Range[#*10, #*10 + 9] & /@ B
+B = Select[Flatten[re], pure]	
+```
+
+`FixerPointList`, `LengthWhile`, `TakeWhile` 
+
+```mathematica
+Fold[f,x,{a,b,c}]
+f[f[f[x,a],b],c]
+p[n_] := Plus @@ (1/Rest[FoldList[Plus, 0, Range[1, n]]])
+```
+
+
+
 ## 9. Substitution, Mathematica rules
 
 ```mathematica
