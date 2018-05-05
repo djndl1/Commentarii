@@ -1185,3 +1185,35 @@ f(x,y)=\sum\limits^{\pi}_{\theta=0}f_\theta(x,y)
 $$
 A back-projected image is sometimes referred to as a _laminogram_. It is understood implicitly that a laminogram is only an approximation to the image from which the projections were generated.
 
+#### The Fourier-Slice Theorem
+
+The 1-D Fourier transform of a projection (through parallel beams) w.r.t. 
+$$
+G(w,\theta)=F(\omega\ cos\theta, \omega\ sin\theta)
+$$
+where $F(u,v)$ denotes the 2-D Fourier transform of $f(x,y)$
+
+#### Reconstruction Using Parallel-Beam Filtered Backprojections
+
+$$
+f(x,y)=\int^{\pi}_{0}\Bigg[\int^\infin_{-\infin}|\omega|G(\omega,\theta)e^{j2\pi\omega\rho}d\omega\Bigg]_{\rho=xcos\theta+ysin\theta}d\theta
+$$
+
+The inner expression is in the form of an inverse 1-D Fourier transform. $|\omega|$ is a ramp filter. Though not integrable, $|\omega|$ can be handled by methods such as _generalized delta functions_. In practice, the approach is to window the ramp so it becomes zero outside a certain inverval. A _Hamming windows_ can be used to reduce the ringing of the ramp but blurs the image.
+
+\indThe complete back-projected image $f(x,y)$ is obtaiend as follows (filtered backprojection): 
+
+1. Compute $G(\omega, \theta)$
+2. Multiply by the filter function
+3. Obtain the inverse 1-D FT
+4. Integrate them all
+
+The inner expression $F^{-1}[|\omega|G(\omega, \theta)]=F^{-1}[|\omega|]*g(\omega,\theta)$. In practical CT implementations, convolution generally turns out to be more efficient computationally.
+
+#### Reconstruction Using Fan-Beam Filtered Backprojections
+
+_Backprojection_: 
+$$
+\begin{align}f(r,\phi)&=\dfrac{1}{2}\int^{2\pi}_{0}\int^{\alpha_m}_{-\alpha_m}p(\alpha,\beta)s[r\ cos(\beta+\alpha-\phi)-D\ sin\alpha]D\ cos\alpha\ d\alpha d\beta\\&=\dfrac{1}{2}\int^{2\pi}_{0}\int^{\alpha_m}_{-\alpha_m}p(\alpha,\beta)s[Rsin(\alpha'-\alpha)]D\ cos\alpha\ d\alpha d\beta
+\end{align}
+$$
