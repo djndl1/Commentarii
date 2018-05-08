@@ -1,3 +1,69 @@
+# Chap.8 Image Compression
+
+## 8.1 Fundamentals
+
+__Relative data redundancy__ with b:
+$$
+R=1-\frac{1}{C}
+$$
+where _compression ratio_ $C=\dfrac{b}{b'}$
+
+\indIn the context of digital image compression, $b$ above usually is the number of bits needed to repersent an image as as 2-D array of intensity values. 2-D intensity arrays suffer from three principal types of data redundancies: 
+
+1. _Coding redundancy_: a code is system of symbols used to represent a body of information or set of events. Each piece of information or event is assigned a sequence of _code symbols_, called a _code word_.
+2. _Spatial_ and _temporal redundancy_: The pixels of most 2-D intensity arrays are correlated spatially, information is unnecessarily replicated. In a video sequence, temporally correlated pixels also duplicate information.
+3. _Irrelevant information_: Most 2-D intensity arrays contain information that is ignored by the human visual system or extraneous to the intended use of the image.
+
+#### Coding Redundancy
+
+$$
+L_{avg}=\sum^{L-1}_{k=0}l(r_k)p_r(r_k)
+$$
+
+_fixed-length code_ and _variable-length code_ (analyzed through the histogram)
+
+A natural binary encoding assigns the same number of bits to both the msot and least probable values, resulting in coding redundancy.
+
+####Spatial and Temporal Redundancy
+
+To reduce the redundancy associated with spatially and temporally correlated pixels, a 2-D intensity array must be transformed into a more efficient but usually non-visual representation. Such transformations are called _mappings_. A mapping is said to be _reversible_ if the pixels of the original 2-D intensity array can be reconstructed without error from the transformed data set, otherwise _irreversible_. 
+
+#### Irrelevant Information
+
+Whether or not the information should be preserved is applicatin dependent. Its omission results in a loss of quantitative information, its removal os commonly referred to as _quantization_. 
+
+### Measuring Image Information
+
+_Information theory_ provides the mathematical framework, and its fundamental premise is that the generation fo information can be modeled as a probabilistic process that can be measured in a manner that agrees with intuition.
+
+A random event $E$ with probability $P(E)$ is said to contain
+$$
+I(E)=\log\frac{1}{P(E)}=-\log P(E)
+$$
+The base of the logarithm determines the unit used to measure information. If the base 2 is selected, the unit of information is the _bit_.
+
+Given a source of statistically independent random events from a discrete set of possible events ${a_1, a_2,\dots,a_J}$ with associated probabilities ${P(a_i)} \text{ for } i=1,2,\dots,J$ ($J$-exntension), the average information per source output, the _entropy_ of the source:
+$$
+H=-\sum^J_{j=1}P(a_j)\log P(a_j)
+$$
+where $a_j$'s are called _source symbols_, and this source is a _zero-memory source_.
+
+For a 2-D imaginary zero-memory, with the histogram, the intensity source's entropy is 
+$$
+\tilde{H}=--\sum^J_{j=1}P_r(r_j)\log P_r(r_j)
+$$
+It is not possible to code the intensity values of the imaginary source with fewer than $\tilde{H}$ bits/pixel. The amount of entropy and thus information in an image is far from intuitive.
+
+###### Shannon's first theorem (Noiseless coding theorem)
+
+Define the _nth extension_ of a zero-memory source to be the hypothetical source.
+$$
+\lim_{n\rightarrow \infin}\Big[\frac{L_{avg,n}}{n}\Big]=H
+$$
+where $L_{avg,n}$ is the average number of code symbols required to represent all $n$-symbol groups.
+
+Although the theorem provides a lower bound on the compression that can be achieved when coding statistically independent pixels directly, it breaks down when the pixels of an image are correlated. When the output of a source of information depends on a finite number of preceding outputs, the source is called a _Markov_ or _finite memory source_.
+
 # Chap. 9 Morphological Image Processing
 
 $\quad\quad$_Mathematical morphology_: a tool for extracting image components that are useful in the representation and description of region shape. Tools such as morphology and related concepts are a cornerstone of the mathematical foundation that is utilized for extracting meaning from an image.
