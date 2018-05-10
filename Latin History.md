@@ -1,11 +1,11 @@
 Reference:
 
- 1. Geoff Horrocks’s book Greek: A History of the Language and its Speakers 
+ 1. Geoff Horrocks’s book, Greek: A History of the Language and its Speakers 
 
- 2. Herbert Schendl Historical Linguistics (Oxford, 2001)  
+ 2. Herbert Schendl, Historical Linguistics (Oxford, 2001)  
     Mark Hale Historical Linguistics: Theory and Method (Oxford, 2007). 
 
-  3. JIm Adams Regional Diversity in Latin
+  3. JIm Adams, Regional Diversity in Latin
 # Chap.1 Latin and Indo-European
 
 ### Introduction
@@ -89,25 +89,25 @@ $\quad\quad$ Consonats
 
 |  Stops |
 
-| Labial | Dental | Palatal | Velar | Labio-velar |
-| ------ | ------ | ------- | ----- | ----------- |
-| *p     | *t     | *k'     | *k    | *k^w^       |
-| *b     | *d     | *g'     | *g    | *g^w^       |
-| *b^h^  | *d^h^  | *g'^h^  | *g^h^ | *g^wh^      |
+| Labial | Dental | Palatal | Velar  | Labio-velar |
+| ------ | ------ | ------- | ------ | ----------- |
+| \*p    | \*t    | \*k'    | \*k    | \*k^w^      |
+| \*b    | \*d    | \*g'    | \*g    | \*g^w^      |
+| \*b^h^ | \*d^h^ | \*g'^h^ | \*g^h^ | \*g^wh^     |
 
-Fricatives: *s
-Laryngeals: *h~1~, *h~2~, *h~3~
-Nasals: *m, *n
-Continuants: *r, *l, *y, *w
+Fricatives: \*s
+Laryngeals: \*h~1~, \*h~2~, \*h~3~
+Nasals: \*m, \*n
+Continuants: \*r, \*l, \*y, \*w
 
 Vowels:
 
-​	*e, *o, *a, *i, *u and their long counterparts
-*m, *n, *r, *l as vowels
+​	\*e, \*o, \*a, \*i, \*u and their long counterparts
+\*m, \*n, \*r, \*l as vowels
 
 $\quad\quad$ Labio-velar in Eastern IE (Indo-Aryan, Iranian, Slavic, Baltic, Armenian) as velars or palatized velars, in WIE (Greek, Germanic, Celtic, Latin) as velars with concomitant lip-rounding or sometimes as labials
 
-In Latin, qu- comes from *k^w^, but g^w^ continued by w but also b (as in _bos_, normally explained as borrowings)
+In Latin, qu- comes from \*k^w^, but g^w^ continued by w but also b (as in _bos_, normally explained as borrowings)
 
 $\quad\quad$ voiced aspirates: voiceless aspirates in Greek, voiced aspirates in Sanskrit, voiced in Germanic, Iranian, Armenian, Baltic and Slavonic.
 
@@ -138,33 +138,33 @@ $\quad\quad$ __Ablaut(vowel gradation)__ in PIE
 1. Quantative ablaut: shift of word-accent within paradigm with a concomitant loss of the unaccented vowel
 2. Qualitative ablaut: vowel quality change within the same syllable
 
-*e / *o or *e/zero alternation
+\*e / \*o or \*e/zero alternation
 
 The example of _melior_: how ablaut disappeared from PIE to Latin
 
 ###### Nominal Declensions
 
 $\quad\quad$ The confusion of instrumental and ablative, the overlap between _origin_ of the ablative and _path_ of the instrumental,denoted by the old ablative marker
--e in the 3rd declension may originate from the old locative *-i
+-e in the 3rd declension may originate from the old locative \*-i
 
 $\quad\quad$ Besides dual, PIE may have a separate "collective", taking the ending of the neuter plural.
 e.g. locus, loca, alongside locus, loci
 	adjective in concord with two conjoined inanimate nouns of differing gender is inflected as neuter
 
-|              |               PIE noun endings                | PIE pronoun endings |
-| :----------: | :-------------------------------------------: | :-----------------: |
-| Nom. sg.M/F  |                      *-s                      |         *-ø         |
-| Nom.Acc.sg.N |                   *-m/ *- ø                   |         *-d         |
-|   Acc.sg.    |                      *-m                      |         *-m         |
-|   Gen.sg.    |                  *-es/ *-os                   |       *-osyo        |
-|   Dat.sg.    |                     *-ei                      |                     |
-|   Loc.sg.    |                      *-i                      |                     |
-|   Abl.sg.    |                     *-ōd                      |         *-d         |
-|   Nom.pl.    |                     *-es                      |        *-oi         |
-|   Neut.pl.   |                      *-a                      |                     |
-|   Acc.pl.    |                     *-ms                      |                     |
-|   Gen.pl.    |                     *-om                      |      (*-āsom)       |
-| Dat/Abl. pl. | *-b^h^os/-ōis(o-stem), *-oisu(o-stem loc. pl) |                     |
+|              |                PIE noun endings                 | PIE pronoun endings |
+| :----------: | :---------------------------------------------: | :-----------------: |
+| Nom. sg.M/F  |                      \*-s                       |        \*-ø         |
+| Nom.Acc.sg.N |                   \*-m/ \*- ø                   |        \*-d         |
+|   Acc.sg.    |                      \*-m                       |        \*-m         |
+|   Gen.sg.    |                  \*-es/ \*-os                   |       \*-osyo       |
+|   Dat.sg.    |                      \*-ei                      |                     |
+|   Loc.sg.    |                      \*-i                       |                     |
+|   Abl.sg.    |                      \*-ōd                      |        \*-d         |
+|   Nom.pl.    |                      \*-es                      |        \*-oi        |
+|   Neut.pl.   |                      \*-a                       |                     |
+|   Acc.pl.    |                      \*-ms                      |                     |
+|   Gen.pl.    |                      \*-om                      |      (\*-āsom)      |
+| Dat/Abl. pl. | \*-b^h^os/-ōis(o-stem), \*-oisu(o-stem loc. pl) |                     |
 
 ###### The verbal system
 
@@ -201,7 +201,7 @@ $\quad\quad$ retained only in 1st sg. otherwise lost
 ###### Modal forms
 
 $\quad\quad$ The subjunctive is often characterized as a mood of volition: it is used commands, prohibitions and exhortations, and speakers may use subjunctives to refer to events that they expect will take place. PIE subj. -> Lat. Fut.
-e.g. er-it, reg-e-t, -ver-o(*-vis-o, -vis- is a productive perfect stem)
+e.g. er-it, reg-e-t, -ver-o(\*-vis-o, -vis- is a productive perfect stem)
 
 $\quad\quad$ The optative is used in wishes, but it may be better seen as the mood of the counterfactual, or at least the mood which is further removed from the here and now than the subjunctive. PIE Opt. -> Lat. Subj.
 
@@ -217,25 +217,39 @@ $\quad\quad$The PIE _perfect_ does not seem to have made a distinction of voice
 
 Word Order: Verb-final, the unmarked word order in PIE, but textual or pragmatic factors may have led to fronting of the verb of amplification ofsentence through the addition of extra materials after the verb.
 
-e.g. 
+> e.g. 
+>
+> Manios med _vhevhaked_ Numasioi (Manius me fecit Numerio, CIL I^2^ 3, 7th cen. BC)   	
+>
+> eco urna _titas vendias_ mamarcos med _vheced_  
+>  (ego urna Titae Vendiae, Mamarcus me fecit, Tita vendia vase, 7th cen. BC)
+>
+> _iouesat_ deiuos qoi med mitat nei ted endo cosmis virco sied duenos med feced en manom enom duenoi ne med malos tatod  
+>  (iurat (per) deos qui me mittit, ne in te comis virgo sit, bonus me fecit in ?? bono, ne me malus clepito?) CIL I^2^ 4, 6th cen. BC
+>
+> hoi med mitat kauios monios qetios donom pro fileod  
+> (hīc me mittit Gaius monius Cetius donum pro filio, CIL I^2^, 6th cen. BC)
+>
+> iei steterai popliosio valesiosio suodales mamartei  
+> (ii steterunt Publii Valerii sodales Marti) CIL I^2^ 2832a, 5th-6th BC  
+> The companions of Publius Valerius set up to Mars in ?
+>
+> esom kom meois sociois trifos audeom duom nei pari med  
+> (sum cum meis sociis tribus Audiorum duorum, ne cape me) Garigliano bowl, 4th-5th BC
 
-Manios med _vhevhaked_ Numasioi (Manius me fecit Numerio, 7th BC)   	
 
-eco urna _titas vendias_ mamarcos med _vheced_ (ego urna Titae Vendiae, Mamarcus me fecit, 7th BC)
-
-_iouesat_ deiuos qoi med mitat nei ted endo cosmis virco sied duenos med feced en manom enom duenoi ne med malos tatod  
- (iurat (per) deos qui me mittit, ne in te comis virgo sit, bonus me fecit in ?? bono, ne me malus clepito?) 6th BC
-
-hoi med mitat kauios monios qetios donom pro fileod  
-(hīc me mittit Gaius monius Cetius donum pro filio)
-
-iei steterai popliosio valesiosio suodales mamartei  
-(ii steterunt Publii Valerii sodales Marti)  5th-6th BC  
-The companions of Publius Valerius set up to Mars in ?
-
-esom kom meois sociois trifos audeom duom nei pari med  
-(sum cum meis sociis tribus Audiorum duorum, ne cape me) 4th-5th BC
 
 $\quad\quad$Verbs generally follow directly after their accusative complements. The subject follows the verb if it is especially long or complex, and dative complements also follow in all the early inscription. The rigid verb-final pattern may never have been a feature of spoken Latin.
 
 $\quad\quad$In Platus, the verb-final order predominates in subordinate clauses, where emphasis is less of an issue. Verbs almost always follow pronomial objects. Imperatives go to the initial position. Subjects are also found following the verb particularly when the verb is passive, and where theverb is fronted or the subject is a long constituent.
+
+### 1.5 The Position of Latin within the IE family
+
+$\quad\quad$The IE language groups which have been spoken adjacent to the Latin speech area in historic times are Germanic, Celtic, and Greek. The features shared by Latin and Greek reflected common inheritance from the parent language, lost in other IE languages, rather than new developments.
+
+$\quad\quad$The Italo-Celtic subgroup theory have had adherents to the present day. The most widely discussed is the o-stem genitive singular marker \*-ī, but it may be an expamle of a borrowed inflectional morph between closely related languages. The verbal endings in \*-r seemed a clear indication of a special relationship between Italic and Celtic, until the discovery of new IE languages such as Tocharian and Hittite, implying r-endings to be a retained archaism. It has been suggested that the 3rd person plural in the Italic and Celtic medio-passive conjugations derives from \*-ntro (Jasanoff 1997). The most comprehensive survey was carried out by a team led by Don Ringe (Ringe, Warnow and Taylor 2002), showing a close relationship between Italic and Celtic. There are only four features shared to the exclusion of any other subgroup.
+
+1. The phonological change of \*pVk^w^- to \*k^w^Vk^w^-, cf. quinque <*penk^w^e;
+2. The productive suffix \*-tiōn-;
+3. the word for "lake", \*loku-;
+4. the verb "sing" \*kan-;
