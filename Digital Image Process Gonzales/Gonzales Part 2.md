@@ -202,7 +202,7 @@ $\quad\quad$If both small and large objects or low- and high-contrast objects ar
 
 #### Image Pyramids
 
-$\quad\quad$A power ful yet conceptually simple structure for representing images at more than one resolutution is the _image pyramid_. An image pyramid is a collection of decresing resolution images arranged in the shape of a pyramid.
+$\quad\quad$A powerful yet conceptually simple structure for representing images at more than one resolutution is the _image pyramid_. An image pyramid is a collection of decresing resolution images arranged in the shape of a pyramid.
 
 ![1525510327753](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525510327753.png)
 
@@ -293,7 +293,7 @@ That is, given a $k$, decompose it into $p$ and $q$, then a basis function is de
 $$
 \mathrm{H}_2=\dfrac{1}{\sqrt{2}}\begin{bmatrix}1&1\\1&-1\end{bmatrix}
 $$
-$\quad\quad$Our principal intrest in the Haar transform is that the rows of $H_2$ can be used to define the analysis filters of a 2-tap perfect reconstruction filter bank, as well as the scaling and wavelet vectors.
+$\quad\quad$Our principal interest in the Haar transform is that the rows of $H_2$ can be used to define the analysis filters of a 2-tap perfect reconstruction filter bank, as well as the scaling and wavelet vectors.
 
 ## 7.2 Multiresolution Expansions
 
@@ -339,7 +339,7 @@ By choosing $\phi(x)$ properly, $\big\{\phi_{j,k}(x)\big\}$ can be made to span 
 $$
 V_j=\overline{\underset{k}{Span}\big\{\phi_{j,k}(x)\big\}}
 $$
-as $j$ increases, the $phi_{j,k}(x)$ becomes narrower and separated by smaller changes in $x$, and thus increases the size of $V_j$, allowing functions with smaller variations or finer detail to be included.
+as $j$ increases, the $\phi_{j,k}(x)$ becomes narrower and separated by smaller changes in $x$, and thus increases the size of $V_j$, allowing functions with smaller variations or finer detail to be included.
 
 __MRA (MultiResolution Analysis):__   
 
@@ -460,3 +460,108 @@ $$
 $$
 
 The transform provides an objective measure of the similiarity between $f(x)$ and the wavelets for which it is computed. It provides both spatial and frequency information.
+
+## 7.4 The Fast Wavelet Transform
+
+The FWT is a computationally efficient implementation of the DWT, also called _Mallat's herringbone algorithm_. 
+
+Starting from the refinement equation, scale $x$ by $2^j$ , translate it by $k$ and letting $m=2k+n$
+$$
+\phi(2^jx-k)=\sum_mh_\phi(m-2k)\sqrt{2}\phi(2^{j+1}x-m)\phi(2^jx-k)\\
+\psi(2^jx-k)=\sum_mh_\psi(m-2k)\sqrt{2}\psi(2^{j+1}x-m)\phi(2^jx-k)
+$$
+Substitute the above equations into the wavelet expansion coefficients
+$$
+d_j(k)=\int f(x)2^{j/2}\psi(2^jx-k)\ dx=\sum_mh_\psi(m-2k)c_{j+1}(m)\\
+c_j(k)=\int f(x)2^{j/2}\phi(2^jx-k)\ dx=\sum_mh_\phi(m-2k)c_{j+1}(m)
+$$
+Similarly in DWT:
+$$
+W_\psi(j,k)=\sum_mh_\psi(m-2k)W_\phi(j+1,m)=h_\psi(-n)*W_\phi(j+1,m)\Bigg|_{n=2k,k\geq0}\\
+W_\phi(j,k)=\sum_mh_\phi(m-2k)W_\phi(j+1,m)=h_\phi(-n)*W_\phi(j+1,m)\Bigg|_{n=2k,k\geq0}
+$$
+which are the defining equations for the compuation of the FWT.
+
+[Big O notation](https://en.wikipedia.org/wiki/Big_O_notation)
+
+![1525599069306](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525599069306.png)
+
+The spectrum of the original function is split into two half-band components.
+
+__The Inverse fast wavelet transform__
+
+![1525607644675](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525607686696.png)
+
+
+
+$2\uparrow$ : desampling, inserting zeros. Synthesis filters are determined so as to build a perfect reconstruction system.
+
+The Fourier basis functions guarantee the existence of the FFT, the existence of the FWT depends upon the availability of a scaling function for the wavelets being used.
+
+[Uncertainty Principle in information processing](https://en.wikipedia.org/wiki/Uncertainty_principle#Signal_processing)
+
+The FWT basis functions provide a compromise between the time-domain representation and the frequency domain representation.
+
+## 7.5 Wavelet Transform in Two Dimensions
+
+$\quad\quad$In two-dimensional wavelets, a two-dimensional scaling function $\psi(x,y)$ and three two-dimensional wavelets, $\psi^H(x,y)$, $\psi^V(x,y)$ and $\psi^D(x,y)$ are required, each of which is the product of two one-dimensional functions.
+$$
+\phi(x,y)=\phi(x)\phi(y)\\
+\psi^H(x,y)=\psi(x)\phi(y)\\
+\psi^V(x,y)=\phi(x)\psi(y)\\
+\psi^D(x,y)=\psi(x)\psi(y)\\
+$$
+Given separable two-dimensional scaling and wavelet functions:
+$$
+\phi_{j,m,n}(x,y)=2^{j/2}\phi(2^jx-m,2^jy-n)\\
+\psi^i_{j,m,n}(x,y)=2^{j/2}\phi^i(2^jx-m,2^jy-n), \quad i=\{H,V,D\}
+$$
+__The discrete wavelet transform__ of image $f(x,y)$ of size $M\times N$ is 
+$$
+W_\phi(j_0,m,n)=\dfrac{1}{\sqrt{MN}}\sum^{M-1}_{x=0}\sum^{N-1}_{y=0}f(x,y)\phi_{j_0,m,n}(x,y)\\
+W^i_\psi(j_0,m,n)=\dfrac{1}{\sqrt{MN}}\sum^{M-1}_{x=0}\sum^{N-1}_{y=0}f(x,y)\psi^i_{j_0,m,n}(x,y),\quad i=\{H,V,D\}
+$$
+We normally let $j_0=0$ and select $N=M=2^J$ so that $j=0,1,2,\dots,J-1$ and $m=n=0,1,2,\dots,2^j-1$
+
+__The inverse discrete wavelet transform__: 
+$$
+\begin{align}
+f(x,y)&=\dfrac{1}{\sqrt{MN}}\sum_m\sum_nW_\phi(j_0,m,n)\phi_{j_0,m,n}(x,y)\\&+\dfrac{1}{\sqrt{MN}}\sum_{i=H,V,D}\sum^{\infin}_{j=j_0}\sum_m\sum_nW^i_\psi(j,m,n)\psi^i_{j,m,n}(x,y)
+\end{align}
+$$
+Like the 1-D discrete wavlet transform, the 2-D DWT can be implemented using digital filters and downsamplers.
+
+![1525610874822](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525610874822.png)
+
+![1525610921221](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525610921221.png)
+
+The filter banks above can be used iteratively.
+
+Applicaitons:   
+
+1. Edge detection: set the approximation to zero and do the inverse DWT to obtain the edge, which method is able to extract edges in a certain direction.
+2. Noise removal: threshold certain detail coefficients and do the inverse DWT.
+
+## 7.6 Wavelet Packets
+
+![1525613022733](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525613022733.png)
+
+Each horizontal strip of constant height tiles contain the basis functions for a single FWT scale. A generalization of the FWT is made to gain greater control of the partitioning of the time-frequency plane.
+
+__Wavelet packets__: conventional wavelet transform in which the details are filtered iteratively.
+
+A P-scale, one(two)-dimensional wavelet packet tree supports
+$$
+D(P+1)=[D(P)]^{2(4)}+1
+$$
+A single wavelet packet tree presents numerous decomposition options, whose number is so large that it is impractical to enumerate them individually. Classical entropy- and energy-based cost functions are applicable in many situations and are well suited for use in binary and quaternary tree searching algorithms.
+
+Most transform-based compression schemes work by truncating or thresholding the small coefficients to zero. Define an additive cost function
+$$
+E(f)=\sum_{m,n}|f(m,n)|
+$$
+Steps:   
+
+1. Compute both the energy of the node and the energy of its four offspring
+2. Compare the energy of the parent and the sum of the energy of the offspring, prune or preserve the offspring according to the relative result.
+
