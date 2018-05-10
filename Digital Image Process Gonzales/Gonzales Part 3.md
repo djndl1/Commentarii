@@ -64,6 +64,27 @@ where $L_{avg,n}$ is the average number of code symbols required to represent al
 
 Although the theorem provides a lower bound on the compression that can be achieved when coding statistically independent pixels directly, it breaks down when the pixels of an image are correlated. When the output of a source of information depends on a finite number of preceding outputs, the source is called a _Markov_ or _finite memory source_.
 
+#### Fidelity Criteria
+
+Since information is lost in the removal of irrelevant visual information, a means of quantifying the nature of the loss is needed: 
+
+1. Objective fidelity criteria.   
+   e.g. difference between image or root-mean-square error or mean-square signal-to-noise ratio
+2. Subjective fidelity criteria.  
+   Decompressed image are ultimately viewed by humans. Measuring image quality by the subjective evaluations of people can be done by presenting a decompressed image to a cross section of viewers and averaging their evaluations.
+
+#### Image Compression Models
+
+[Run-Length Encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
+
+#### Image Formats, Containers and Compression Standards
+
+_image file format_: a standard way to organize and sotre image data, which defines how the data is arranged and the type of decompression.
+
+_Image container_: similar to a file format but handles multiple types of image data.
+
+_Image compression standards_: define procedures for compressing and decompressing images.
+
 # Chap. 9 Morphological Image Processing
 
 $\quad\quad$_Mathematical morphology_: a tool for extracting image components that are useful in the representation and description of region shape. Tools such as morphology and related concepts are a cornerstone of the mathematical foundation that is utilized for extracting meaning from an image.
